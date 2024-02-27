@@ -540,6 +540,11 @@ video {
   margin-bottom: auto;
 }
 
+.carecroplogo {
+  height: 100px;
+  width: 100px;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -558,6 +563,10 @@ video {
 
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .mt-36 {
@@ -580,8 +589,12 @@ video {
   height: 1.75rem;
 }
 
+.h-input {
+  height: 3.22rem;
+}
+
 .w-8 {
-  width: 2rem;
+  width: 2.7rem;
 }
 
 .w-\[100px\] {
@@ -594,6 +607,10 @@ video {
 
 .w-\[82px\] {
   width: 82px;
+}
+
+.w-360 {
+  width: 360px;
 }
 
 .w-full {
@@ -699,9 +716,14 @@ video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-lime-800 {
+.bg-body {
   --tw-bg-opacity: 1;
-  background-color: rgb(63 98 18 / var(--tw-bg-opacity));
+  background-color: #72A06A;
+}
+
+.bg-header {
+  --tw-bg-opacity: 1;
+  background-color: #416422;
 }
 
 .bg-neutral-500 {
