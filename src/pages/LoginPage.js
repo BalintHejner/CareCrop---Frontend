@@ -19,8 +19,8 @@ function LoginForm() {
       <div className="mt-11 text-3xl font-semibold max-md:mt-10">Felhasználónév:</div>
       <input className="shadow appearance-none border mt-3 rounded w-360 h-input py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Felhasználónév"/>
       <div className="mt-7 text-3xl font-semibold">Jelszó:</div>
-      <input className="shadow appearance-none border mt-3 border-red-500 h-input rounded w-360 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Jelszó"/>
-      <Button/>
+      <input className="shadow appearance-none border mt-3 border-red-500 h-input rounded w-[100px] py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Jelszó"/>
+      <Button text={"Bejelentkezés"} />
 
     </>
   );

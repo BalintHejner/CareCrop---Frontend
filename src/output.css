@@ -577,6 +577,20 @@ video {
   margin-top: 1.75rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-8left {
+  margin-top: -1.75rem;
+  transform: translate(-100%);
+}
+
+.mt-8right {
+  margin-top: -1.75rem;
+  transform: translate(100%, 60%); 
+}
+
 .flex {
   display: flex;
 }
@@ -595,6 +609,10 @@ video {
 
 .w-8 {
   width: 3rem;
+}
+
+.w-btn2 {
+  width: 18rem;
 }
 
 .w-\[100px\] {
@@ -683,6 +701,10 @@ video {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-carousel {
+  border-radius: 18%;
 }
 
 .rounded-xl {
