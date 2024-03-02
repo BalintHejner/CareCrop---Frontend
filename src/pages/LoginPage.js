@@ -2,6 +2,9 @@ import * as React from "react";
 import "../output.css";
 import Header from "../components/Header";
 import Button from "../components/Button";
+import Input from "../components/Input";
+import PasswordReminderPage from "../pages/PasswordReminderPage";
+import RegisterPage from "./RegisterPage";
 
 // function Navigate() {
 //   const navigate = useNavigate();
@@ -17,11 +20,11 @@ function LoginForm() {
     <>
       <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">Bejelentkezés</div>
       <div className="mt-11 text-3xl font-semibold max-md:mt-10">Felhasználónév:</div>
-      <input className="shadow appearance-none border mt-3 rounded w-360 h-input py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Felhasználónév"/>
+      <Input placeholder={"Felhasználónév"} type={"text"} />
       <div className="mt-7 text-3xl font-semibold">Jelszó:</div>
-      <input className="shadow appearance-none border mt-3 border-red-500 h-input rounded w-[100px] py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Jelszó"/>
+      {/* Password toggle */}
+      <Input placeholder={"Jelszó"} type={"password"} />
       <Button text={"Bejelentkezés"} />
-
     </>
   );
 }
@@ -32,11 +35,11 @@ function Footer() {
       <div className="flex gap-5 justify-between mt-20 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
         <div className="flex flex-col flex-1 px-5 text-center">
           <div className="text-4xl">Nincs még fiókja?</div>
-          <div className="self-center mt-4 text-3xl italic font-extralight underline" onClick={console.log("REGISZTRÁLJ")}>Regisztráljon</div>
+          <button className="self-center mt-4 text-3xl italic font-extralight underline" onClick={RegisterPage}>Regisztráljon</button>
         </div>
       <div className="flex flex-col flex-1 px-5 my-auto">
           <div className="text-4xl text-center">Elfelejtette jelszavát?</div>
-          <div className="self-center mt-4 text-3xl italic font-extralight underline" onClick={console.log("JELSZÓ")}>Jelszóemlékeztető</div>
+          <button className="self-center mt-4 text-3xl italic font-extralight underline" onClick={PasswordReminderPage}>Jelszóemlékeztető</button>
         </div>
       </div>
     </>

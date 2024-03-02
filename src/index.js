@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
+import PasswordReminderPage from './pages/PasswordReminderPage';
+import SupportPage from './pages/SupportPage';
 
 
 export default function App() {
@@ -14,6 +16,8 @@ export default function App() {
         <Route path='/' element={<MainPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
+        <Route path='/passwordreminder' element={<PasswordReminderPage/>}/>
+        <Route path='/support' element={<SupportPage />}/>
       </Routes>
     </BrowserRouter>
   )
@@ -22,6 +26,6 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MainPage />
+    <App />
   </React.StrictMode>
 );

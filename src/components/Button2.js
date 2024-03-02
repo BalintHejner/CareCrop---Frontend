@@ -2,7 +2,7 @@ import * as React from 'react';
 import '../output.css';
 
 // Main component
-function Button({ text, className }) {
+function Button2({ text, className }) {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
        <button className={className}>
@@ -12,4 +12,4 @@ function Button({ text, className }) {
   );
 }
 
-export default Button;
+export default Button2;
