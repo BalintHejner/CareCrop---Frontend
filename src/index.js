@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
 import PasswordReminderPage from './pages/PasswordReminderPage';
 import SupportPage from './pages/SupportPage';
+import CartPage from './pages/CarPage';
 
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/passwordreminder' element={<PasswordReminderPage/>}/>
         <Route path='/support' element={<SupportPage />}/>
+        <Route path='/cart' element={<CartPage/>}/>
       </Routes>
     </BrowserRouter>
   )
