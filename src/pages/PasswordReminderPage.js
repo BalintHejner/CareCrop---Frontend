@@ -17,7 +17,7 @@ const EmailInput = () => {
   );
 };
 
-const EmailReminder = () => {
+const PasswordReminderPage = () => {
   return (
     <section className="flex flex-col bg-body items-center pb-12 text-black  leading-[100%]">
       <Header />
@@ -36,4 +36,4 @@ const EmailReminder = () => {
   );
 };
 
-export default EmailReminder;
+export default PasswordReminderPage;

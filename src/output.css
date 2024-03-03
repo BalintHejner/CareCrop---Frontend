@@ -366,7 +366,7 @@ Prevent resizing textareas horizontally by default.
 */
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 /*
@@ -545,6 +545,15 @@ video {
   width: 100px;
 }
 
+.sitecarecroplogo {
+  height: 300px;
+  margin: auto;
+}
+
+.glass {
+  opacity: 50%;
+}
+
 .cart {
   height: 100px;
   width: 160px;
@@ -578,8 +587,16 @@ video {
   margin-bottom: 1rem;
 }
 
+.mb-5px {
+  margin-bottom: 5px;
+}
+
 .mt-36 {
   margin-top: 9rem;
+}
+
+.mt-105r {
+  margin-top: 10.5rem;
 }
 
 .mt-56 {
@@ -593,6 +610,16 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+
+.mt-25 {
+  margin-top: 2.5rem;
+}
+
+.ml-1 {
+  margin-left: 1rem ;
+}
+
+
 
 .mt-8left {
   margin-top: -1.75rem;
@@ -615,6 +642,15 @@ video {
 .h-7 {
   height: 1.75rem;
 }
+
+.h-10 {
+  height: 10rem;
+}
+
+.h-15 {
+  height: 15rem;
+}
+
 
 .h-input {
   height: 3.22rem;
@@ -644,6 +680,17 @@ video {
   width: 360px;
 }
 
+.w-50 {
+  width: 50rem;
+}
+
+.w-75 {
+  width: 75rem;
+}
+
+.w-225 {
+  width: 225px;
+}
 
 .w-400 {
   width: 400px;
@@ -840,6 +887,11 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.text-upper {
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .text-2xl {
