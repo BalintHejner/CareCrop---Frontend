@@ -29,7 +29,13 @@ const CartPage = () => {
               <h2 className="mt-9 ml-4 uppercase tracking-[3.2px] md:max-w-full">Telefonszám:</h2>
               <Input placeholder={"Text field data"} type={"text"} />
               <h2 className="mt-9 ml-4 uppercase tracking-[3.2px] md:max-w-full">Kategóriák:</h2>
-              <Input placeholder={"Text field data"} type={"text"} />
+              <select className="shadow appearance-none border rounded w-50 py-2 px-3 text-gray-700 leading-tight">
+                 <option>PayPal</option>
+                 <option>Visa</option>
+                 <option>Mastercard</option>
+                 <option>Maestro</option>
+                 <option>Utánvét</option>
+             </select>
             </div>
           </aside>
           <article className="flex flex-col ml-5 w-[67%] md:ml-0 md:w-full">

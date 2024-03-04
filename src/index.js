@@ -7,7 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
 import PasswordReminderPage from './pages/PasswordReminderPage';
 import SupportPage from './pages/SupportPage';
-import CartPage from './pages/CarPage';
+import CartPage from './pages/CartPage';
 
 
 export default function App() {
