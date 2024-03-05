@@ -16,7 +16,7 @@ const ProductInfo = ({ productName, productDetails }) => (
 
 const CartPage = () => {
   return (
-    <main className="flex flex-col pb-12 bg-neutral-500">
+    <main className="flex flex-col pb-12 bg-body">
         <Header />
       <section className="self-center mt-16 w-full max-w-[1728px] md:mt-10 md:max-w-full">
         <div className="flex gap-5 md:flex-col">
