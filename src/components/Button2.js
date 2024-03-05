@@ -4,7 +4,7 @@ import '../output.css';
 // Main component
 function Button2({ text, className }) {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
+    <main className="flex flex-col items-center justify-center">
        <button className={className}>
           {text}
        </button>

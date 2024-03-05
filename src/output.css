@@ -540,6 +540,36 @@ video {
   margin-bottom: auto;
 }
 
+.img {
+  width: 855px;
+  height: 420px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 80px;
+}
+
+.rounded-carousel {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.rounded-carousel::-webkit-scrollbar {
+  display: none;
+}
+
 .carecroplogo {
   height: 100px;
   width: 100px;
@@ -611,6 +641,10 @@ video {
   margin-top: 2rem;
 }
 
+.mt--8 {
+  margin-top: -4.5rem;
+}
+
 .mt-25 {
   margin-top: 2.5rem;
 }
@@ -623,18 +657,21 @@ video {
   min-height: 100vh;
 }
 
+.min-h-mp {
+  min-height: 82.8vh;
+}
+
 .min-w-screen {
  min-width: 100vw;
 }
 
-.mt-8left {
-  margin-top: -1.75rem;
+.left {
   transform: translate(-100%);
 }
 
-.mt-8right {
-  margin-top: -1.75rem;
-  transform: translate(100%, 60%); 
+.right {
+
+  transform: translate(100%, -100%); 
 }
 
 .flex {
