@@ -4,9 +4,9 @@ export default function Header2() {
     return (
         <div className="flex gap-5 justify-between self-stretch px-6 py-2 w-full text-2xl bg-header max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
           <img loading="lazy" src={require('../images/carecroplogo.png')} className=" carecroplogo  " />
-          {/* <select className="shadow appearance-none border rounded w-10px  py-2 px-3 text-gray-700 leading-tight">
+          <select className="shadow appearance-none border rounded w-10px  py-2 px-3 text-gray-700 leading-tight">
             <option>Termény</option>
-          </select> */}
+          </select>
           <div className="flex gap-5 justify-between my-auto max-md:flex-wrap max-md:max-w-full">
             <div className="flex flex-col flex-1 justify-center my-auto max-md:max-w-full">
               <div className="flex gap-2.5 justify-between px-3 py-2 bg-white rounded border-2 border-blue-400 border-solid max-md:flex-wrap max-md:max-w-full">
@@ -14,7 +14,7 @@ export default function Header2() {
                 <img loading="lazy" src={require('../images/searchLogo.png')} className="w-8 glass aspect-square" />
               </div>
             </div>
-            {/* <img loading="lazy" src={require('../images/shopping-cart.jpg')} className="cart"/> */}
+            <img loading="lazy" src={require('../images/shopping-cart.jpg')} className="cart"/>
             <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
           </div>
         </div>

@@ -540,8 +540,13 @@ video {
   margin-bottom: auto;
 }
 
+.my-carousel {
+  margin-top: 3rem;
+  margin-bottom: -2.5rem;
+}
+
 .img {
-  width: 855px;
+  width: 800px;
   height: 420px;
 }
 
