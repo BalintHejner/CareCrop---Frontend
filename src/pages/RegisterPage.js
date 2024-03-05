@@ -13,7 +13,7 @@ function RegisterForm() {
 
 function RegisterPage() {
     return (
-        <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
+        <div className="flex flex-col min-h-screen items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
         <Header />
         <RegisterForm />
         </div>
