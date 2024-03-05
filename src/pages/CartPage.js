@@ -35,7 +35,7 @@ const CartPage = () => {
                  <option>Mastercard</option>
                  <option>Maestro</option>
                  <option>Utánvét</option>
-             </select>
+              </select>
             </div>
           </aside>
           <article className="flex flex-col ml-5 w-[67%] md:ml-0 md:w-full">
