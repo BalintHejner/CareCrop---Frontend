@@ -619,7 +619,13 @@ video {
   margin-left: 1rem ;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
 
+.min-w-screen {
+ min-width: 100vw;
+}
 
 .mt-8left {
   margin-top: -1.75rem;

@@ -19,7 +19,7 @@ const EmailInput = () => {
 
 const PasswordReminderPage = () => {
   return (
-    <section className="flex flex-col bg-body items-center pb-12 text-black  leading-[100%]">
+    <section className="flex flex-col bg-body items-center pb-12 text-black min-h-screen leading-[100%]">
       <Header />
       <h1 className="mt-56 text-5xl font-bold max-md:mt-10 max-md:max-w-full max-md:text-4xl">
         Jelszóemlékeztető

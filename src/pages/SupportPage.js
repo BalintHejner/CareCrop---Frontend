@@ -5,7 +5,7 @@ import Button2 from "../components/Button2";
 import { InputTextarea } from 'primereact/inputtextarea';
 
 const FeedbackSection = () => (
-  <div className="flex z-10 flex-col self-center -mt-3.5 w-full max-w-[1716px] max-md:max-w-full">
+  <div className="flex z-10 min-h-screen min-w-screen flex-col self-center -mt-3.5 w-full max-w-[1716px] max-md:max-w-full">
   <img loading="lazy" src={require('../images/carecroplogo.png')} className="  sitecarecroplogo  " />
     <div className="self-center text-4xl italic font-light leading-9 items-center text-black max-md:max-w-full">
       Visszajelzése van? Ossza meg velünk!
@@ -22,7 +22,7 @@ const FeedbackSection = () => (
     </div>
     <div className="flex gap-5 ml-1 justify-between mt-6 w-full max-md:flex-wrap max-md:max-w-full">
       <InputTextarea placeholder={"Visszajelzés"} rows={5} cols={50} className="w-75 py-3 px-3 flex gap-5 justify-between items-start pt-1.5 pr-1.5 pb-12 pl-4 text-base leading-6 text-gray-700 bg-white rounded border border-solid border-[color:var(--denim-16-center-channel-text,rgba(63,67,80,0.16))] h-15 max-md:flex-wrap max-md:max-w-full" />
-      <Button2 text={"Küldés"} className={"text-2xl justify-center items-center w-225  px-16 py-4 mt-105r max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}/>
+      {/* <Button2 text={"Küldés"} className={"text-2xl justify-center items-center w-225  px-16 py-4 mt-105r max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}/> */}
     </div>
   </div>
 );
