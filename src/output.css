@@ -562,6 +562,15 @@ video {
   border-radius: 80px;
 }
 
+.header-select {
+  margin: 0;
+  
+}
+
+.bg-white {
+  background-color: white;
+}
+
 .rounded-carousel {
   display: flex;
   overflow-x: auto;
@@ -581,7 +590,7 @@ video {
 }
 
 .sitecarecroplogo {
-  height: 300px;
+  height: 248px;
   margin: auto;
 }
 
@@ -611,7 +620,7 @@ video {
 }
 
 .mt-3 {
-  margin-top: 0.75rem;
+  margin-top: 0.7rem;
 }
 
 .mt-4 {
@@ -732,6 +741,10 @@ video {
   width: 50rem;
 }
 
+.w-56 {
+  width: 56rem;
+}
+
 .w-75 {
   width: 75rem;
 }
@@ -814,6 +827,10 @@ video {
 
 .self-stretch {
   align-self: stretch;
+}
+
+.self-end {
+  align-self: flex-end;
 }
 
 .whitespace-nowrap {
