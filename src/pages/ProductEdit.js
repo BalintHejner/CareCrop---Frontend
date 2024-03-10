@@ -28,11 +28,11 @@ const CategorySection: React.FC = () => (
     <article className="flex flex-col ml-5 w-[83%] max-md:ml-0 max-md:w-full">
       <div className="flex flex-col grow mt-6 text-base text-neutral-700 max-md:mt-10 max-md:max-w-full">
         <h3 className="text-xs text-black uppercase tracking-[2.4px] max-md:max-w-full">Kategóriák</h3>
-        <div className="flex gap-2 p-2 mt-1 whitespace-nowrap bg-white rounded border-2 border-blue-400 border-solid max-md:flex-wrap">
+        <div className="flex gap-2 p-2 mt-025 whitespace-nowrap bg-white rounded border-2 border-blue-400 border-solid max-md:flex-wrap">
           <p className="flex-auto max-md:max-w-full">Kategóriák</p>
           <ImageComponent src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F4e1d2683143f4f0f3802b9c8df0c60edbc4ed0fc6efc3a811c24e8a07f2de1fc" alt="" />
         </div>
-        <div className="flex flex-col px-2 py-3 mt-1 bg-white rounded border border-solid shadow-sm border-zinc-300 max-md:max-w-full">
+        <div className="flex flex-col px-2 py-3 mt-025 bg-white rounded border border-solid shadow-sm border-zinc-300 max-md:max-w-full">
           <p>Termények</p>
           <div className="shrink-0 mt-2 h-px bg-zinc-300 max-md:max-w-full"></div>
           <p>Terményvédő szerek</p>
