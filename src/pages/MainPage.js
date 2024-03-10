@@ -4,17 +4,8 @@ import Header from "../components/Header";
 import Button2 from "../components/Button2";
 import MyCarousel from "../components/Carousel";
 
-const items = [
-    <>
-        <img loading="lazy" src={require('../images/carousel-p-1.png')} className="w-[100%] h-[100%]"/>
-        <img loading="lazy" src={require('../images/carousel-p-1.png')} className="w-[100%] h-[100%]"/>
-        <img loading="lazy" src={require('../images/carousel-p-1.png')} className="w-[100%] h-[100%]"/>
-        <img loading="lazy" src={require('../images/carousel-p-1.png')} className="w-[100%] h-[100%]"/>
-        <img loading="lazy" src={require('../images/carousel-p-1.png')} className="w-[100%] h-[100%]"/>
-    </>
-]
 
-function MainForm() {
+const MainForm = () => {
     return (
         <>
          <div className="flex flex-col min-h-mp items-center justify-center">
@@ -33,7 +24,7 @@ function MainForm() {
         </>
 )};
 
-function MainPage() {
+const MainPage = () => {
   return (
     <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
       <Header />

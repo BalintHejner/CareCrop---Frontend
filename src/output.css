@@ -348,7 +348,7 @@ legend {
 ol,
 ul,
 menu {
-  list-style: none;
+  list-style-type: disc;
   margin: 0;
   padding: 0;
 }
@@ -540,6 +540,21 @@ video {
   margin-bottom: auto;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mr-50 {
+  margin-right: 50px;
+}
+
+li {
+  font-size: 20px;
+  margin-left: 40px;
+  font-weight: bold;
+}
+
 .my-carousel {
   margin-top: 3rem;
   margin-bottom: -2.5rem;
@@ -562,9 +577,12 @@ video {
   border-radius: 80px;
 }
 
+.mg-5 {
+  margin: 5px;
+}
+
 .header-select {
   margin: 0;
-  
 }
 
 .bg-white {
@@ -667,6 +685,10 @@ video {
   margin-left: 1rem ;
 }
 
+.ml-4 {
+  margin-left: 4rem ;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -713,8 +735,12 @@ video {
   height: 3.22rem;
 }
 
-.w-8 {
+.w-3 {
   width: 3rem;
+}
+
+.w-8 {
+  width: 8rem;
 }
 
 .w-btn2 {
@@ -755,6 +781,10 @@ video {
 
 .w-400 {
   width: 400px;
+}
+
+.w-500 {
+  width: 500px;
 }
 
 .w-full {
@@ -882,6 +912,12 @@ video {
   height: 100%;
 }
 
+.bg-brown {
+  background-color: #BC9B7F;
+  --tw-bg-opacity: 1;
+  height: 555px;
+}
+
 .bg-header {
   --tw-bg-opacity: 1;
   background-color: #416422;
@@ -952,6 +988,10 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-upper {

@@ -15,7 +15,7 @@ import RegisterPage from "./RegisterPage";
 //   navigate("/src/pages/RegisterPage.js")
 // }
 
-function LoginForm() {
+const LoginForm = () => {
   return (
     <>
       <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">Bejelentkezés</div>
@@ -29,7 +29,7 @@ function LoginForm() {
   );
 }
 
-function Footer() {
+const Footer = () => {
   return (
     <>
       <div className="flex gap-5 justify-between mt-20 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
@@ -47,7 +47,7 @@ function Footer() {
 }
 
 
-function LoginPage() {
+const LoginPage = () => {
   return (
     <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
       <Header />
