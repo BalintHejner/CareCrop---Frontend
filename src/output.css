@@ -549,6 +549,10 @@ video {
   margin-right: 50px;
 }
 
+.mr-25r {
+  margin-right: 25rem;
+}
+
 li {
   font-size: 20px;
   margin-left: 40px;
@@ -685,9 +689,6 @@ li {
   margin-left: 1rem ;
 }
 
-.ml--20 {
-  margin-left: -20rem;
-}
 
 .ml-4 {
   margin-left: 4rem ;
