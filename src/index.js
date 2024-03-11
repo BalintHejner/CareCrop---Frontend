@@ -20,6 +20,7 @@ export default function App() {
         <Route path='/passwordreminder' element={<PasswordReminderPage/>}/>
         <Route path='/support' element={<SupportPage />}/>
         <Route path='/cart' element={<CartPage/>}/>
+        {/* <Route path='/useredit' element={<InformationChangePage/>}/> */}
       </Routes>
     </BrowserRouter>
   )
