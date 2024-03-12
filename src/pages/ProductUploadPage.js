@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import "../output.css";
+import Header from '../components/Header';
+import Header2 from '../components/HeaderOption2';
 
 const CategorySection = ({ title, children }) => (
-  <div className="flex flex-col px-2 py-3 mt-1 bg-white rounded border border-solid shadow-sm border-zinc-300">
+  <div className="flex flex-col px-2 py-3 mSmaéét-1 bg-white rounded border border-solid shadow-sm border-zinc-300">
     <div>{title}</div>
     <div className="shrink-0 mt-2 h-px bg-zinc-300" />
     {children}
@@ -47,15 +50,14 @@ function MarketplaceComponent() {
   const handleCategoryChange = (newCategory) => setCategory(newCategory);
   
   return (
-    <main className="flex flex-col items-center pb-2 bg-neutral-500">
-      <header className="flex gap-5 justify-between items-start self-stretch pr-14 pl-5 w-full bg-lime-800 max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-        {/* Placeholder for header content */}
-      </header>
-      <Advertisement />
+    <main className="flex flex-col min-h-screen items-center pb-2 bg-body">
+      <Header2 />
+      <AdvertisementSection />
       <div className="flex flex-wrap justify-around">
         <Button label="Új hírdetés" onClick={() => handleCategoryChange('Új hírdetés')} />
         <Button label="Profil módosítása" onClick={() => handleCategoryChange('Profil módosítása')} />
         <Button label="Visszajelzés" onClick={() => handleCategoryChange('Visszajelzés')} />
+
       </div>
     </main>
   );

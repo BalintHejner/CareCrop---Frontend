@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "../output.css";
+import Header2 from '../components/HeaderOption2';
 
 /**
 * Renders a category block with a title and additional interactive elements.
@@ -33,25 +35,9 @@ const ProductPage = () => {
   };
 
   return (
-    <main className="flex flex-col pb-3.5 bg-500">
+    <main className="flex flex-col pb-3.5 min-h-screen bg-body">
       {/* Category and Product Sections */}
-      <header className="flex gap-5 justify-between items-start px-6 pt-2.5 w-full bg-lime-800 sm:flex-wrap sm:pr-5 sm:max-w-full">
-        <div className="flex-auto self-start sm:max-w-full">
-          <div className="flex gap-5 sm:flex-col sm:gap-0">
-            <section className="flex flex-col w-[17%] sm:ml-0 sm:w-full">
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b536160250dc937b2505456739d2bf786387620b8e966d5d66add6f826da4d37?apiKey=4a662731fb2e4f33a47311be88e92e11&" alt="" className="shrink-0 max-w-full aspect-square w-[100px] sm:mt-9" />
-            </section>
-            <section className="flex flex-col ml-5 w-[83%] sm:ml-0 sm:w-full">
-              <div className="flex flex-col grow mt-6 text-base text-neutral-700 sm:mt-10 sm:max-w-full">
-                <h2 className="text-xs text-black uppercase tracking-[2.4px] sm:max-w-full">Kategóriák</h2>
-                <CategoryBlock categoryName="Termények" onCategoryClick={handleClick}>
-                  <div>Terményvédő szerek</div>
-                </CategoryBlock>
-              </div>
-            </section>
-          </div>
-        </div>
-      </header>
+      <Header2/>
       <section className="self-center mt-8 w-full max-w-[1703px] sm:max-w-full">
         <div className="flex gap-5 sm:flex-col sm:gap-0">
           <div className="flex flex-col w-9/12 sm:ml-0 sm:w-full">
@@ -86,7 +72,7 @@ const ProductPage = () => {
       </section>
       <aside className="flex flex-col ml-5 w-3/12 sm:ml-0 sm:w-full">
         <div className="flex flex-col grow items-center px-5 text-3xl font-bold leading-8 text-white sm:mt-10">
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0880e8ba51801455b4aaae45480dfa62fe4b586a3a5e15370400c9f545f7b92f?apiKey=4a662731fb2e4f33a47311be88e92e11&" alt="Profile picture of Feri1964" className="max-w-full rounded-full aspect-square w-[248px]" />
+          {/* <img loading="lazy" src="" alt="Profile picture of Feri1964" className="max-w-full rounded-full aspect-square w-[248px]" /> */}
           <div className="mt-3 text-center">Feri1964</div>
           <div className="mt-3 text-center">Horváth Ferenc József</div>
           <div className="self-stretch mt-14 leading-8 sm:mt-10">
@@ -95,7 +81,7 @@ const ProductPage = () => {
             +36 20 734-8327 <br /><br />
             Lebonyolított üzletek: 30
           </div>
-          <button onClick={handle} className="justify-center px-2 py-6 mt-16 max-w-full text-2xl text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[221px] sm:mt-10">
+          <button onClick={handleClick} className="justify-center px-2 py-6 mt-16 max-w-full text-2xl text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[221px] sm:mt-10">
             Profil megtekintése
           </button>
         </div>

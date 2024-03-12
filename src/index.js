@@ -8,7 +8,9 @@ import MainPage from './pages/MainPage';
 import PasswordReminderPage from './pages/PasswordReminderPage';
 import SupportPage from './pages/SupportPage';
 import CartPage from './pages/CartPage';
-
+import ProductViewPage from './pages/ProductViewPage';
+import ProductEditPage from './pages/ProductEditPage';
+import ProductUploadPage from './pages/ProductUploadPage';
 
 export default function App() {
   return (
@@ -20,6 +22,9 @@ export default function App() {
         <Route path='/passwordreminder' element={<PasswordReminderPage/>}/>
         <Route path='/support' element={<SupportPage />}/>
         <Route path='/cart' element={<CartPage/>}/>
+        <Route path='/productview' element={<ProductViewPage/>}/> 
+        <Route path='/productedit' element={<ProductEditPage/>}/>
+        <Route path='/productupload' element={<ProductUploadPage/>}/>
         {/* <Route path='/useredit' element={<InformationChangePage/>}/> */}
       </Routes>
     </BrowserRouter>

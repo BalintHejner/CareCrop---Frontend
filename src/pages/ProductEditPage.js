@@ -1,4 +1,7 @@
 import React from "react";
+import { useState } from "react";
+import "../output.css";
+import Header2 from "../components/HeaderOption2";
 
 /**
  * Component for rendering interactive category block.
@@ -27,7 +30,8 @@ const UserProfile = () => {
   };
 
   return (
-    <section className="flex flex-col items-center pb-2 bg-neutral-500">
+    <section className="flex flex-col items-center min-h-screen pb-2 bg-body">
+    <Header2/>
       <header className="flex gap-5 justify-between items-start self-stretch pr-14 pl-5 w-full bg-lime-800 md:flex-wrap md:pr-5 md:max-w-full">
         <div className="flex-auto mt-2.5 md:max-w-full">
           <div className="flex gap-5 md:flex-col md:gap-0">
