@@ -72,7 +72,7 @@ const ProductPage = () => {
       </section>
       <aside className="flex flex-col ml-5 w-3/12 sm:ml-0 sm:w-full">
         <div className="flex flex-col grow items-center px-5 text-3xl font-bold leading-8 text-white sm:mt-10">
-          {/* <img loading="lazy" src="" alt="Profile picture of Feri1964" className="max-w-full rounded-full aspect-square w-[248px]" /> */}
+          <img loading="lazy" src="" alt="Profile picture of Feri1964" className="max-w-full rounded-full aspect-square w-[248px]" />
           <div className="mt-3 text-center">Feri1964</div>
           <div className="mt-3 text-center">Horváth Ferenc József</div>
           <div className="self-stretch mt-14 leading-8 sm:mt-10">
