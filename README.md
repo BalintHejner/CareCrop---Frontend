@@ -7,5 +7,6 @@ CareCrop - Frontend
 - npm i primereact
 - npm i react-responsive-carousel
 - npm i react-cookie
+- npm i react-bootstrap bootstrap
 
 - Help for Csaba: https://primereact.org/slider/
