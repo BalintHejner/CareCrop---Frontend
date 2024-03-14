@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import "../output.css";
-import 'react-bootstrap';
 import Button2 from '../components/Button2';
 import Header2 from '../components/HeaderOption2';
 import Input from '../components/Input';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { FileUpload } from 'primereact/fileupload';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
+import { Grid } from '@mui/material';
 
 
 const CategorySection = ({ children }) => (
@@ -24,22 +20,17 @@ const Buttons = ({ label, onClick }) => (
 
 
 const AdvertisementSection = () => (
-
-  
-
-  <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full">
+  <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
     <div className="flex gap-5 md:flex-col md:gap-0">
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
         <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
-
-      
-          <Container fluid>
-              <Col xs sm md lg xl xxl>
+          <Grid container spacing={30} style={{marginLeft: "auto", marginRight: "auto"}}>
+            <Grid item xs={6} sm={3}>
                 <Input type="text" placeholder="*Hírdetés címe" />
-                <FileUpload  />
-              </Col>
-              <Col xs sm md lg xl xxl>
-                <CategorySection>
+                <FileUpload id="fileupload" name="fileupload" maxFileSize={1000000} mode='basic' url={'/api/upload'} multiple={false} accept="image/*" className='text-2xl w-360 px-3 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]' />
+            </Grid> 
+            <Grid item xs={6} sm={3}>
+            <CategorySection>
                   <select className="shadow appearance-none border rounded h-3 w-360  text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option className="mg-5 glass" value="" disabled selected>*Termény</option>
                     <hr className="mx-auto"/>
@@ -82,14 +73,15 @@ const AdvertisementSection = () => (
                     <option className="mg-5" value="Prémium" >Prémium</option>
                 </select>
                 </CategorySection>
-              </Col>
-              <Col xs sm md lg xl xxl>
-                <Input type="number" placeholder="*Ár" />
-                <CategorySection>
+            </Grid> 
+            <Grid item xs={6} sm={3}>
+              <Input type="number" placeholder="*Ár" />
+              <CategorySection>
                   <InputTextarea placeholder={"Leírás"} rows={7} cols={20}  className="w-20 py-3 px-3 flex gap-5 justify-between items-start pt-1.5 pr-1.5 pb-12 pl-4 text-base leading-6 text-gray-700 bg-white rounded border border-solid border-[color:var(--denim-16-center-channel-text,rgba(63,67,80,0.16))] h-15 max-md:flex-wrap max-md:max-w-full focus:outline-none focus:shadow-outline focus:border-blue-500" />
-                </CategorySection>
-              </Col>
-          </Container>
+              </CategorySection>
+
+            </Grid>
+          </Grid>
         </div>
         <div classname="flex flex-col items-center w-full max-md:mt-10 max-md:max-w-full">
         <Buttons label="Hírdetés feladása" onClick={() => handleCategoryChange('Hírdetés feladása')} />

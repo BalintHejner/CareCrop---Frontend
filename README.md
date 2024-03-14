@@ -7,6 +7,7 @@ CareCrop - Frontend
 - npm i primereact
 - npm i react-responsive-carousel
 - npm i react-cookie
+- npm install @mui/material @emotion/react @emotion/styled
 
 
 - Help for Csaba: https://primereact.org/slider/
