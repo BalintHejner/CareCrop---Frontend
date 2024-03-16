@@ -236,6 +236,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  appearance: inherit;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -283,6 +284,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
 [type='search'] {
   -webkit-appearance: textfield;
+  appearance: inherit;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -415,7 +417,6 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
   /* 2 */
 }
 
@@ -569,6 +570,11 @@ li {
   height: 420px;
 }
 
+.adimg {
+  width: 320px;
+  height: 320px;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -645,12 +651,20 @@ li {
   margin-top: 0.7rem;
 }
 
-.mt-4 {
+.mt-1 {
   margin-top: 1rem;
 }
 
-.mb-4 {
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mb-1 {
   margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
 }
 
 .mb-5px {
@@ -695,15 +709,15 @@ li {
 }
 
 .min-h-screen {
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .min-h-mp {
-  min-height: 82.8vh;
+  min-height: auto;
 }
 
 .min-w-screen {
- min-width: 100vw;
+ min-width: auto;
 }
 
 .left {
@@ -711,8 +725,11 @@ li {
 }
 
 .right {
-
   transform: translate(100%, -100%); 
+}
+
+.up {
+  transform: translate(0, -200%);
 }
 
 .flex {
@@ -803,6 +820,18 @@ li {
   width: 500px;
 }
 
+.w-600 {
+  width: 600px;
+}
+
+.w-700 {
+  width: 700px;
+}
+
+.w-800 {
+  width: 800px;
+}
+
 
 .w-full {
   width: 100%;
@@ -827,6 +856,11 @@ li {
 .flex-col {
   flex-direction: column;
 }
+
+.flex-row {
+  flex-direction: row;
+}
+
 
 .items-center {
   align-items: center;
@@ -1009,6 +1043,10 @@ li {
 
 .text-right {
   text-align: right;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-upper {

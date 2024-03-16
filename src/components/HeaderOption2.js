@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import "../output.css";
  
 export default function Header2() {
     return (
       <>
       <div className="flex justify-between px-6 py-2 w-full text-2xl bg-header max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-        <img loading="lazy" src={require('../images/carecroplogo.png')} className="carecroplogo" />
+      <Link to={"/"} className="carecroplogo">
+        <img loading="lazy" src={require('../images/carecroplogo.png')}/>
+      </Link>
         <div className="flex mt-1 mr-25r px-3 py-2 h-select bg-white rounded border-2 border-blue-400 border-solid max-md:flex-wrap max-md:max-w-full">
           <select className="shadow appearance-none border rounded h-3 w-360 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <option className="mg-5 glass" value="" disabled selected>Válasszon árucsoportot</option>

@@ -1,7 +1,6 @@
 import React from "react";
 import "../output.css";
 import Header2 from "../components/HeaderOption2";
-import Header from "../components/Header";
 import Button2 from "../components/Button2";
 import { InputTextarea } from 'primereact/inputtextarea';
 
@@ -11,7 +10,7 @@ const FeedbackSection = () => (
     <div className="self-center text-4xl italic font-light leading-9 items-center text-black max-md:max-w-full">
       Visszajelzése van? Ossza meg velünk!
     </div>
-    <div className="flex gap-2.5 self-start mb-4 mt-3 text-2xl rounded border border-solid border-[color:var(--Gray,#A6A6A6)] text-neutral-400 max-md:flex-wrap max-md:max-w-full">
+    <div className="flex gap-2.5 self-start mb-1 mt-3 text-2xl rounded border border-solid border-[color:var(--Gray,#A6A6A6)] text-neutral-400 max-md:flex-wrap max-md:max-w-full">
       <select className="shadow appearance-none border rounded w-56 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         <option className="mg-5 glass" value="" disabled selected>Visszajelzés típusa</option>
         <hr className="mx-auto"/>

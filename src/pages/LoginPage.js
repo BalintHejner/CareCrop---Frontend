@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import PasswordReminderPage from "../pages/PasswordReminderPage";
 import RegisterPage from "./RegisterPage";
+import { Link } from "react-router-dom";
 
 // function Navigate() {
 //   const navigate = useNavigate();
@@ -35,11 +36,11 @@ const Footer = () => {
       <div className="flex gap-5 justify-between mt-20 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
         <div className="flex flex-col flex-1 px-5 text-center">
           <div className="text-4xl">Nincs még fiókja?</div>
-          <button className="self-center mt-4 text-3xl italic font-extralight underline" onClick={RegisterPage}>Regisztráljon</button>
+          <Link to={"/register"} className="self-center mt-1 text-3xl italic font-extralight underline">Regisztráljon</Link>
         </div>
       <div className="flex flex-col flex-1 px-5 my-auto">
           <div className="text-4xl text-center">Elfelejtette jelszavát?</div>
-          <button className="self-center mt-4 text-3xl italic font-extralight underline" onClick={PasswordReminderPage}>Jelszóemlékeztető</button>
+          <Link to={"/passwordreminder"} className="self-center mt-1 text-3xl italic font-extralight underline" >Jelszóemlékeztető</Link>
         </div>
       </div>
     </>

@@ -10,7 +10,7 @@ export default function MyCarousel() {
             alt: 'Első kép'
         },
         {
-            url: require('../images/carousel-p-4.jpeg'),
+            url: require('../images/carousel-p-2.jpg'),
             alt: 'Második kép'
         },
         {

@@ -1,79 +1,114 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from 'react';
 import "../output.css";
-import Header2 from "../components/HeaderOption2";
+import Button2 from '../components/Button2';
+import Header2 from '../components/HeaderOption2';
+import Input from '../components/Input';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { Grid } from '@mui/material';
+import { FileUpload } from 'primereact/fileupload';
 
-/**
- * Component for rendering interactive category block.
- * @component
- * @param {Object} props
- * @param {string} props.title - Title of the category block
- * @param {string} props.subtitle - Subtitle of the category block
- * @param {string} props.imageSrc - Source URL for the icon image
- * @param {string} props.altText - Alt text for the icon image
- * @param {function} props.onClick - Click event handler
- */
-const CategoryBlock = ({ title, subtitle, imageSrc, altText, onClick }) => (
-  <button onClick={onClick} className="flex gap-2 p-2 mt-1 whitespace-nowrap bg-white rounded border-2 border-blue-400 border-solid cursor-pointer">
-    <div className="flex-auto">{subtitle}</div>
-    <img loading="lazy" src={imageSrc} alt={altText} className="shrink-0 my-auto w-2.5 aspect-square" />
-  </button>
+
+
+const Form = ({ children }) => (
+  <div className="flex flex-col mt-1 bg-white  rounded border border-solid shadow-sm border-zinc-300">
+    {children}
+  </div>
 );
 
-/**
- * Main profile component that encapsulates user profile details, entries, and interactive elements.
- * @component
- */
-const UserProfile = () => {
-  const handleClick = () => {
-    console.log('Clicked!');
-  };
+const Buttons = ({ label, onClick }) => (
+  <Button2 onClick={onClick} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
+);
 
+
+const EditSection = ({imageurl}) => (
+  <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
+    <div className="flex gap-5 md:flex-col md:gap-0">
+      <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
+        <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
+          <Grid container spacing={30} style={{marginLeft : "auto" , marginRight : "auto"}}>
+            <Grid item xs={6} sm={3}>
+                <Input type="text" placeholder="*Hírdetés címe" />
+                <FileUpload id="fileupload" itemTemplate={imageurl} name="fileupload" maxFileSize={1000000} mode='basic' url={'/api/upload'} multiple={false} accept="image/*" className='text-2xl w-360 px-3 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]' />
+            </Grid> 
+            <Grid item xs={6} sm={3}>
+            <Form>
+                  <select className="shadow appearance-none border rounded h-3 w-360  text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option className="mg-5 glass" value="" disabled selected>*Termény</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5 " value="Repce">Repce</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Árpa" >Árpa</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Kukorica" >Kukorica</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Búza" >Búza</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Tritikálé" >Tritikálé</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Zab" >Zab</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Borsó" >Borsó</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Napraforgó" >Napraforgó</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Szója" >Szója</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Durum" >Durum</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Rozs" >Rozs</option>
+                  </select>
+                </Form>
+
+                <Input type="text" placeholder="*Mennyiség  " /> 
+
+                <Form>
+                  <select className="shadow appearance-none border rounded h-3 w-360  text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option className="mg-5 glass" value="" disabled selected>*Minőség</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Takarmány">Takarmány</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Malmi 2-es" >Malmi 2-es</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Malmi 1-es" >Malmi 1-es</option>
+                    <hr className="mx-auto"/>
+                    <option className="mg-5" value="Prémium" >Prémium</option>
+                </select>
+                </Form>
+            </Grid> 
+            <Grid item xs={6} sm={3}>
+              <Input type="number" placeholder="*Ár" />
+              <Form>
+                  <InputTextarea placeholder={"Leírás"} rows={7} style={{width: "360px"}} cols={50}  className="w-20 py-3 px-3 flex gap-5 justify-between items-start pt-1.5 pr-1.5 pb-12 pl-4 text-base leading-6 text-gray-700 bg-white rounded border border-solid border-[color:var(--denim-16-center-channel-text,rgba(63,67,80,0.16))] h-15 max-md:flex-wrap max-md:max-w-full focus:outline-none focus:shadow-outline focus:border-blue-500" />
+              </Form>
+
+            </Grid>
+          </Grid>
+        </div>
+        <div classname="flex flex-col items-center w-full max-md:mt-10 max-md:max-w-full">
+        <Buttons label="Hírdetés feladása" onClick={() => handleCategoryChange('Hírdetés feladása')} />
+        <div className="mt-6 text-base italic text-black whitespace-nowrap">A *-gal megjelölt mezők kitöltése kötelező</div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+function ProductEditPage() {
+  const [category, setCategory] = useState('');
+  const handleCategoryChange = (newCategory) => setCategory(newCategory);
   return (
-    <section className="flex flex-col items-center min-h-screen pb-2 bg-body">
-    <Header2/>
-      <header className="flex gap-5 justify-between items-start self-stretch pr-14 pl-5 w-full bg-lime-800 md:flex-wrap md:pr-5 md:max-w-full">
-        <div className="flex-auto mt-2.5 md:max-w-full">
-          <div className="flex gap-5 md:flex-col md:gap-0">
-            <figure className="flex flex-col w-[17%] md:ml-0 md:w-full">
-              <img loading="lazy" src="imageSrc" alt="" className="shrink-0 max-w-full aspect-square w-[100px] md:mt-9" />
-            </figure>
-            <div className="flex flex-col ml-5 w-[83%] md:ml-0 md:w-full">
-              <nav className="flex flex-col grow mt-6 text-base text-neutral-700 md:mt-10 md:max-w-full">
-                <h2 className="text-xs text-black uppercase tracking-[2.4px] md:max-w-full">Kategóriák</h2>
-                <CategoryBlock title="Kategóriák" subtitle="Kategóriák" imageSrc="imageSrc" altText="Category icon" onClick={handleClick} />
-                <CategoryBlock title="Termények" subtitle="Terményvédő szerek" imageSrc="" altText="" onClick={handleClick} />
-              </nav>
-            </div>
-          </div>
-        </div>
-        <div className="flex gap-0 whitespace-nowrap leading-[100%] md:flex-wrap md:max-w-full">
-          <div className="flex z-10 flex-col flex-1 justify-center self-end mt-8 text-2xl text-black md:max-w-full">
-            <CategoryBlock title="valamivalamivalami" subtitle="valamivalamivalami" imageSrc="imageSrc" altText="Something icon" onClick={handleClick} />
-          </div>
-          <img loading="lazy" src="imageSrc" alt="" className="w-full aspect-[1.43]" />
-          <h2 className="flex-auto self-start mt-12 text-3xl font-bold text-center text-orange-200 md:mt-10">Sanyi45</h2>
-        </div>
-      </header>
-      <article className="flex gap-5 justify-between px-5 mt-3.5 w-full text-black max-w-[1433px] md:flex-wrap md:max-w-full">
-        <div className="flex flex-col flex-1 my-auto">
-          <h1 className="text-5xl font-bold md:text-4xl">Sanyi45<br /></h1>
-          <div className="mt-5 text-2xl italic underline">
-            <h3 className="underline">Elérhetőségek:</h3>
-            <ul>
-              <li>Email: <span className="italic font-light">sanyiakiraly@gmail.com</span></li>
-              <li>Telefonszám: <span className="italic font-light">+36</span> <span className="italic font-light text-black">305713585</span></li>
-            </ul>
-          </div>
-        </div>
-        <img loading="lazy" src="image" alt="Profile" className="shrink-0 max-w-full aspect-square w-[248px]" />
-        <div className="flex flex-col flex-1 self-start mt-3 text-2xl font-bold leading-6 whitespace-nowrap">
-          <button onClick={handleClick} className="justify-center px-14 py-6 bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] md:px-5 cursor-pointer">Új hirdetés</button>
-          <button onClick={handleClick} className="justify-center px-5 py-6 mt-12 bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] md:mt-10 cursor-pointer">Profil módosítása</button>
-        </div>
-      </article>
-    </section>
+    <main className="flex flex-col min-h-screen items-center pb-2 bg-body">
+      
+      <Header2 />
+      <div className="flex flex-wrap gap-5 justify-around">
+        <Buttons label="Új hírdetés" onClick={() => handleCategoryChange('Új hírdetés')} />
+        <Buttons label="Profil módosítása" onClick={() => handleCategoryChange('Profil módosítása')} />
+        <Buttons label="Visszajelzés" onClick={() => handleCategoryChange('Visszajelzés')} />
+      </div>
+      <EditSection />
+     
+    </main>
   );
-};
+}
 
-export default UserProfile;
+export default ProductEditPage;
