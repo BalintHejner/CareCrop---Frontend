@@ -12,16 +12,16 @@ const ProductPage = ({title, email, phoneNumber, deals, name, username, imageurl
   return (
     <main className="flex flex-col min-h-screen bg-body" >
       <Header2/>
-      <div className="flex  sm:flex-col sm:gap-0 mt-11" style={{marginLeft : "auto" , marginRight : "auto"}}>
+      <div className="flex sm:flex-col sm:gap-0 mt-11" style={{marginLeft : "auto" , marginRight : "auto"}}>
 
       <Grid container spacing={5} style={{marginLeft : "auto" , marginRight : "auto"}}>
         <Grid item xs={6} sm={5}>
           <img loading="lazy" src={imageurl} className='aspect-square adimg mg-5' />  
       
           <div className="flex flex-col grow items-center px-5 text-3xl font-bold leading-8 text-white sm:mt-10">
-          <div className="self-stretch mt-14 leading-8 sm:mt-10">
-            {username} <br />
-            {name} <br />
+          <div className="self-stretch mt-14 leading-8 sm:mt-10 text-white" >
+            {username = 'SSS'} <br />
+            {name = 'Szuper Sanyi Sándor'} <br />
             Email: {email} <br />
             Telefonszám: {phoneNumber} <br/>
             Lebonyolított üzletek: {deals}
@@ -35,24 +35,29 @@ const ProductPage = ({title, email, phoneNumber, deals, name, username, imageurl
           <article className="flex flex-col bg-stone-400 w-800 bg-brown " style={{height: "700px"}} >
             <h1 className="self-center text-5xl mg-5 font-bold text-center text-black max-md:text-4xl mb-4">{title = "Valami nevű termék"}</h1>
             
+            <hr className='border-black'/>
             <h2 className="text-4xl ml-1 mg-5 text-left underline text-black max-md:text-2xl">Mennyiség:</h2>
             <p className="text-3xl ml-1 mg-5 text-left text-black max-md:text-2xl">{quantity} kg</p>
             
             <div className="up">
               <h2 className="text-4xl ml-1 mg-5 text-right underline text-black max-md:text-2xl">Feladás dátuma: </h2>
-              <p className="text-3xl ml-1 mg-5 text-right text-black max-md:text-2xl">{uploadDate}</p>
+              <p className="text-3xl ml-1 mg-5 text-right text-black max-md:text-2xl">{uploadDate = "2021.01.30"}</p>
             </div>
             
+            <hr className='border-black'/>
+            <hr className='border-black w-376 self-center' style={{rotate: "90deg"}}/>
+
             <h2 className="text-4xl ml-1 mg-5 text-left underline text-black max-md:text-2xl">Ár:</h2>
             <p className="text-3xl ml-1 mg-5 text-left text-black max-md:text-2xl">{price} Ft</p>
             
             <div className="up">
               <h2 className="text-4xl ml-1 mg-5 text-right underline text-black max-md:text-2xl">Minőség: </h2>
-              <p className="text-3xl ml-1 mg-5 text-right text-black max-md:text-2xl">{category}</p>
+              <p className="text-3xl ml-1 mg-5 text-right text-black max-md:text-2xl">{category = "Takarmány"}</p>
             </div>
             
+            <hr className='border-black'/>
             <h2 className="text-4xl ml-1 mg-5 text-left underline text-black max-md:text-2xl mt-4">Leírás: </h2>
-            <p className="text-3xl ml-1 mg-5 text-left text-black max-md:text-2xl">{description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."}</p>
+            <p className="text-3xl ml-1 mg-5 text-left text-black max-md:text-2xl">{description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore..."}</p>
           
           
           </article>

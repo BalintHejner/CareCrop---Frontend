@@ -729,7 +729,7 @@ li {
 }
 
 .up {
-  transform: translate(0, -200%);
+  transform: translate(0, -100%);
 }
 
 .flex {
@@ -814,6 +814,10 @@ li {
 
 .w-400 {
   width: 400px;
+}
+
+.w-376 {
+  width:  376px;
 }
 
 .w-500 {
@@ -1097,6 +1101,11 @@ li {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .underline {
