@@ -709,7 +709,7 @@ li {
 }
 
 .min-h-screen {
-  min-height: auto;
+  min-height: 100vh;
 }
 
 .min-h-mp {
