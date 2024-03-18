@@ -11,6 +11,9 @@ import CartPage from './pages/CartPage';
 import ProductViewPage from './pages/ProductViewPage';
 import ProductEditPage from './pages/ProductEditPage';
 import ProductUploadPage from './pages/ProductUploadPage';
+import ComingSoonPage from './pages/ComingSoonPage';
+import InformationChangePage from './pages/InformationChangePage';
+import ThankYouPage from './pages/ThankYouPage';
 
 export default function App() {
   return (
@@ -25,7 +28,9 @@ export default function App() {
         <Route path='/productview' element={<ProductViewPage/>}/> 
         <Route path='/productedit' element={<ProductEditPage/>}/>
         <Route path='/productupload' element={<ProductUploadPage/>}/>
-        {/* <Route path='/useredit' element={<InformationChangePage/>}/> */}
+        <Route path='/comingsoon' element={<ComingSoonPage/>}/>
+        <Route path='/useredit' element={<InformationChangePage/>}/>
+        <Route path='/thankyou' element={<ThankYouPage/>}/>
       </Routes>
     </BrowserRouter>
   )
