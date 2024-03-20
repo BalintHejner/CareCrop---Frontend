@@ -30,7 +30,7 @@ const UploadSection = () => (
               <Grid item xs={6} sm={3}>
                   <Input type="text" placeholder="Email cím" /> 
                   <div>
-                    <Input type="number" placeholder="Telefonszám" />
+                    <Input type="" placeholder="Telefonszám" />
                   </div>
               </Grid> 
               <Grid item xs={6} sm={3}>
@@ -43,7 +43,7 @@ const UploadSection = () => (
             </Grid>
           </div>
           <div classname="flex flex-col items-center w-full max-md:mt-10 max-md:max-w-full">
-          <Button text="Hírdetés feladása" />
+          <Button text="Regisztráció" />
           </div>
         </div>
       </div>
