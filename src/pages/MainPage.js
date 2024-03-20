@@ -3,9 +3,12 @@ import "../output.css";
 import Header from "../components/Header";
 import Button2 from "../components/Button2";
 import MyCarousel from "../components/Carousel";
+import { useNavigate } from "react-router-dom";
 
 
 const MainForm = () => {
+  const navigate = useNavigate();
+
     return (
         <>
          <div className="flex flex-col min-h-mp items-center justify-center">
@@ -15,7 +18,7 @@ const MainForm = () => {
               <h2 className="text-center px-16 py-4 text-4xl italic font-extralight text-black max-md:max-w-full">
                   Nekünk a termény a fontos
               </h2>
-              <Button2 text={"Regisztráció"} className={"text-2xl justify-center items-center w-btn2 px-16 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}/>
+              <Button2 text={"Regisztráció"} className={"text-2xl justify-center items-center w-btn2 px-16 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"} onclick={() => navigate("/register")} />
               <Button2 text={"Vásárlás"} className={"text-2xl justify-center items-center w-btn2 px-16 py-4 left max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}/>
               <Button2 text={"Visszajelzés"} className={"text-2xl justify-center items-center w-btn2 px-16 py-4 right max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}/>
               <Button2 text={"Bejelentkezés"} className={"text-2xl justify-center items-center w-btn2 px-16 py-4 mt--8 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}/>

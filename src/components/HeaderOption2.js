@@ -24,8 +24,16 @@ export default function Header2() {
                 <img loading="lazy" src={require('../images/searchLogo.png')} className="w-3 glass aspect-square" />
               </div>
             </div>
-            <img loading="lazy" src={require('../images/shopping-cart.png')} className="aspect-square w-[82px]"/>
-            <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
+            
+            <Link to={"/cart"}>
+              <img loading="lazy" src={require('../images/shopping-cart.png')} className="aspect-square w-[82px]"/>
+            </Link>
+
+            <Link to ={"/login"}>
+              <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
+            </Link>
+
+
           </div>
         </div>
       </>

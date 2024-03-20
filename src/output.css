@@ -591,12 +591,12 @@ li {
   margin: 5px;
 }
 
-.header-select {
-  margin: 0;
+.mg-10 {
+  margin: 10px;
 }
 
-.bg-white {
-  background-color: white;
+.header-select {
+  margin: 0;
 }
 
 .rounded-carousel {
@@ -629,6 +629,14 @@ li {
 
 .mt-025 {
   margin-top: 0.25rem;
+}
+
+.mt-05 {
+  margin-top: 0.5rem;
+}
+
+.mt-075 {
+  margin-top: 0.75rem;
 }
 
 .mt-1 {
@@ -768,8 +776,20 @@ li {
   width: 3rem;
 }
 
+.w-14 {
+  width: 14rem;
+}
+
 .w-8 {
   width: 8rem;
+}
+
+.max-w-input {
+  max-width: 360px;
+}
+
+.max-h-135 {
+  max-height: 13.5rem;
 }
 
 .w-btn2 {

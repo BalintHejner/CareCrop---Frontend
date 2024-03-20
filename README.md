@@ -10,4 +10,4 @@ CareCrop - Frontend
 - npm install @mui/material @emotion/react @emotion/styled
 
 
-- Help for Csaba: https://primereact.org/slider/
+- Help for ME: https://mui.com/material-ui/react-slider/

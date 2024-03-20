@@ -14,7 +14,9 @@ export default function Header() {
                 <img loading="lazy" src={require('../images/searchLogo.png')} className="w-3 glass aspect-square" />
               </div>
             </div>
-            <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
+            <Link to={"/login"}>
+              <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
+            </Link> 
           </div>
         </div>
       );
