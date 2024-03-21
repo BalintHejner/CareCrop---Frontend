@@ -3,8 +3,6 @@ import "../output.css";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import Input from "../components/Input";
-import PasswordReminderPage from "../pages/PasswordReminderPage";
-import RegisterPage from "./RegisterPage";
 import { Link } from "react-router-dom";
 
 // function Navigate() {
@@ -50,7 +48,7 @@ const Footer = () => {
 
 const LoginPage = () => {
   return (
-    <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
+    <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body min-h-screen leading-[100%]">
       <Header />
       <LoginForm />
       <Footer />
