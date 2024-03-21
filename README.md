@@ -8,6 +8,3 @@ CareCrop - Frontend
 - npm i react-responsive-carousel
 - npm i react-cookie
 - npm install @mui/material @emotion/react @emotion/styled
-
-
-- Help for ME: https://mui.com/material-ui/react-slider/
