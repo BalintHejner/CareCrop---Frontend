@@ -46,7 +46,7 @@ const Footer = () => {
 }
 
 
-const LoginPage = () => {
+function LoginPage() {
   return (
     <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body min-h-screen leading-[100%]">
       <Header />

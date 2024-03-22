@@ -50,7 +50,7 @@ const UploadSection = () => (
     </section>
   );
 
-const RegisterPage = () => {
+function RegisterPage()  {
     return (
         <div className="flex flex-col min-h-screen items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
         <Header />

@@ -41,7 +41,7 @@ const UploadSection = () => (
 );
 
 
-const InformationChange = () => {
+function InformationChange() {
 
   return (
       <>

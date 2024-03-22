@@ -6,7 +6,7 @@ import Slider from '@mui/material/Slider';
 import { useState } from "react";
 import Input from "../components/Input";
 
-function Filter() {
+const Filter = () => {
   const [value, setValue] = useState([20, 50]);
 
 
@@ -56,7 +56,7 @@ function Filter() {
   );
 }
 
-function ProductCard({ imgSrc, title, quantity, price, seller }) {
+const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 
   imgSrc = 'https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E';
 

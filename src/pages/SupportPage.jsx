@@ -28,7 +28,7 @@ const FeedbackSection = () => (
   </div>
 );
 
-const SupportPage = () => {
+function SupportPage() {
   return (
     <div className="flex flex-col pb-12 bg-body leading-[100%]">
         <Header2/>

@@ -5,7 +5,7 @@ import Button2 from '../components/Button2';
 import { Grid } from '@mui/material';
 
 
-const ProductPage = ({title, email, phoneNumber, deals, name, username, imageurl, description, category, uploadDate}) => {
+function ProductPage({title, email, phoneNumber, deals, name, username, imageurl, description, category, uploadDate}) {
   const [quantity, setQuantity] = useState(20);
   const [price, setPrice] = useState(2000);
   

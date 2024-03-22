@@ -33,7 +33,7 @@ const ProductInfo = ({crop, amount, price, payment}) => (
 );
 
 
-const CartForm = () => {
+function CartForm()  {
   return (
     <main className="flex min-h-screen mx-auto min-w-screen flex-col pb-12 bg-body">
         <Header />
@@ -49,14 +49,15 @@ const CartForm = () => {
               <Input placeholder={"Telefonszám"} type={"text"} />
               <h2 className="mt-7  text-upper tracking-[3.2px] md:max-w-full">Kategóriák:</h2>
               <select className="shadow appearance-none border rounded w-10 mt-3 py-2 px-3 text-gray-700 leading-tight">
-                 <option>PayPal</option>
-                 <option>Visa</option>
-                 <option>Mastercard</option>
-                 <option>Maestro</option>
+                 <option selected></option>
+                 <option disabled>PayPal</option>
+                 <option disabled>Visa</option>
+                 <option disabled>Mastercard</option>
+                 <option disabled>Maestro</option>
                  <option>Utánvét</option>
               </select>
               {/* <Dropdown options={["PayPal", "Visa", "Mastercard", "Maestro", "Utánvét"]} optionLabel="optionLabel" className="bg-white" placeholder="Select a category" /> */}
-            <Button2 text={"Fizetés"} className={"text-2xl justify-center items-center w-btn2 px-16 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"} />
+            <Button2 click={"/thankyou"} text={"Fizetés"} className={"text-2xl justify-center items-center w-btn2 px-16 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"} />
             </div>
           </aside>
           <ProductInfo />

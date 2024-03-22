@@ -17,7 +17,7 @@ const EmailInput = () => {
   );
 };
 
-const PasswordReminderPage = () => {
+function PasswordReminderPage() {
   return (
     <section className="flex flex-col bg-body items-center pb-12 text-black min-h-screen leading-[100%]">
       <Header />
