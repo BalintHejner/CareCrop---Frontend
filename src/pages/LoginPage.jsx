@@ -4,26 +4,36 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { Link } from "react-router-dom";
+import Auth from "../hooks/Auth";
+import { useNavigate } from "react-router-dom";
 
-// function Navigate() {
-//   const navigate = useNavigate();
-// }
-
-// function ToRegister() {
-//   Navigate();
-//   navigate("/src/pages/RegisterPage.js")
-// }
 
 const LoginForm = () => {
+
+
+  const { token, login } = Auth();
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    login(username, password);
+
+    // const navigate = useNavigate()
+    // navigate("/shop")
+
+  }
+
   return (
     <>
       <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">Bejelentkezés</div>
       <div className="mt-11 text-3xl font-semibold max-md:mt-10">Felhasználónév:</div>
-      <Input placeholder={"Felhasználónév"} type={"text"} />
+      <Input placeholder={"Felhasználónév"} value={username} data={(e) => setUsername(e.target.value)} type={"text"} />
       <div className="mt-7 text-3xl font-semibold">Jelszó:</div>
       {/* Password toggle */}
-      <Input placeholder={"Jelszó"} type={"password"} />
-      <Button text={"Bejelentkezés"} />
+      <Input placeholder={"Jelszó"} value={password} data={(e) => setPassword(e.target.value)} type={"password"} />
+      <Button text={"Bejelentkezés"} click={loginHandler}/>
+      <p>Token: {token}</p>
     </>
   );
 }
