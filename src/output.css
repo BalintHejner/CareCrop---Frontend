@@ -236,6 +236,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  appearance: inherit;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -283,6 +284,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
 [type='search'] {
   -webkit-appearance: textfield;
+  appearance: inherit;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -348,7 +350,7 @@ legend {
 ol,
 ul,
 menu {
-  list-style: none;
+  list-style-type: disc;
   margin: 0;
   padding: 0;
 }
@@ -415,7 +417,6 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
   /* 2 */
 }
 
@@ -540,14 +541,38 @@ video {
   margin-bottom: auto;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mr-50 {
+  margin-right: 50px;
+}
+
+.mr-25r {
+  margin-right: 25rem;
+}
+
+li {
+  font-size: 20px;
+  margin-left: 40px;
+  font-weight: bold;
+}
+
 .my-carousel {
   margin-top: 3rem;
   margin-bottom: -2.5rem;
 }
 
 .img {
-  width: 800px;
+  width: 700px;
   height: 420px;
+}
+
+.adimg {
+  width: 320px;
+  height: 320px;
 }
 
 .rounded {
@@ -560,6 +585,18 @@ video {
 
 .rounded-full {
   border-radius: 80px;
+}
+
+.mg-5 {
+  margin: 5px;
+}
+
+.mg-10 {
+  margin: 10px;
+}
+
+.header-select {
+  margin: 0;
 }
 
 .rounded-carousel {
@@ -581,7 +618,7 @@ video {
 }
 
 .sitecarecroplogo {
-  height: 300px;
+  height: 248px;
   margin: auto;
 }
 
@@ -589,13 +626,21 @@ video {
   opacity: 50%;
 }
 
-.cart {
-  height: 100px;
-  width: 160px;
+
+.mt-025 {
+  margin-top: 0.25rem;
+}
+
+.mt-05 {
+  margin-top: 0.5rem;
+}
+
+.mt-075 {
+  margin-top: 0.75rem;
 }
 
 .mt-1 {
-  margin-top: 0.25rem;
+  margin-top: 1rem;
 }
 
 .mt-1\.5 {
@@ -606,20 +651,34 @@ video {
   margin-top: 2.75rem;
 }
 
-.mt-20 {
+
+
+.mt-5 {
   margin-top: 5rem;
 }
 
 .mt-3 {
-  margin-top: 0.75rem;
+  margin-top: 0.7rem;
 }
 
-.mt-4 {
+.mt-1 {
   margin-top: 1rem;
 }
 
-.mb-4 {
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mb-1 {
   margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
 }
 
 .mb-5px {
@@ -642,7 +701,7 @@ video {
   margin-top: 1.75rem;
 }
 
-.mt-8 {
+.mt-2 {
   margin-top: 2rem;
 }
 
@@ -658,16 +717,21 @@ video {
   margin-left: 1rem ;
 }
 
+
+.ml-4 {
+  margin-left: 4rem ;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
 
 .min-h-mp {
-  min-height: 82.8vh;
+  min-height: auto;
 }
 
 .min-w-screen {
- min-width: 100vw;
+ min-width: auto;
 }
 
 .left {
@@ -675,8 +739,11 @@ video {
 }
 
 .right {
-
   transform: translate(100%, -100%); 
+}
+
+.up {
+  transform: translate(0, -100%);
 }
 
 .flex {
@@ -699,13 +766,36 @@ video {
   height: 15rem;
 }
 
+.h-select {
+  height: 4.4rem;
+}
+
+.h-3 {
+  height: 3rem;
+}
 
 .h-input {
   height: 3.22rem;
 }
 
-.w-8 {
+.w-3 {
   width: 3rem;
+}
+
+.w-14 {
+  width: 14rem;
+}
+
+.w-8 {
+  width: 8rem;
+}
+
+.max-w-input {
+  max-width: 360px;
+}
+
+.max-h-135 {
+  max-height: 13.5rem;
 }
 
 .w-btn2 {
@@ -732,6 +822,14 @@ video {
   width: 50rem;
 }
 
+.w-20 {
+  width: 20rem;
+}
+
+.w-56 {
+  width: 56rem;
+}
+
 .w-75 {
   width: 75rem;
 }
@@ -743,6 +841,27 @@ video {
 .w-400 {
   width: 400px;
 }
+
+.w-376 {
+  width:  376px;
+}
+
+.w-500 {
+  width: 500px;
+}
+
+.w-600 {
+  width: 600px;
+}
+
+.w-700 {
+  width: 700px;
+}
+
+.w-800 {
+  width: 800px;
+}
+
 
 .w-full {
   width: 100%;
@@ -767,6 +886,11 @@ video {
 .flex-col {
   flex-direction: column;
 }
+
+.flex-row {
+  flex-direction: row;
+}
+
 
 .items-center {
   align-items: center;
@@ -816,6 +940,10 @@ video {
   align-self: stretch;
 }
 
+.self-end {
+  align-self: flex-end;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -863,6 +991,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: #72A06A;
   height: 100%;
+}
+
+.bg-brown {
+  background-color: #BC9B7F;
+  --tw-bg-opacity: 1;
+  height: 555px;
 }
 
 .bg-header {
@@ -937,6 +1071,14 @@ video {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .text-upper {
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -983,8 +1125,19 @@ video {
 }
 
 .text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(0, 0, 0);
+}
+
+.text-white {
+  color: rgb(255, 255, 255);
+}
+
+.text-red {
+  color: rgb(255, 0, 0);
+}
+
+.text-blue{
+  color: rgb(0,0,255);
 }
 
 .underline {

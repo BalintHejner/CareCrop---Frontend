@@ -10,7 +10,7 @@ export default function MyCarousel() {
             alt: 'Első kép'
         },
         {
-            url: require('../images/carousel-p-4.jpeg'),
+            url: require('../images/carousel-p-2.jpg'),
             alt: 'Második kép'
         },
         {
@@ -20,15 +20,11 @@ export default function MyCarousel() {
         {
             url: require('../images/carousel-p-4.jpeg'),
             alt: 'Negyedik kép'
-        },
-        {
-            url: require('../images/carousel-p-1.png'),
-            alt: 'Ötödik kép'
         }
     ]
 
     return(
-        <div className="flex flex-col items-center img  my-carousel pb-12 h-max text-black whitespace-nowrap bg-body leading[100%]">
+        <div className="flex flex-col items-center img my-carousel pb-12 h-max text-black whitespace-nowrap bg-body leading[100%]">
             <Carousel showThumbs={false} showStatus={false} className="rounded-full" showIndicators={false} showArrows={false} infiniteLoop={true} autoPlay={true} interval={2000} stopOnHover={false} transitionTime={500}>
                  {
                     images.map((image, index) => (

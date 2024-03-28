@@ -8,7 +8,14 @@ import MainPage from './pages/MainPage';
 import PasswordReminderPage from './pages/PasswordReminderPage';
 import SupportPage from './pages/SupportPage';
 import CartPage from './pages/CartPage';
-
+import ProductViewPage from './pages/ProductViewPage';
+import ProductEditPage from './pages/ProductEditPage';
+import ProductUploadPage from './pages/ProductUploadPage';
+import ComingSoonPage from './pages/ComingSoonPage';
+import InformationChangePage from './pages/InformationChangePage';
+import ThankYouPage from './pages/ThankYouPage';
+import MainShopPage from './pages/MainShopPage';
+import Protected from './hooks/Protected';
 
 export default function App() {
   return (
@@ -20,6 +27,13 @@ export default function App() {
         <Route path='/passwordreminder' element={<PasswordReminderPage/>}/>
         <Route path='/support' element={<SupportPage />}/>
         <Route path='/cart' element={<CartPage/>}/>
+        <Route path='/productview' element={<ProductViewPage/>}/> 
+        <Route path='/productedit' element={<ProductEditPage/>}/>
+        <Route path='/productupload' element={<ProductUploadPage/>}/>
+        <Route path='/comingsoon' element={<ComingSoonPage/>}/>
+        <Route path='/useredit' element={<InformationChangePage/>}/>
+        <Route path='/thankyou' element={<ThankYouPage/>}/>
+        <Route path='/shop' element={<Protected Component={MainShopPage}/>}/>
       </Routes>
     </BrowserRouter>
   )
