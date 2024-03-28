@@ -15,6 +15,7 @@ import ComingSoonPage from './pages/ComingSoonPage';
 import InformationChangePage from './pages/InformationChangePage';
 import ThankYouPage from './pages/ThankYouPage';
 import MainShopPage from './pages/MainShopPage';
+import Protected from './hooks/Protected';
 
 export default function App() {
   return (
@@ -32,7 +33,7 @@ export default function App() {
         <Route path='/comingsoon' element={<ComingSoonPage/>}/>
         <Route path='/useredit' element={<InformationChangePage/>}/>
         <Route path='/thankyou' element={<ThankYouPage/>}/>
-        <Route path='/shop' element={<MainShopPage/>}/>
+        <Route path='/shop' element={<Protected Component={MainShopPage}/>}/>
       </Routes>
     </BrowserRouter>
   )

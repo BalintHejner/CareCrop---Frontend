@@ -566,7 +566,7 @@ li {
 }
 
 .img {
-  width: 800px;
+  width: 700px;
   height: 420px;
 }
 
@@ -651,7 +651,9 @@ li {
   margin-top: 2.75rem;
 }
 
-.mt-20 {
+
+
+.mt-5 {
   margin-top: 5rem;
 }
 
@@ -661,6 +663,10 @@ li {
 
 .mt-1 {
   margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
 }
 
 .mt-4 {
@@ -1119,13 +1125,19 @@ li {
 }
 
 .text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(0, 0, 0);
 }
 
 .text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(255, 255, 255);
+}
+
+.text-red {
+  color: rgb(255, 0, 0);
+}
+
+.text-blue{
+  color: rgb(0,0,255);
 }
 
 .underline {

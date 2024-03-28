@@ -12,7 +12,7 @@ const registration = async (name, username, password, email, mobile) => {
   try {
     
   
-  const res = await fetch('http://localhost:3000/api/register', {
+  const res = await fetch('http://87.229.85.121/api/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const registration = async (name, username, password, email, mobile) => {
 
 const login = async (username, password) => {
   try {
-    const res = await fetch('http://localhost:3000/api/login', {
+    const res = await fetch('http://87.229.85.121/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

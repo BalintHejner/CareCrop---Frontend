@@ -87,14 +87,15 @@ function MainShopPage() {
   return (
     <div className="flex flex-col pb-14 bg-body min-h-screen">
       <Header2/>  
-      <main className="self-center mt-20 w-full max-w-[1782px] max-md:mt-10 max-md:max-w-full">
+      <main className="self-center mt-5 w-full max-w-[1782px] max-md:mt-10 max-md:max-w-full">
       <Grid container spacing={3}>
         <Grid item xs={3}>
           <Filter/>
         </Grid>
-        <Grid item >
+        <Grid item xs={9}>
         {/* Map over filtered products and display ProductCards */}
           <ProductCard/>
+          <br/>
           <ProductCard/>
         </Grid>
       </Grid>
