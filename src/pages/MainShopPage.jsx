@@ -4,11 +4,15 @@ import Header2 from "../components/HeaderOption2";
 import { Checkbox, Grid } from "@mui/material";
 import Slider from '@mui/material/Slider';
 import { useState } from "react";
-import Input from "../components/Input";
+import { useNavigate } from "react-router-dom";
 
 const Filter = () => {
-  const [value, setValue] = useState([20, 50]);
+  const [value, setValue] = useState([0, 1000000]);
 
+  const navigate = useNavigate();
+  const path = (click) => {
+    navigate(click);
+  }
 
   const categories = [
     { name: "Árpa", checked: false },
@@ -27,7 +31,7 @@ const Filter = () => {
 
 
   return (
-    <div className="flex flex-col grow items-start pt-2 pr-3 pb-10 pl-1 max-w-input mg-10 min-h-screen w-full bg-brown max-md:mt-10">
+    <div className="flex flex-col grow items-start max-w-input min-h-screen mg-filter w-full bg-brown max-md:mt-10">
       <h1 className="self-stretch text-3xl mg-5 text-black">Szűrés:</h1>
       <hr className="border-black"/>
 
@@ -43,14 +47,20 @@ const Filter = () => {
         )
       })}
 
-      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Ár:</h3>
-      <Slider value={value} onChange={(e) => setValue(e.value)} className="mg-5" valueLabelDisplay="auto"/>
+      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Ár (HUF):</h3>
+      <div className="flex flex-col items-center mg-filter">
+        <Slider value={value} onChange={(e) => setValue(e.value)} valueLabelDisplay="auto"/>
+      </div>
 
-      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Mennyiség</h3>
-      <Slider value={value} onChange={(e) => setValue(e.value)} valueLabelDisplay="auto" className="mg-5"/>
+      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Mennyiség (kg):</h3>
+      <div className="flex flex-col items-center mg-filter">
+        <Slider value={value} onChange={(e) => setValue(e.value)} valueLabelDisplay="auto" className="mg-5"/>
+      </div>
 
-      <p className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Eladó</p>
-      <Input placeholder="Eladó neve" className="bg-white"/>
+      <p className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Eladó:</p>
+      <div className="flex flex-col items-center max-w-input mg-filter">
+        <input className="shadow appearance-none border mt-3 rounded w-20 h-input py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Eladó neve" />
+      </div>
 
     </div>
   );
@@ -61,20 +71,21 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
   imgSrc = 'https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E';
 
   return (
-    <div className="px-6 py-1.5 bg-brown max-md:px-5 mg-10 max-h-135 max-md:max-w-full">
+    <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
      <Grid container spacing={3} >
       {/* Map over products */}
        <Grid item xs={3}>
         {/* Display product card */}
-        <img src={imgSrc} alt={title} className="items-center h-135 w-135 rounded-xl "/>
+        <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
        </Grid>
        <Grid item xs={3}>
-       <p>{title = "SÁNDOR"}</p>
-        <p>Ár: {price}</p>
+       <p className="text-3xl font-bold">{title = "SÁNDOR"}</p>
         <br/>
-        <p>Mennyiség: {quantity}</p>
+        <p className="text-xl">Ár: {price}</p>
         <br/>
-        <p>Eladó: {seller}</p>
+        <p className="text-xl">Mennyiség: {quantity}</p>
+        <br/>
+        <p className="text-xl">Eladó: {seller}</p>
 
        </Grid>
      </Grid>
@@ -85,9 +96,9 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 function MainShopPage() {
 
   return (
-    <div className="flex flex-col pb-14 bg-body min-h-screen">
+    <div className="flex flex-col pb-14 bg-body">
       <Header2/>  
-      <main className="self-center mt-5 w-full max-w-[1782px] max-md:mt-10 max-md:max-w-full">
+      <main className="self-center mt-5 w-full min-h-screen max-w-[1782px] max-md:mt-10 max-md:max-w-full">
       <Grid container spacing={3}>
         <Grid item xs={3}>
           <Filter/>
@@ -96,7 +107,6 @@ function MainShopPage() {
         {/* Map over filtered products and display ProductCards */}
           <ProductCard/>
           <br/>
-          <ProductCard/>
         </Grid>
       </Grid>
       </main>

@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const RegisterForm = () => {
     return (
         <>
-            <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">Regisztráció</div>
+            <div className="mt-36 text-5xl text-center font-bold max-md:mt-10 max-md:text-4xl">Regisztráljon, hogy ön is Nálunk tudja hirdetni terményeit!</div>
             <UploadSection />
         </>
     )
@@ -19,6 +19,7 @@ const RegisterForm = () => {
 
 const UploadSection = () => {
 
+  //TODO: Objects are not valid as a React child (found: [object Error]). If you meant to render a collection of children, use an array instead.
   const [name, setName] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -73,7 +74,7 @@ const UploadSection = () => {
           } else if (e.target.value !== password) {
             setError("A két jelszó nem egyezik!")
           } else {
-            setMsg("Minden mező kitöltve")
+            setMsg("Regisztráció sikeres! Kérjük, jelentkezzen be!")
           }
           break;
       default:
@@ -181,8 +182,8 @@ const UploadSection = () => {
     <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
       <div className="flex gap-5 md:flex-col md:gap-0">
         <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
-          <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
-            <Grid container spacing={30} style={{marginLeft : "auto" , marginRight : "auto"}}>
+          <div className="flex flex-col grow items-center max-md:mt-10 max-md:max-w-full">
+          <Grid container spacing={20} style={{marginLeft : "auto"}}>
               <Grid item xs={6} sm={3}>
                   <Input type="text" placeholder="Teljes név" data={(e) => handleInputChange(e, "name")} value={name} />
                   <div>
@@ -192,7 +193,7 @@ const UploadSection = () => {
               <Grid item xs={6} sm={3}>
                   <Input type={"email"} placeholder="E-mail cím" blur={checkEmail} data={(e) => handleInputChange(e, "email")} value={email}  /> 
                   <div>
-                    <Input type={"tel"} placeholder="Telefonszám"  data={(e) => handleInputChange(e, "phone")} value={phone} />
+                    <Input type={"tel"} pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám (Formátum: 06-30-...)"  data={(e) => handleInputChange(e, "phone")} value={phone} />
                   </div>
               </Grid> 
               <Grid item xs={6} sm={3}>
@@ -222,7 +223,7 @@ const UploadSection = () => {
 
 function RegisterPage()  {
     return (
-        <div className="flex flex-col min-h-screen items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
+        <div className="flex flex-col min-w-screen min-h-screen min-w-screen items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
         <Header />
         <RegisterForm />
         </div>

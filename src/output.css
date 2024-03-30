@@ -546,6 +546,7 @@ video {
   margin-right: auto;
 }
 
+
 .mr-50 {
   margin-right: 50px;
 }
@@ -717,13 +718,27 @@ li {
   margin-left: 1rem ;
 }
 
+.mg-filter {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.mg-card {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 24px;
+}
 
 .ml-4 {
   margin-left: 4rem ;
 }
 
 .min-h-screen {
-  min-height: 100vh;
+  min-height: 120vh;
+}
+
+.min-w-screen {
+  min-width: 100vh;
 }
 
 .min-h-mp {
@@ -794,8 +809,8 @@ li {
   max-width: 360px;
 }
 
-.max-h-135 {
-  max-height: 13.5rem;
+.max-h-15 {
+  max-height: 15rem;
 }
 
 .w-btn2 {
@@ -816,6 +831,10 @@ li {
 
 .w-360 {
   width: 360px;
+}
+
+.w-380 {
+  width: 380px;
 }
 
 .w-50 {
@@ -1082,6 +1101,11 @@ li {
 .text-upper {
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+.text-xl {
+  font-size: 1.175rem;
+  line-height: 1.75rem;
 }
 
 .text-2xl {

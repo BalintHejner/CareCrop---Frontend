@@ -15,8 +15,9 @@ const LoginForm = () => {
   const [msg, setMsg] = React.useState("");
   
   React.useEffect(() => {
-    let login = localStorage.getItem("login");
+    let login = localStorage.getItem("shop");
     if (login) {
+      //TODO: NAvigate to Shop
       navigate("/shop");
     }
     let loginStatus = localStorage.getItem("loginStatus");

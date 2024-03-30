@@ -22,17 +22,19 @@ function ThankYouPage() {
                     Nekünk a termény a fontos!
                 </h1>
                 </div>
-                <Grid container spacing={30} style={{marginLeft : "auto" , marginRight : "auto"}}>
-                    <Grid item xs={6} sm={3}>
-                        <Button text="Vásárlás" click={"/shop"}/>
+                <div className="flex flex-col items-center self-center justify-center mt-2">
+                    <Grid container spacing={10}>
+                        <Grid item xs={6} sm={3.5}>
+                            <Button text="Vásárlás" click={"/shop"}/>
+                        </Grid>
+                        <Grid item xs={6} sm={3.5}>
+                            <Button text="Főoldal" click={"/"}/>
+                        </Grid>
+                        <Grid item xs={6} sm={3.5}>
+                            <Button text="Visszajelzés" click={"/support"}/>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={6} sm={3}>
-                        <Button text="Főoldal" click={"/"}/>
-                    </Grid>
-                    <Grid item xs={6} sm={3}>
-                        <Button text="Visszajelzés" click={"/support"}/>
-                    </Grid>
-                </Grid>
+                </div>
                 </main>
         )
 }
