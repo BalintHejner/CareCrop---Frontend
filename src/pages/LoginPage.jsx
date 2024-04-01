@@ -4,109 +4,42 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const LoginForm = () => {
-  const navigate = useNavigate();
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [error, setError] = React.useState("");
-  const [msg, setMsg] = React.useState("");
-  
-  React.useEffect(() => {
-    let login = localStorage.getItem("shop");
-    if (login) {
-      //TODO: NAvigate to Shop
-      navigate("/shop");
-    }
-    let loginStatus = localStorage.getItem("loginStatus");
-    if (loginStatus) {
-      setError(loginStatus);
-      setTimeout(function() {
-        localStorage.clear();
-        window.location.reload();
-      }, 3000)
-    } 
-    setTimeout(function() {
-      setMsg("")
-    }, 5000)
-  }, [msg])
 
-  const handleInputChange = (e, type) => {
-    switch (type) {
-      case "username":
-          setError("");
-          setUsername(e.target.value);
-          if (e.target.value === "") {
-            setError("A felhasználónév mező nem lehet üres!");
-          }
-          break;
-      case "password":
-          setError("");
-          setPassword(e.target.value);
-          if (e.target.value === "") {
-            setError("A jelszó mező nem lehet üres!");
-          }
-          break;    
-      default:
-
+  //Cannot read properties of undefined (reading 'username')
+  const handleLogin = e => {
+    e.preventDefault();
+    const data = {
+      username: this.username,
+      password: this.password
     }
+
+    axios.post("login.php", data).then(res => {
+      localStorage.setItem("token", res.data.token);
+    }).catch(
+      err => console.log(err)
+    )
   };
-
-  function handleLogin() {
-    if (username !== "" && password !== "") {
-      var url = "http://87.229.85.121/login.php";
-      var headers = {
-        "Accept": "application/json",
-        "Content-type": "application/json",
-      }
-      var data = {
-        username: username,
-        password: password
-      };
-      fetch(url, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(data)
-      }).then((res) => res.json())
-      .then((res) => {
-        //TODO Más Check
-        if (res[0].result === "Érvénytelen felhasználónév!" || res[0].result === "Érvénytelen jelszó!") {
-          setError(res[0].result);
-        } else {
-          setMsg(res[0].result);
-          setTimeout(function() {
-            localStorage.setItem("login", true);
-            navigate("/shop");
-          }, 5000)
-        }
-      }).catch((err) => {
-        setError(err);
-        console.log(err)
-      });
-    } else {
-      setError("Kérjük, adja meg a felhasználónevet és a jelszót!");
-    }
-  }
-
 
   return (
     <>
       <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">Bejelentkezés</div>
       <div className="mt-11 text-3xl font-semibold max-md:mt-10">Felhasználónév:</div>
-      <Input placeholder={"Felhasználónév"} value={username} data={(e) => handleInputChange(e, "username")} type={"text"} />
+      <Input placeholder={"Felhasználónév"} change={e => this.username = e.target.value}  type={"text"} />
       <div className="mt-7 text-3xl font-semibold">Jelszó:</div>
       {/* Password toggle */}
-      <Input placeholder={"Jelszó"} value={password} data={(e) => handleInputChange(e, "password")} type={"password"} />
+      <Input placeholder={"Jelszó"} change={e => this.password = e.target.value} type={"password"} />
       <Button text={"Bejelentkezés"} click={handleLogin}/>
-      <p>
+      {/* <p>
       {
         error !== "" ?
         <span className="text-red">{error}</span> :
         <span className="text-blue">{msg}</span>
       }
-     </p>
+     </p> */}
     </>
   );
 }

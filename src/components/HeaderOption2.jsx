@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
 import "../output.css";
+import axios from "axios";
  
 export default function Header2() {
-    return (
+  
+  state = {};
+
+  const componentDidMount = () => {
+    axios.get('user', config).then (response => {
+      this,setState({
+        user: response.data
+      })
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+  
+  return (
       <>
       <div className="flex justify-between px-6 py-2 w-full text-2xl bg-header max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
       <Link to={"/"} className="carecroplogo">
@@ -29,9 +43,23 @@ export default function Header2() {
               <img loading="lazy" src={require('../images/shopping-cart.png')} className="aspect-square w-[82px]"/>
             </Link>
 
-            <Link to ={"/login"}>
+            <span>
+              {
+                this.state.user ? (
+                  <Link to ={"/profile"}>
+                    <p className="aspect-square w-[82px]">{this.state.user.username}</p>
+                  </Link>
+                ) : (
+                  <Link to ={"/login"}>
+                    <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
+                  </Link>
+                )
+              }
+            </span>
+
+            {/* <Link to ={"/login"}>
               <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
-            </Link>
+            </Link> */}
 
 
           </div>

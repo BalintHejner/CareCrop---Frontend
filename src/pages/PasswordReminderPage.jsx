@@ -2,19 +2,32 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import axios from 'axios';
 
 
 const EmailInput = () => {
-  const [email, setEmail] = useState('');
+
+  //Cannot read properties of undefined (reading 'email')
+  const handleReminder = e => {
+    e.preventDefault();
+    const data = {
+      email: this.email
+    }
+    axios.post('register.php', data).then(res => {
+      console.log(res);
+    }).catch(
+      err => console.log(err)
+    )
+  };
 
   return (
     <Input
       type={"email"}
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
+      change={e => this.email = e.target.value}
       placeholder={"Írja be az e-mail címét"}
     />
   );
+
 };
 
 function PasswordReminderPage() {
@@ -31,7 +44,7 @@ function PasswordReminderPage() {
       <p className="mt-10 self-start text-2xl font-bold">E-mail cím:</p>
       <EmailInput />
       </div>
-      <Button text={"Emlékezető küldése"} onClick={""} />
+      <Button text={"Emlékezető küldése"} click={handleReminder}/>
     </section>
   );
 };

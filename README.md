@@ -8,6 +8,8 @@ CareCrop - Frontend
 - npm i react-responsive-carousel
 - npm i react-cookie
 - npm install @mui/material @emotion/react @emotion/styled
+- npm i axios
+- npm i amqplib
 
 # Commands after renaming master branch
 

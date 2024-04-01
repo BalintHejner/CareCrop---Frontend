@@ -1,0 +1,81 @@
+  // const navigate = useNavigate();
+  // const [username, setUsername] = React.useState("");
+  // const [password, setPassword] = React.useState("");
+  // const [error, setError] = React.useState("");
+  // const [msg, setMsg] = React.useState("");
+  
+  // React.useEffect(() => {
+  //   let login = localStorage.getItem("shop");
+  //   if (login) {
+  //     //TODO: NAvigate to Shop
+  //     navigate("/shop");
+  //   }
+  //   let loginStatus = localStorage.getItem("loginStatus");
+  //   if (loginStatus) {
+  //     setError(loginStatus);
+  //     setTimeout(function() {
+  //       localStorage.clear();
+  //       window.location.reload();
+  //     }, 3000)
+  //   } 
+  //   setTimeout(function() {
+  //     setMsg("")
+  //   }, 5000)
+  // }, [msg])
+
+  // const handleInputChange = (e, type) => {
+  //   switch (type) {
+  //     case "username":
+  //         setError("");
+  //         setUsername(e.target.value);
+  //         if (e.target.value === "") {
+  //           setError("A felhasználónév mező nem lehet üres!");
+  //         }
+  //         break;
+  //     case "password":
+  //         setError("");
+  //         setPassword(e.target.value);
+  //         if (e.target.value === "") {
+  //           setError("A jelszó mező nem lehet üres!");
+  //         }
+  //         break;    
+  //     default:
+
+  //   }
+  // };
+
+  // function handleLogin() {
+  //   if (username !== "" && password !== "") {
+  //     var url = "http://87.229.85.121/login.php";
+  //     var headers = {
+  //       "Accept": "application/json",
+  //       "Content-type": "application/json",
+  //     }
+  //     var data = {
+  //       username: username,
+  //       password: password
+  //     };
+  //     fetch(url, {
+  //       method: "POST",
+  //       headers: headers,
+  //       body: JSON.stringify(data)
+  //     }).then((res) => res.json())
+  //     .then((res) => {
+  //       //TODO Más Check
+  //       if (res[0].result === "Érvénytelen felhasználónév!" || res[0].result === "Érvénytelen jelszó!") {
+  //         setError(res[0].result);
+  //       } else {
+  //         setMsg(res[0].result);
+  //         setTimeout(function() {
+  //           localStorage.setItem("login", true);
+  //           navigate("/shop");
+  //         }, 5000)
+  //       }
+  //     }).catch((err) => {
+  //       setError(err);
+  //       console.log(err)
+  //     });
+  //   } else {
+  //     setError("Kérjük, adja meg a felhasználónevet és a jelszót!");
+  //   }
+  // }

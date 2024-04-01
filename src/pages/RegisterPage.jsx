@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import { Grid } from '@mui/material'
 import Input from "../components/Input";
 import  Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 
 
@@ -19,164 +19,23 @@ const RegisterForm = () => {
 
 const UploadSection = () => {
 
-  //TODO: Objects are not valid as a React child (found: [object Error]). If you meant to render a collection of children, use an array instead.
-  const [name, setName] = React.useState("");
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [confirmedPassword, setConfirmedPassword] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [error, setError] = React.useState("");
-  const [msg, setMsg] = React.useState("");
-
-  const handleInputChange = (e, type) => {
-    switch (type) {
-      case "name":
-        setError("");
-        setName(e.target.value);
-        if (e.target.value === "") {
-          setError("Adja meg teljes nevét!");
-        }
-        break;
-      case "username":
-          setError("");
-          setUsername(e.target.value);
-          if (e.target.value === "") {
-            setError("Adjon meg felhasználónevet!");
-          }
-          break;
-      case "password":
-          setError("");
-          setPassword(e.target.value);
-          if (e.target.value === "") {
-            setError("Adjon meg érvényes jelszót!");
-          }
-          break;
-      case "email":
-          setError("");
-          setEmail(e.target.value);
-          if (e.target.value === "") {
-            setError("Adjon meg e-mail címet!");
-          }
-          break;      
-      case "phone":
-          setError("");
-          setPhone(e.target.value);
-          if (e.target.value === "") {
-           setError("Adja meg telefonszámát!");
-          }
-          break;       
-      case "confirmedPassword":
-          setError("");
-          setConfirmedPassword(e.target.value);
-          if (e.target.value === "") {
-            setError("Erősítse meg megadott jelszavát!");
-          } else if (e.target.value !== password) {
-            setError("A két jelszó nem egyezik!")
-          } else {
-            setMsg("Regisztráció sikeres! Kérjük, jelentkezzen be!")
-          }
-          break;
-      default:
+//Cannot read properties of undefined (reading 'name')
+const handleRegister = e => {
+    e.preventDefault();
+    const data = {
+      name: this.name,
+      username: this.username,
+      password: this.password,
+      password_confirm: this.confirmedPassword,
+      email: this.email,
+      phone: this.phone
     }
-  }
-
-  React.useEffect(() => {
-    setTimeout(function() {
-      setMsg("");
-    }, 15000)
-  }, [msg]);
-
-  function checkPassword() {
-    if (password.length < 8) {
-      setError("A jelszó legalább 8 karakter hosszú kell, hogy legyen!");
-    }
-  }
-
-  function handleRegister() {
-    if (username !== "" && name !== "" && password !== "" && confirmedPassword !== "" && phone !== "" && email !== "") {
-      var url = "http://87.229.85.121/register.php";
-      var headers = {
-        "Accept": "application/json",
-        "Content-type": "application/json",
-      }
-      var data = {
-        username: username,
-        name: name,
-        password: confirmedPassword,
-        email: email,
-        phone: phone
-      }
-      fetch(url, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(data)
-      }).then((res) => res.json())
-      .then((res) => {
-        setMsg(res[0].result);
-      }).catch((err) => {
-        setError(err);
-        console.log(err);
-      });
-      setName("")
-      setUsername("")
-      setPassword("")
-      setConfirmedPassword("")
-      setEmail("")
-      setPhone("")
-
-    } else {
-      setError("Kérem, töltsön ki minden mezőt!");
-    }
-  }
-
-  function checkEmail() {
-      var url = "http://87.229.85.121/register.php";
-      var headers = {
-        "Accept": "application/json",
-        "Content-type": "application/json",
-      }
-      var data = {
-        email: email
-      }
-      fetch(url, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(data)
-      }).then((res) => res.json())
-      .then((res) => {
-        setError(res[0].result);
-      }).catch((err) => {
-        setError(err);
-        console.log(err);
-      });
-  }
-
-  
-  function checkUser() {
-    var url = "http://87.229.85.121/register.php";
-    var headers = {
-      "Accept": "application/json",
-      "Content-type": "application/json",
-    }
-    var data = {
-      username: username
-    }
-    fetch(url, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(data)
-    }).then((res) => res.json())
-    .then((res) => {
-      setError(res[0].result);
-    }).catch((err) => {
-      setError(err);
-      console.log(err);
-    });
-}
-
-
-
+    axios.post('register.php', data).then(res => {
+      console.log(res);
+    }).catch(
+      err => console.log(err)
+    )
+  };
 
   return(
     <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
@@ -185,21 +44,21 @@ const UploadSection = () => {
           <div className="flex flex-col grow items-center max-md:mt-10 max-md:max-w-full">
           <Grid container spacing={20} style={{marginLeft : "auto"}}>
               <Grid item xs={6} sm={3}>
-                  <Input type="text" placeholder="Teljes név" data={(e) => handleInputChange(e, "name")} value={name} />
+                  <Input type="text" placeholder="Teljes név" onChange={e => name = e.target.value} />
                   <div>
-                    <Input type="text" placeholder="Felhasználónév" blur={checkUser} data={(e) => handleInputChange(e, "username")} value={username} />
+                    <Input type="text" placeholder="Felhasználónév" onChange={e => username = e.target.value} />
                   </div>
               </Grid> 
               <Grid item xs={6} sm={3}>
-                  <Input type={"email"} placeholder="E-mail cím" blur={checkEmail} data={(e) => handleInputChange(e, "email")} value={email}  /> 
+                  <Input type={"email"} onChange={e => email = e.target.value} placeholder="E-mail cím" /> 
                   <div>
-                    <Input type={"tel"} pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám (Formátum: 06-30-...)"  data={(e) => handleInputChange(e, "phone")} value={phone} />
+                    <Input type={"tel"} onChange={e => phone = e.target.value} pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám (Formátum: 06-30-123-4567)"   />
                   </div>
               </Grid> 
               <Grid item xs={6} sm={3}>
-                <Input type={"password"} placeholder="Jelszó" blur={checkPassword} value={password} data={(e) => handleInputChange(e, "password")} />
+                <Input type={"password"} onChange={e => password = e.target.value} placeholder="Jelszó"  />
                 <div>
-                    <Input type={"password"} placeholder="Jelszó megerősítése" data={(e) => handleInputChange(e, "confirmedPassword")} value={confirmedPassword}/>
+                    <Input type={"password"} onChange={e => confirmedPassword = e.target.value} placeholder="Jelszó megerősítése"/>
                 </div>
   
               </Grid>
@@ -207,13 +66,13 @@ const UploadSection = () => {
           </div>
           <div classname="flex flex-col items-center w-full max-md:mt-10 max-md:max-w-full">
           <Button text="Regisztráció" click={handleRegister} />
-          <p>
+          {/* <p>
             {
               msg !== "" ?
               <span className='text-blue'>{msg}</span> :
               <span className='text-red'>{error}</span>
             }
-          </p>
+          </p> */}
           </div>
         </div>
       </div>
