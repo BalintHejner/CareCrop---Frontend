@@ -63,8 +63,6 @@ function ProductPage({title, email, phoneNumber, deals, name, username, imageurl
           </article>
         </Grid>
       </Grid>
-
-
         </div>
     
     </main>

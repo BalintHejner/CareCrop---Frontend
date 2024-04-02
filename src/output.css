@@ -733,6 +733,10 @@ li {
   margin-left: 4rem ;
 }
 
+.ml-10 {
+  margin-left: 10rem ;
+}
+
 .min-h-screen {
   min-height: 120vh;
 }
@@ -742,7 +746,7 @@ li {
 }
 
 .min-h-mp {
-  min-height: auto;
+  min-height: 100vh;
 }
 
 .min-w-screen {
@@ -804,6 +808,7 @@ li {
 .w-8 {
   width: 8rem;
 }
+
 
 .max-w-input {
   max-width: 360px;

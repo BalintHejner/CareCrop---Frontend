@@ -4,36 +4,45 @@ import Header from "../components/Header";
 import Input from "../components/Input";
 import { Grid } from '@mui/material'
 import  Button from "../components/Button";
+import Button2 from "../components/Button2";
+
+
+const Buttons = ({ label, onClick }) => (
+  <Button2 onClick={onClick} className={"text-2xl w-btn2 mt-11 px-6 py-4 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
+);
+
 
 const UploadSection = () => (
-  <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
-    <div className="flex gap-5 md:flex-col md:gap-0">
-      <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
-        <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
-          <Grid container spacing={30} style={{marginLeft : "auto" , marginRight : "auto"}}>
-            <Grid item xs={6} sm={3}>
-                <Input type="text" placeholder="Teljes név" />
-                <div>
-                  <Input type="text" placeholder="Felhasználó név" />
-                </div>
-            </Grid> 
-            <Grid item xs={6} sm={3}>
-                <Input type="text" placeholder="Email cím" /> 
-                <div>
-                  <Input type="number" placeholder="Telefonszám" />
-                </div>
-            </Grid> 
-            <Grid item xs={6} sm={3}>
-              <Input type="text" placeholder="Jelszó" />
-              <div>
-                  <Input type="text" placeholder="Jelszó megerősítése" />
-              </div>
+  // {username}
 
-            </Grid>
+  <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
+  <div className="flex gap-5 md:flex-col md:gap-0">
+    <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
+      <div className="flex flex-col grow mt-11 items-center max-md:mt-10 max-md:max-w-full">
+      <Grid container spacing={20} style={{marginLeft : "auto"}}>
+          <Grid item xs={6} sm={3}>
+              <Input type="text" placeholder="Teljes név"  />
+              <div>
+                <Input type="text" placeholder="Felhasználónév" />
+              </div>
+          </Grid> 
+          <Grid item xs={6} sm={3}>
+              <Input type={"email"}  placeholder="E-mail cím" /> 
+              <div>
+                <Input type={"tel"} onCh pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám (Formátum: 06-30-123-4567)"   />
+              </div>
+          </Grid> 
+          <Grid item xs={6} sm={3}>
+            <Input type={"password"}  placeholder="Jelszó"  />
+            <div>
+                <Input type={"password"}  placeholder="Jelszó megerősítése"/>
+            </div>
+
           </Grid>
-        </div>
+        </Grid>
+      </div>
         <div classname="flex flex-col items-center w-full max-md:mt-10 max-md:max-w-full">
-        <Button text="Hírdetés feladása" />
+        <Buttons label={"Adatok módosítása"} />
         </div>
       </div>
     </div>
@@ -46,30 +55,16 @@ function InformationChange() {
   return (
       <>
           <Header />
-          <main className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
+          <main className="flex flex-col min-h-screen items-center bg-body">
+            <div className="text-3xl font-bold mt-11">username fiókja</div>
             <section className="flex gap-5 sm:flex-col sm:gap-0">
-              <aside className="flex flex-col w-full sm:ml-0 sm:w-full">
-                <div className="flex flex-col self-stretch my-auto text-black sm:mt-10">
-                  <div className="text-5xl font-bold sm:text-4xl">Sanyi45</div>
-                  <div className="mt-5 text-2xl italic underline">
-                    <span>Elérhetőségek</span>:
-                    <ul>
-                      <li>Email: <span className="italic font-light">sanyiakiraly@gmail.com</span></li>
-                      <li>Telefonszám: <span className="italic font-light">+36 305713585</span></li>
-                    </ul>
-                  </div>
-                </div>
-              </aside>
-              <div className="flex flex-col ml-5 w-[22%] sm:ml-0 sm:w-full">
-                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/image_src_9" alt="" className="shrink-0 max-w-full aspect-square w-[248px] sm:mt-10"/>
-              </div>
               <div className="flex flex-col ml-5 w-[38%] sm:ml-0 sm:w-full">
-                <div className="flex flex-col mt-3.5 text-2xl font-bold leading-6 text whitespace-nowrap sm:mt-10 sm:max-w-full">
-                  <div className="flex gap-5 sm:flex-wrap sm:max-w-full">
-                    <Button text="Új hirdetés" />
-                    <Button text="Profil módosítása" />
-                  </div>
-                  <Button text="Visszajelzés" />
+          
+                <div style={{marginLeft: "auto", marginRight: "auto"}} className="flex flex-row  flex-wrap gap-5 justify-around text-lg font-bold leading-6 text whitespace-nowrap sm:mt-10 sm:max-w-full">
+                  <Buttons label= {"Új hírdetés"} />
+                  <Buttons label= {"Profil módosítása"}/>
+                  <Buttons label={"Visszajelzés"}/>
+                  <Buttons label={"Vissza az áruházba"} />
                 </div>
               </div>
             </section>

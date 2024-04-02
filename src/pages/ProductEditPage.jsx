@@ -54,7 +54,7 @@ const EditSection = ({imageurl}) => (
 
                 <Input type="text" placeholder="*Mennyiség  " /> 
 
-                <div className="flex flex-col mt-1 bg-white  rounded border border-solid shadow-sm border-zinc-300">
+                <div className="flex flex-col mt-1 bg-white rounded border border-solid shadow-sm border-zinc-300">
                   <select className="shadow appearance-none border rounded h-3 w-360  text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option className="mg-5 glass" value="" disabled selected>*Minőség</option>
                     <hr className="mx-auto"/>
@@ -70,7 +70,7 @@ const EditSection = ({imageurl}) => (
             </Grid> 
             <Grid item xs={6} sm={3}>
               <Input type="number" placeholder="*Ár" />
-              <div className="flex flex-col mt-1 bg-white  rounded border border-solid shadow-sm border-zinc-300">
+              <div className="flex flex-col mt-1 bg-white rounded border border-solid shadow-sm border-zinc-300">
                   <InputTextarea placeholder={"Leírás"} rows={7} style={{width: "360px"}} cols={50}  className="w-20 py-3 px-3 flex gap-5 justify-between items-start pt-1.5 pr-1.5 pb-12 pl-4 text-base leading-6 text-gray-700 bg-white rounded border border-solid border-[color:var(--denim-16-center-channel-text,rgba(63,67,80,0.16))] h-15 max-md:flex-wrap max-md:max-w-full focus:outline-none focus:shadow-outline focus:border-blue-500" />
               </div>
 
@@ -78,7 +78,7 @@ const EditSection = ({imageurl}) => (
           </Grid>
         </div>
         <div classname="flex flex-col items-center w-full max-md:mt-10 max-md:max-w-full">
-        <Buttons label="Hírdetés feladása" onClick={() => handleCategoryChange('Hírdetés feladása')} />
+        <Buttons label="Hírdetés feladása" />
         <div className="mt-6 text-base italic text-black whitespace-nowrap">A *-gal megjelölt mezők kitöltése kötelező</div>
         </div>
       </div>
@@ -87,16 +87,14 @@ const EditSection = ({imageurl}) => (
 );
 
 function ProductEditPage() {
-  const [category, setCategory] = useState('');
-  const handleCategoryChange = (newCategory) => setCategory(newCategory);
   return (
     <main className="flex flex-col min-h-screen items-center pb-2 bg-body">
       
       <Header2 />
       <div className="flex flex-wrap gap-5 justify-around">
-        <Buttons label="Új hírdetés" onClick={() => handleCategoryChange('Új hírdetés')} />
-        <Buttons label="Profil módosítása" onClick={() => handleCategoryChange('Profil módosítása')} />
-        <Buttons label="Visszajelzés" onClick={() => handleCategoryChange('Visszajelzés')} />
+        <Buttons label="Új hírdetés"/>
+        <Buttons label="Profil módosítása"/>
+        <Buttons label="Visszajelzés" />
       </div>
       <EditSection />
      

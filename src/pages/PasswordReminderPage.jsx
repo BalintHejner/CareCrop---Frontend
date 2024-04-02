@@ -6,20 +6,6 @@ import axios from 'axios';
 
 
 const EmailInput = () => {
-
-  //Cannot read properties of undefined (reading 'email')
-  const handleReminder = e => {
-    e.preventDefault();
-    const data = {
-      email: this.email
-    }
-    axios.post('register.php', data).then(res => {
-      console.log(res);
-    }).catch(
-      err => console.log(err)
-    )
-  };
-
   return (
     <Input
       type={"email"}
@@ -31,6 +17,20 @@ const EmailInput = () => {
 };
 
 function PasswordReminderPage() {
+
+   //Cannot read properties of undefined (reading 'email')
+   const reminderHandler = e => {
+    e.preventDefault();
+    const data = {
+      email: this.email
+    }
+    axios.post('register.php', data).then(res => {
+      console.log(res);
+    }).catch(
+      err => console.log(err)
+    )
+  };
+
   return (
     <section className="flex flex-col bg-body items-center pb-12 text-black min-h-screen leading-[100%]">
       <Header />
@@ -44,7 +44,7 @@ function PasswordReminderPage() {
       <p className="mt-10 self-start text-2xl font-bold">E-mail cím:</p>
       <EmailInput />
       </div>
-      <Button text={"Emlékezető küldése"} click={handleReminder}/>
+      <Button text={"Emlékezető küldése"} click={reminderHandler}/>
     </section>
   );
 };

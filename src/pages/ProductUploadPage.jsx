@@ -97,6 +97,7 @@ function ProductUploadPage() {
         <Buttons label="Új hírdetés" onClick={() => handleCategoryChange('Új hírdetés')} />
         <Buttons label="Profil módosítása" onClick={() => handleCategoryChange('Profil módosítása')} />
         <Buttons label="Visszajelzés" onClick={() => handleCategoryChange('Visszajelzés')} />
+        <Buttons label="Vissza az áruházba" onClick={() => handleCategoryChange('Webshop')} />
       </div>
       <UploadSection />
      

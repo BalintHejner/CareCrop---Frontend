@@ -4,7 +4,8 @@ import axios from "axios";
  
 export default function Header2() {
   
-  state = {};
+    //Cannot read properties of undefined (reading 'state')
+  const state = {};
 
   const componentDidMount = () => {
     axios.get('user', config).then (response => {
