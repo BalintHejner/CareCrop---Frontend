@@ -13,7 +13,6 @@ const Buttons = ({ label, onClick }) => (
 
 
 const UploadSection = () => (
-  // {username}
 
   <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
   <div className="flex gap-5 md:flex-col md:gap-0">

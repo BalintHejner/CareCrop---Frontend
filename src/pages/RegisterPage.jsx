@@ -19,16 +19,22 @@ const RegisterForm = () => {
 
 const UploadSection = () => {
 
-//Cannot read properties of undefined (reading 'name')
+let name;
+let username;
+let password;
+let confirmedPassword;
+let email;
+let phone;
+
 const handleRegister = e => {
     e.preventDefault();
     const data = {
-      name: this.name,
-      username: this.username,
-      password: this.password,
-      password_confirm: this.confirmedPassword,
-      email: this.email,
-      phone: this.phone
+      name: name,
+      username: username,
+      password: password,
+      password_confirm: confirmedPassword,
+      email: email,
+      phone: phone
     }
     axios.post('register.php', data).then(res => {
       console.log(res);
@@ -38,11 +44,11 @@ const handleRegister = e => {
   };
 
   return(
-    <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
+    <section className="mt-11 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
       <div className="flex gap-5 md:flex-col md:gap-0">
-        <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
-          <div className="flex flex-col grow items-center max-md:mt-10 max-md:max-w-full">
-          <Grid container spacing={20} style={{marginLeft : "auto"}}>
+        <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full mx-auto">
+          <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">
+          <Grid container spacing={25} >
               <Grid item xs={6} sm={3}>
                   <Input type="text" placeholder="Teljes név" onChange={e => name = e.target.value} />
                   <div>
@@ -82,7 +88,7 @@ const handleRegister = e => {
 
 function RegisterPage()  {
     return (
-        <div className="flex flex-col min-w-screen min-h-screen min-w-screen items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
+        <div className="flex flex-col min-w-screen min-h-mp items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
         <Header />
         <RegisterForm />
         </div>

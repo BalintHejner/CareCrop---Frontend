@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 
 function ThankYouPage() {
     return (
-        <main className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%] min-h-screen">
+        <main className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%] min-h-mp">
             <Header />
             <div>
                 <img className="sitecarecroplogo" loading="lazy" src={require('../images/carecroplogo.png')} />

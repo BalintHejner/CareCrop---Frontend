@@ -9,7 +9,7 @@ const EmailInput = () => {
   return (
     <Input
       type={"email"}
-      change={e => this.email = e.target.value}
+      change={e => email = e.target.value}
       placeholder={"Írja be az e-mail címét"}
     />
   );
@@ -18,11 +18,12 @@ const EmailInput = () => {
 
 function PasswordReminderPage() {
 
-   //Cannot read properties of undefined (reading 'email')
+  let email;
+
    const reminderHandler = e => {
     e.preventDefault();
     const data = {
-      email: this.email
+      email: email
     }
     axios.post('register.php', data).then(res => {
       console.log(res);

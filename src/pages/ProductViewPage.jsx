@@ -5,9 +5,12 @@ import Button2 from '../components/Button2';
 import { Grid } from '@mui/material';
 
 
-function ProductPage({title, email, phoneNumber, deals, name, username, imageurl, description, category, uploadDate}) {
+function ProductPage({title, email, phoneNumber, deals, name, username, imgSrc, description, category, uploadDate}) {
   const [quantity, setQuantity] = useState(20);
   const [price, setPrice] = useState(2000);
+
+  imgSrc = 'https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E';
+
   
   return (
     <main className="flex flex-col min-h-screen bg-body" >
@@ -16,7 +19,7 @@ function ProductPage({title, email, phoneNumber, deals, name, username, imageurl
 
       <Grid container spacing={5} style={{marginLeft : "auto" , marginRight : "auto"}}>
         <Grid item xs={6} sm={5}>
-          <img loading="lazy" src={imageurl} className='aspect-square adimg mg-5' />  
+          <img loading="lazy" src={imgSrc} className='aspect-square adimg mg-5' />  
       
           <div className="flex flex-col grow items-center px-5 text-3xl font-bold leading-8 text-white sm:mt-10">
           <div className="self-stretch mt-14 leading-8 sm:mt-10 text-white" >

@@ -3,6 +3,7 @@ import "../output.css";
 import Header from "../components/Header";
 import Button2 from "../components/Button2";
 import Input from "../components/Input";
+// import CreditCard from "../components/Card";
 
 
 const ProductInfo = ({crop, amount, price, payment}) => (
@@ -35,9 +36,9 @@ const ProductInfo = ({crop, amount, price, payment}) => (
 
 function CartForm()  {
   return (
-    <main className="flex min-h-screen mx-auto min-w-screen flex-col pb-12 bg-body">
+    <main className="flex min-h-mp mx-auto min-w-screen flex-col pb-12 bg-body">
         <Header />
-      <section className="self-center mt-16 w-full max-w-[1728px] md:mt-10 md:max-w-full">
+      <section className="self-center mt-25 w-full max-w-[1728px] md:mt-10 md:max-w-full">
         <div className="flex gap-5 md:flex-col md:gap-0">
           <aside className="flex flex-col w-[33%]  md:ml-0 md:w-full" style={{marginLeft: "auto", marginRight: "auto"}}>
             <div className="flex flex-col mt-2 text-base text-black md:mt-10 md:max-w-full">
@@ -49,11 +50,11 @@ function CartForm()  {
               <Input placeholder={"Telefonszám"} type={"text"} />
               <h2 className="mt-7  text-upper tracking-[3.2px] md:max-w-full">Kategóriák:</h2>
               <select className="shadow appearance-none border rounded w-10 mt-3 py-2 px-3 text-gray-700 leading-tight">
-                 <option selected></option>
-                 <option disabled>PayPal</option>
-                 <option disabled>Visa</option>
-                 <option disabled>Mastercard</option>
-                 <option disabled>Maestro</option>
+                 <option disabled selected></option>
+                 <option >PayPal</option>
+                 <option >Visa</option>
+                 <option >Mastercard</option>
+                 <option >Maestro</option>
                  <option>Utánvét</option>
               </select>
               {/* <Dropdown options={["PayPal", "Visa", "Mastercard", "Maestro", "Utánvét"]} optionLabel="optionLabel" className="bg-white" placeholder="Select a category" /> */}
@@ -61,6 +62,7 @@ function CartForm()  {
             </div>
           </aside>
           <ProductInfo />
+          {/* <CreditCard /> */}
         </div>
       </section>
     </main>

@@ -9,12 +9,14 @@ import axios from "axios";
 
 const LoginForm = () => {
 
+  let username;
+  let password;
   //Cannot read properties of undefined (reading 'username')
   const handleLogin = e => {
     e.preventDefault();
     const data = {
-      username: this.username,
-      password: this.password
+      username: username,
+      password: password
     }
 
     axios.post("login.php", data).then(res => {
@@ -28,10 +30,10 @@ const LoginForm = () => {
     <>
       <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">Bejelentkezés</div>
       <div className="mt-11 text-3xl font-semibold max-md:mt-10">Felhasználónév:</div>
-      <Input placeholder={"Felhasználónév"} change={e => this.username = e.target.value}  type={"text"} />
+      <Input placeholder={"Felhasználónév"} change={e => username = e.target.value}  type={"text"} />
       <div className="mt-7 text-3xl font-semibold">Jelszó:</div>
       {/* Password toggle */}
-      <Input placeholder={"Jelszó"} change={e => this.password = e.target.value} type={"password"} />
+      <Input placeholder={"Jelszó"} change={e => password = e.target.value} type={"password"} />
       <Button text={"Bejelentkezés"} click={handleLogin}/>
       {/* <p>
       {
@@ -64,7 +66,7 @@ const Footer = () => {
 
 function LoginPage() {
   return (
-    <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body min-h-screen leading-[100%]">
+    <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
       <Header />
       <LoginForm />
       <Footer />

@@ -749,6 +749,10 @@ li {
   min-height: 100vh;
 }
 
+.min-h-auto {
+  min-height: auto;
+}
+
 .min-w-screen {
  min-width: auto;
 }

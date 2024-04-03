@@ -10,7 +10,7 @@ import { Grid } from '@mui/material';
 const MainForm = () => {
     return (
         <>
-         <div className="flex flex-col min-h-mp items-center justify-center">
+         <div className="flex flex-col items-center justify-center">
             {/* <img loading="lazy" src={require('../images/carousel-p-1.png')} className="mt-7 rounded-full img" /> */}
             <MyCarousel />
             <section className="flex flex-col self-center px-5 mt-12  w-full max-w-[1457px] max-md:mt-10 max-md:max-w-full">
@@ -38,7 +38,7 @@ const MainForm = () => {
 
 function MainPage() {
   return (
-    <div className="flex flex-col items-center pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
+    <div className="flex flex-col items-center min-h-mp pb-12 h-max text-black whitespace-nowrap bg-body leading-[100%]">
       <Header />
       <MainForm />
     </div>

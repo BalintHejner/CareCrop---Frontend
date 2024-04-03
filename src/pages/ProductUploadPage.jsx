@@ -90,7 +90,7 @@ function ProductUploadPage() {
   const [category, setCategory] = useState('');
   const handleCategoryChange = (newCategory) => setCategory(newCategory);
   return (
-    <main className="flex flex-col min-h-screen items-center pb-2 bg-body">
+    <main className="flex flex-col min-h-mp items-center pb-2 bg-body">
       
       <Header2 />
       <div className="flex flex-wrap gap-5 justify-around">

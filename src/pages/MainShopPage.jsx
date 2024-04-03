@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Filter = () => {
-  const [value, setValue] = useState([0, 1000000]);
+  const [value, setValue] = useState([0, 1000]);
 
   const navigate = useNavigate();
   const path = (click) => {
@@ -31,7 +31,7 @@ const Filter = () => {
 
 
   return (
-    <div className="flex flex-col grow items-start max-w-input min-h-screen mg-filter w-full bg-brown max-md:mt-10">
+    <div className="flex flex-col grow items-start max-w-input min-h-mp mg-filter w-full bg-brown max-md:mt-10">
       <h1 className="self-stretch text-3xl mg-5 text-black">Szűrés:</h1>
       <hr className="border-black"/>
 
@@ -98,7 +98,7 @@ function MainShopPage() {
   return (
     <div className="flex flex-col pb-14 bg-body">
       <Header2/>  
-      <main className="self-center mt-5 w-full min-h-screen max-w-[1782px] max-md:mt-10 max-md:max-w-full">
+      <main className="self-center mt-5 w-full min-h-auto max-w-[1782px] max-md:mt-10 max-md:max-w-full">
       <Grid container spacing={3}>
         <Grid item xs={3}>
           <Filter/>
