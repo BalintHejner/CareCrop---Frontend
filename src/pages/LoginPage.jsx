@@ -11,7 +11,6 @@ const LoginForm = () => {
 
   let username;
   let password;
-  //Cannot read properties of undefined (reading 'username')
   const handleLogin = e => {
     e.preventDefault();
     const data = {

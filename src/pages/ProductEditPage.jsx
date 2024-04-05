@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../output.css";
 import Button2 from '../components/Button2';
+import Button from '../components/Button';
 import Header2 from '../components/HeaderOption2';
 import Input from '../components/Input';
 import { InputTextarea } from 'primereact/inputtextarea';
@@ -9,7 +10,7 @@ import { FileUpload } from 'primereact/fileupload';
 
 
 const Buttons = ({ label, onClick }) => (
-  <Button2 onClick={onClick} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
+  <Button2 click={onclick} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
 );
 
 
@@ -18,7 +19,7 @@ const EditSection = ({imageurl}) => (
     <div className="flex gap-5 md:flex-col md:gap-0">
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
         <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
-          <Grid container spacing={30} style={{marginLeft : "auto" , marginRight : "auto"}}>
+          <Grid container spacing={25} style={{marginLeft : "auto", marginRight : "auto"}}>
             <Grid item xs={6} sm={3}>
                 <Input type="text" placeholder="*Hírdetés címe" />
                 <FileUpload id="fileupload" itemTemplate={imageurl} name="fileupload" maxFileSize={1000000} mode='basic' url={'/api/upload'} multiple={false} accept="image/*" className='text-2xl w-360 px-3 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]' />
@@ -78,7 +79,7 @@ const EditSection = ({imageurl}) => (
           </Grid>
         </div>
         <div classname="flex flex-col items-center w-full max-md:mt-10 max-md:max-w-full">
-        <Buttons label="Hírdetés feladása" />
+        <Buttons label="Hírdetés módosítása" />
         <div className="mt-6 text-base italic text-black whitespace-nowrap">A *-gal megjelölt mezők kitöltése kötelező</div>
         </div>
       </div>
@@ -91,11 +92,12 @@ function ProductEditPage() {
     <main className="flex flex-col min-h-mp items-center pb-2 bg-body">
       
       <Header2 />
+      {/* TODO: Routing */}
       <div className="flex flex-wrap gap-5 justify-around">
-        <Buttons label="Új hírdetés"/>
-        <Buttons label="Profil módosítása"/>
-        <Buttons label="Visszajelzés" />
-        <Buttons label="Vissza az áruházba" />
+        <Buttons label="Új hírdetés" onClick={"/productupload"}/>
+        <Buttons label="Profil módosítása" onClick={"/useredit"}/>
+        <Buttons label="Visszajelzés" onClick={"/support"}/>
+        <Buttons label="Vissza az áruházba" onClick={"/shop"}/>
       </div>
       <EditSection />
      

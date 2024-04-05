@@ -1,31 +1,33 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import "../output.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
  
 export default function Header2() {
 
-  // const [value, setValue] = React.useState();
+    // let state;
+    // let username;
+    
+    // const componentDidMount = () => {
+    //     axios.get('username', config).then (response => {
+    //         this.setState({
+    //             username: response.data
+    //           })
+    //         }).catch(err => {
+    //             console.log(err);
+    //           })
+    //         }
+            
   const navigate = useNavigate()
+  const [selectedPage, setSelectedPage] = useState('');
+
+  const handlePageChange = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedPage(selectedValue);
+    navigate(selectedValue); // Navigate to the selected page
+  };
   
-  // React.useEffect(() => {
-  //   navigate('/shop');
-  // }, [value]);
-
-  //Cannot read properties of undefined (reading 'state')
-  // let state;
-  // let username;
-
-  // const componentDidMount = () => {
-  //   axios.get('username', config).then (response => {
-  //     this.setState({
-  //       username: response.data
-  //     })
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
-  // }
   
 
   return (
@@ -35,12 +37,12 @@ export default function Header2() {
         <img loading="lazy" src={require('../images/carecroplogo.png')}/>
       </Link>
       <div className="flex mt-1 mr-25r px-3 py-2 h-select bg-white rounded border-2 border-blue-400 border-solid max-md:flex-wrap max-md:max-w-full">
-          <select className="shadow appearance-none border rounded h-3 w-360  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <select value={selectedPage} onChange={handlePageChange} className="shadow appearance-none border rounded h-3 w-360  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <option className="mg-5 glass" value="" disabled selected>Válasszon árucsoportot</option>
             <hr className="mx-auto"/>
-            <option className="mg-5"  value="Termény">Termény</option>
+            <option className="mg-5"  value="/shop">Termény</option>
             <hr className="mx-auto"/>
-            <option className="mg-5"  value="Terményvédő szerek"  >Terményvédő szerek</option>
+            <option className="mg-5"  value="/comingsoon">Terményvédő szerek</option>
           </select>
         </div>
           <div className="flex gap-5 justify-between my-auto max-md:flex-wrap max-md:max-w-full">

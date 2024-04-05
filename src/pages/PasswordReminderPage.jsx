@@ -9,7 +9,7 @@ const EmailInput = () => {
   return (
     <Input
       type={"email"}
-      change={e => email = e.target.value}
+      change={e => emailAdd = e.target.value}
       placeholder={"Írja be az e-mail címét"}
     />
   );
@@ -18,12 +18,12 @@ const EmailInput = () => {
 
 function PasswordReminderPage() {
 
-  let email;
+  let emailAdd;
 
    const reminderHandler = e => {
     e.preventDefault();
     const data = {
-      email: email
+      email: emailAdd
     }
     axios.post('register.php', data).then(res => {
       console.log(res);
@@ -33,7 +33,7 @@ function PasswordReminderPage() {
   };
 
   return (
-    <section className="flex flex-col bg-body items-center pb-12 text-black min-h-screen leading-[100%]">
+    <section className="flex flex-col bg-body items-center pb-12 text-black min-h-mp leading-[100%]">
       <Header />
       <h1 className="mt-36 text-5xl font-bold max-md:mt-10 max-md:max-w-full max-md:text-4xl">
         Jelszóemlékeztető
