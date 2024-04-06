@@ -1,6 +1,3 @@
-04.06 délelőtt:
-- ProfilePage, OwnProfilePage design
-
 04.07 délelőtt:
 - Doing filter + password confimartion check + password rules + look for other carousel images (img1 and 3)
 
@@ -9,5 +6,6 @@
 
 + card implementation try
 + searchbar
++ username replacing loginMan on Header2
 
 04.10 este: Cleaning code, finishing what we can do.
