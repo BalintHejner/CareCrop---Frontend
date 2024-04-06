@@ -15,7 +15,7 @@ export default function Header() {
               </div>
             </div>
             <Link to={"/login"}>
-              <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />
+              <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-82" />
             </Link> 
           </div>
         </div>

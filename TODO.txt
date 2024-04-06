@@ -1,11 +1,13 @@
 04.06 délelőtt:
 - ProfilePage, OwnProfilePage design
 
-04.06 délután:
-- Responiveness fix + crad implementation try
-
 04.07 délelőtt:
-- Doing filter
+- Doing filter + password confimartion check + password rules + look for other carousel images (img1 and 3)
 
 04.07 délután:
-- Form checks, validation, finishing forms
+- Form checks, validation, finishing forms 
+
++ card implementation try
++ searchbar
+
+04.10 este: Cleaning code, finishing what we can do.

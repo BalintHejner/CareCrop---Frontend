@@ -12,7 +12,6 @@ const FeedbackSection = () => {
     setSelectedOption(event.target.value);
   };
 
-  let type;
   let message;
   const handleSupport = e => {
     e.preventDefault();
@@ -23,7 +22,7 @@ const FeedbackSection = () => {
     console.log("Selected option:", selectedOption);
     axios.post("support.php", data).then(res => {
       console.log(res);
-    }).catch(
+    }).catch(  
       err => console.log(err)
     )
   };

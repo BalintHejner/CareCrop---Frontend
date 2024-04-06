@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "../output.css";
 import Button2 from '../components/Button2';
 import Header2 from '../components/HeaderOption2';

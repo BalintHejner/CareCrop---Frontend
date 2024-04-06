@@ -48,23 +48,23 @@ const handleRegister = e => {
       <div className="flex gap-5 md:flex-col md:gap-0">
         <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full mx-auto">
           <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">
-          <Grid container spacing={15} style={{marginLeft : "auto"}}>
-              <Grid item xs={12} sm={3}>
-                  <Input type="text" placeholder="Teljes név" onChange={e => name = e.target.value} />
+          <Grid container spacing={5} style={{ marginRight : "auto"}}>
+              <Grid item xs={12} sm={4} lg={4} xl={4}>
+                  <Input type="text" placeholder="Teljes név" change={e => name = e.target.value} />
                   <div>
-                    <Input type="text" placeholder="Felhasználónév" onChange={e => username = e.target.value} />
+                    <Input type="text" placeholder="Felhasználónév" change={e => username = e.target.value} />
                   </div>
               </Grid> 
-              <Grid item xs={12} sm={3}>
-                  <Input type={"email"} onChange={e => email = e.target.value} placeholder="E-mail cím" /> 
+              <Grid item xs={12} sm={4} lg={4} xl={4}>
+                  <Input type={"email"} change={e => email = e.target.value} placeholder="E-mail cím" /> 
                   <div>
-                    <Input type={"tel"} onChange={e => phone = e.target.value} pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám (Formátum: 06-30-123-4567)"   />
+                    <Input type={"tel"} change={e => phone = e.target.value} pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám (Formátum: 06-30-123-4567)"   />
                   </div>
               </Grid> 
-              <Grid item xs={12} sm={3}>
-                <Input type={"password"} onChange={e => password = e.target.value} placeholder="Jelszó"  />
+              <Grid item xs={12} sm={4} lg={4} xl={4}>
+                <Input type={"password"} change={e => password = e.target.value} placeholder="Jelszó"  />
                 <div>
-                    <Input type={"password"} onChange={e => confirmedPassword = e.target.value} placeholder="Jelszó megerősítése"/>
+                    <Input type={"password"} change={e => confirmedPassword = e.target.value} placeholder="Jelszó megerősítése"/>
                 </div>
   
               </Grid>
