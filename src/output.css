@@ -618,6 +618,11 @@ li {
   width: 100px;
 }
 
+.icon {
+  height: 50px;
+  width: 50px;
+}
+
 .sitecarecroplogo {
   height: 248px;
   margin: auto;
@@ -1045,6 +1050,11 @@ li {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-ee {
+  background-image: url("./images/bg-ee.png");
+  background-size: 150vh;
 }
 
 .px-16 {

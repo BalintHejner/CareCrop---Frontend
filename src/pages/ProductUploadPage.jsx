@@ -8,8 +8,8 @@ import { FileUpload } from 'primereact/fileupload';
 import { Grid } from '@mui/material';
 
 
-const Buttons = ({ label, onClick }) => (
-  <Button2 onClick={onClick} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
+const Buttons = ({ label, onClicked }) => (
+  <Button2 click={onClicked} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
 );
 
 
@@ -93,11 +93,12 @@ function ProductUploadPage() {
     <main className="flex flex-col min-h-mp items-center pb-2 bg-body">
       
       <Header2 />
+            {/* TODO: Routing */}
       <div className="flex flex-wrap gap-5 justify-around">
-        <Buttons label="Új hírdetés" onClick={() => handleCategoryChange('Új hírdetés')} />
-        <Buttons label="Profil módosítása" onClick={() => handleCategoryChange('Profil módosítása')} />
-        <Buttons label="Visszajelzés" onClick={() => handleCategoryChange('Visszajelzés')} />
-        <Buttons label="Vissza az áruházba" onClick={() => handleCategoryChange('Webshop')} />
+        <Buttons label="Új hírdetés" onClicked={"/productupload"}/>
+        <Buttons label="Profil módosítása" onClicked={"/useredit"}/>
+        <Buttons label="Visszajelzés" onClicked={"/support"}/>
+        <Buttons label="Vissza az áruházba" onClicked={"/shop"}/>
       </div>
       <UploadSection />
      

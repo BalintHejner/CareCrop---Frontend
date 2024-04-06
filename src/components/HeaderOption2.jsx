@@ -25,7 +25,7 @@ export default function Header2() {
   const handlePageChange = (event) => {
     const selectedValue = event.target.value;
     setSelectedPage(selectedValue);
-    navigate(selectedValue); // Navigate to the selected page
+    navigate(selectedValue);
   };
   
   
@@ -56,8 +56,7 @@ export default function Header2() {
             <Link to={"/cart"}>
               <img loading="lazy" src={require('../images/shopping-cart.png')} className="aspect-square w-[82px]"/>
             </Link>
-
-            {/* <span>
+          {/* <span>
               {
                 state.username ? (
                   <Link to ={"/profile"}>
@@ -70,6 +69,7 @@ export default function Header2() {
                 )
               }
             </span> */}
+  
 
             <Link to ={"/login"}>
               <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-[82px]" />

@@ -15,6 +15,10 @@ import ComingSoonPage from './pages/ComingSoonPage';
 import InformationChangePage from './pages/InformationChangePage';
 import ThankYouPage from './pages/ThankYouPage';
 import MainShopPage from './pages/MainShopPage';
+import { Protected } from './hooks/Protected';
+import ProfilePage from './pages/ProfilePage';
+import OwnProfilePage from './pages/OwnProfilePage';
+import EasterEggPage from './pages/EasterEggPage';
 import axios from 'axios';
 
 export default function App() {
@@ -34,13 +38,16 @@ export default function App() {
         <Route path='/useredit' element={<InformationChangePage/>}/>
         <Route path='/thankyou' element={<ThankYouPage/>}/>
         <Route path='/shop' element={<MainShopPage/>}/>
+        <Route path='/userprofile' element={<ProfilePage/>}/>
+        <Route path='/ownprofile' element={<OwnProfilePage/>}/>
+        <Route path='/easteregg' element={<EasterEggPage/>}/>
         {/* <Route path='/shop' element={<Protected Component={MainShopPage}/>}/> */}
       </Routes>
     </BrowserRouter>
   )
 }
 
-axios.defaults.baseURL = 'http://localhost/carecrop/';
+axios.defaults.baseURL = 'http://87.229.85.121/';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

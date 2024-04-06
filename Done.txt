@@ -1,0 +1,25 @@
+CartPage 
+ComingSoonPage ✅
+EasterEggPage ✅
+InfomationChangePage
+LoginPage ✅
+MainPage ✅
+MainShopPage
+OwnProfilePage
+PasswordreminderPage
+ProductEditPage 
+ProductUploadPage 
+ProductViewPage
+ProfilePage
+RegisterPage ✅
+SupportPage ✅ 
+ThankYouPage ✅
+
+Button ✅
+Button2 ✅
+Card ✅
+Carousel ✅
+Header ✅
+HeaderOption2
+Input ✅
+Utils ✅

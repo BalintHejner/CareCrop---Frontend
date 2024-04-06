@@ -1,0 +1,11 @@
+04.06 délelőtt:
+- ProfilePage, OwnProfilePage design
+
+04.06 délután:
+- Responiveness fix + crad implementation try
+
+04.07 délelőtt:
+- Doing filter
+
+04.07 délután:
+- Form checks, validation, finishing forms

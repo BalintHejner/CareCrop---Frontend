@@ -9,8 +9,8 @@ import { Grid } from '@mui/material';
 import { FileUpload } from 'primereact/fileupload';
 
 
-const Buttons = ({ label, onClick }) => (
-  <Button2 click={onclick} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
+const Buttons = ({ label, onClicked }) => (
+  <Button2 click={onClicked} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
 );
 
 
@@ -94,10 +94,10 @@ function ProductEditPage() {
       <Header2 />
       {/* TODO: Routing */}
       <div className="flex flex-wrap gap-5 justify-around">
-        <Buttons label="Új hírdetés" onClick={"/productupload"}/>
-        <Buttons label="Profil módosítása" onClick={"/useredit"}/>
-        <Buttons label="Visszajelzés" onClick={"/support"}/>
-        <Buttons label="Vissza az áruházba" onClick={"/shop"}/>
+        <Buttons label="Új hírdetés" onClicked={"/productupload"}/>
+        <Buttons label="Profil módosítása" onClicked={"/useredit"}/>
+        <Buttons label="Visszajelzés" onClicked={"/support"}/>
+        <Buttons label="Vissza az áruházba" onClicked={"/shop"}/>
       </div>
       <EditSection />
      

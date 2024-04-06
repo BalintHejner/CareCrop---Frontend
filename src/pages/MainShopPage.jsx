@@ -72,7 +72,7 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 
   return (
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
-     <Grid container spacing={3} >
+     <Grid container spacing={2} >
       {/* Map over products */}
        <Grid item xs={3}>
         {/* Display product card */}
@@ -81,9 +81,9 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
        <Grid item xs={3}>
        <p className="text-3xl font-bold">{title = "SÁNDOR"}</p>
         <br/>
-        <p className="text-xl">Ár: {price}</p>
+        <p className="text-xl">Ár: {price} Ft</p>
         <br/>
-        <p className="text-xl">Mennyiség: {quantity}</p>
+        <p className="text-xl">Mennyiség: {quantity} kg</p>
         <br/>
         <p className="text-xl">Eladó: {seller}</p>
 
@@ -99,12 +99,13 @@ function MainShopPage() {
     <div className="flex flex-col pb-14 bg-body">
       <Header2/>  
       <main className="self-center mt-5 w-full min-h-auto max-w-[1782px] max-md:mt-10 max-md:max-w-full">
-      <Grid container spacing={3}>
+      <Grid container spacing={10}>
         <Grid item xs={3}>
           <Filter/>
         </Grid>
         <Grid item xs={9}>
         {/* Map over filtered products and display ProductCards */}
+          <ProductCard/>
           <ProductCard/>
           <br/>
         </Grid>
