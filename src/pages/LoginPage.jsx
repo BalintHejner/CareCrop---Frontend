@@ -5,45 +5,52 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { useCookies } from "react-cookie";
 
 const LoginForm = () => {
+  const [cookies, setCookie] = useCookies(["token"]); // Using cookies hook
 
   let username;
   let password;
-  const handleLogin = e => {
+
+  const handleLogin = async e => {
     e.preventDefault();
     const data = {
       username: username,
       password: password
-    }
+    };
 
-    axios.post("login.php", data).then(res => {
-      localStorage.setItem("token", res.data.token);
-    }).catch(
-      err => console.log(err)
-    )
+    try {
+      const response =  
+      axios.post("login.php", data, {withCredentials: true})
+      .then(res => {
+        // Storing the token in a cookie
+        setCookie("token", res.data.token, { path: "/" });
+      })
+      .catch(err => console.log(err));
+
+      const token = response.data.token;
+
+      setCookie("token", token, {
+        path: "/",
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24)
+      })
+    } catch (error) {
+      console.error('Hibás bejelentkezés:', error);
+    }
   };
 
   return (
     <>
       <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">Bejelentkezés</div>
       <div className="mt-11 text-3xl font-semibold max-md:mt-10">Felhasználónév:</div>
-      <Input placeholder={"Felhasználónév"} change={e => username = e.target.value}  type={"text"} />
+      <Input placeholder={"Felhasználónév"} change={e => (username = e.target.value)} type={"text"} />
       <div className="mt-7 text-3xl font-semibold">Jelszó:</div>
-      {/* Password toggle */}
-      <Input placeholder={"Jelszó"} change={e => password = e.target.value} type={"password"} />
-      <Button text={"Bejelentkezés"} click={handleLogin}/>
-      {/* <p>
-      {
-        error !== "" ?
-        <span className="text-red">{error}</span> :
-        <span className="text-blue">{msg}</span>
-      }
-     </p> */}
+      <Input placeholder={"Jelszó"} change={e => (password = e.target.value)} type={"password"} />
+      <Button text={"Bejelentkezés"} click={handleLogin} />
     </>
   );
-}
+};
 
 const Footer = () => {
   return (
@@ -53,15 +60,14 @@ const Footer = () => {
           <div className="text-4xl">Nincs még fiókja?</div>
           <Link to={"/register"} className="self-center mt-1 text-3xl italic font-extralight underline">Regisztráljon</Link>
         </div>
-      <div className="flex flex-col flex-1 px-5 my-auto">
+        <div className="flex flex-col flex-1 px-5 my-auto">
           <div className="text-4xl text-center">Elfelejtette jelszavát?</div>
-          <Link to={"/passwordreminder"} className="self-center mt-1 text-3xl italic font-extralight underline" >Jelszóemlékeztető</Link>
+          <Link to={"/passwordreminder"} className="self-center mt-1 text-3xl italic font-extralight underline">Jelszóemlékeztető</Link>
         </div>
       </div>
     </>
-  )
-}
-
+  );
+};
 
 function LoginPage() {
   return (
