@@ -274,8 +274,8 @@ li {
 }
 
 .carousel-image {
-  width: 700px;
-  height: 420px;
+  max-width: 700px;
+  max-height: 420px;
 }
 
 .adimg {
@@ -874,6 +874,10 @@ li {
   font-weight: 700;
 }
 
+.word-wrap { 
+ text-wrap: wrap;
+}
+
 .font-extralight {
   font-weight: 200;
 }
@@ -951,8 +955,8 @@ li {
     justify-content: center;
     align-items: center;
     width: 40%;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
     max-width: 100%;
@@ -967,9 +971,20 @@ li {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
+  .mg-card {
+    padding: 8px; 
+  }
+  .max-w-input {
+    width: 80%; 
+  }
+
   .flex {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .word-wrap {
+    text-wrap: wrap;
   }
 
   .gap-5 {
@@ -1006,13 +1021,30 @@ li {
 
 @media only screen and (max-width: 480px) {
   .carousel-image {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 75%;
+    max-height: 75%;
   }
 
   .btn-style {
-    font-size: 1.8rem;
-    border-radius: 6px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    max-width: 100%;
+    font-weight: bold;
+    color: black;
+    white-space: nowrap;
+    background-color: rgb(254 215 170);
+    border-radius: 0.75rem;
+    border: black solid 3px;
+    --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
   .px-6 {
@@ -1038,6 +1070,10 @@ li {
   .w-380 {
     width: 100%;
   }
+
+  .word-wrap {
+    text-wrap: wrap;
+  }
 }
 
 @media only screen and (max-width: 360px) {
@@ -1048,6 +1084,13 @@ li {
     border-width: 0;
     border-style: solid;
     border-color: #e5e7eb;
+  }
+
+  .mg-filter {
+    margin-top: 20px; /* Adjust filter margins for smaller screens */
+  }
+  .max-w-input {
+    width: 100%; /* Make input full width on smaller screens */
   }
 
   ::before,

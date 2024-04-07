@@ -7,15 +7,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Filter = () => {
-  const [value, setValue] = useState([0, 1000]);
 
-  const navigate = useNavigate();
-  const path = (click) => {
-    navigate(click);
-  }
-
-  const categories = [
-    { name: "Árpa", checked: false },
+  let categories = [
+    { name: "Árpa", checked: false }, 
     { name: "Borsó", checked: false },
     { name: "Búza", checked: false },
     { name: "Durum", checked: false },
@@ -27,8 +21,6 @@ const Filter = () => {
     { name: "Tritikálé", checked: false },
     { name: "Zab", checked: false },
   ];
-
-
 
   return (
     <div className="flex flex-col grow items-start max-w-input min-h-mp mg-filter w-full bg-brown max-md:mt-10">
@@ -68,6 +60,11 @@ const Filter = () => {
 
 const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 
+  const navigate = useNavigate();
+  const path = (click) => {
+    navigate(click);
+  }
+
   imgSrc = 'https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E';
 
   return (
@@ -95,15 +92,61 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 
 function MainShopPage() {
 
+  const [filters, setFilters] = useState({
+    priceRange: [0, 1000],
+    quantityRange: [0, 1000],
+    sellerName: ""
+  });
+
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [filterName]: value
+    }));
+  };
+
+  const products = [];
+
+  const filterProducts = () => {
+    const filteredProducts = products.filter(product => {
+      if (filters.categories.length > 0 && !filters.categories.includes(product.category)) {
+        return false;
+      }
+
+      // Filter by price range
+      if (product.price < filters.priceRange[0] || product.price > filters.priceRange[1]) {
+        return false;
+      }
+
+      // Filter by quantity range
+      if (product.quantity < filters.quantityRange[0] || product.quantity > filters.quantityRange[1]) {
+        return false;
+      }
+
+      // Filter by seller name (partial match)
+      if (filters.sellerName && !product.seller.toLowerCase().includes(filters.sellerName.toLowerCase())) {
+        return false;
+      }
+
+      return true;
+    });
+
+    return filteredProducts;
+  };
+
+  // Apply filtering
+  const filteredProducts = filterProducts();
+
+
   return (
     <div className="flex flex-col pb-14 bg-body">
       <Header2/>  
       <main className="self-center mt-5 w-full min-h-auto max-w-[1782px] max-md:mt-10 max-md:max-w-full">
-      <Grid container spacing={10}>
-        <Grid item xs={3}>
-          <Filter/>
+      <Grid container spacing={5}>
+        <Grid item xs={12} sm={2} md={3} lg={3} xl={5}>
+          <Filter filters={filters} onChange/>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={12} sm={10} md={9} lg={9} xl={7}>
         {/* Map over filtered products and display ProductCards */}
           <ProductCard/>
           <ProductCard/>

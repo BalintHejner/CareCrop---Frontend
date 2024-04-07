@@ -11,7 +11,7 @@ const MainForm = () => {
       <div className="flex flex-col items-center justify-center">
         <MyCarousel />
         <section className="flex flex-col self-center px-5 mt-12 w-full max-w-[1457px] max-md:mt-10 max-md:max-w-full">
-          <h2 className="text-center px-16 py-4 text-4xl italic font-extralight text-black max-md:max-w-full">
+          <h2 className="text-center px-16 py-4 mt-11 text-4xl italic font-extralight text-black max-md:max-w-full">
             Nekünk a termény a fontos
           </h2>
           <div className="justify-center mt-2">

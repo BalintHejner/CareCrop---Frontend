@@ -1,11 +1,10 @@
-04.07 délelőtt:
-- Doing filter + password confimartion check + password rules + look for other carousel images (img1 and 3)
-
 04.07 délután:
 - Form checks, validation, finishing forms 
 
 + card implementation try
 + searchbar
++ Doing filter (40% done)
++ password confimartion check (70% done)
 + username replacing loginMan on Header2
 
 04.10 este: Cleaning code, finishing what we can do.
