@@ -1,8 +1,5 @@
 + Form checks, validation, finishing forms 
 + card implementation try
-+ searchbar legyen?
 + Doing filter (40% done)
-+ password confimartion check (70% done)
-+ header switch (90% done)
 
 04.10 este: Cleaning code, finishing what we can do.
