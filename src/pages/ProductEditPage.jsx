@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import "../output.css";
 import Button2 from '../components/Button2';
-import Button from '../components/Button';
-import Header2 from '../components/HeaderOption2';
+import Header from '../components/Header';
 import Input from '../components/Input';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Grid } from '@mui/material';
@@ -91,7 +90,7 @@ function ProductEditPage() {
   return (
     <main className="flex flex-col min-h-mp items-center pb-2 bg-body">
       
-      <Header2 />
+      <Header />
       {/* TODO: Routing */}
       <div className="flex flex-wrap gap-5 justify-around">
         <Buttons label="Új hírdetés" onClicked={"/productupload"}/>

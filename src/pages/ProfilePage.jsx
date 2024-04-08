@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "../output.css";
 import Button2 from '../components/Button2';
-import Header2 from '../components/HeaderOption2';
 import { Grid } from '@mui/material';
+import Header from '../components/Header';
 
 
 const Buttons = ({ label, onClicked }) => (
@@ -71,7 +71,7 @@ const UserSection = () => (
 function ProfilePage() {
   return (
     <main className="flex flex-col min-h-mp items-center pb-2 bg-body">
-      <Header2 />
+      <Header />
       <div className="text-3xl font-bold mt-11">username fiókja</div>
       <div className="mb-4 flex flex-row flex-wrap gap-5 justify-around">
         <Buttons label="Új hírdetés" onClicked={"/productupload"}/>

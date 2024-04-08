@@ -1,6 +1,6 @@
 import * as React from "react";
 import "../output.css";
-import Header2 from "../components/HeaderOption2";
+import Header from "../components/Header";
 import { Checkbox, Grid } from "@mui/material";
 import Slider from '@mui/material/Slider';
 import { useState } from "react";
@@ -140,7 +140,7 @@ function MainShopPage() {
 
   return (
     <div className="flex flex-col pb-14 bg-body">
-      <Header2/>  
+      <Header/>  
       <main className="self-center mt-5 w-full min-h-auto max-w-[1782px] max-md:mt-10 max-md:max-w-full">
       <Grid container spacing={5}>
         <Grid item xs={12} sm={2} md={3} lg={3} xl={5}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "../output.css";
-import Header2 from '../components/HeaderOption2';
+import Header from '../components/Header';
 import Button2 from '../components/Button2';
 import { Grid } from '@mui/material';
 
@@ -14,7 +14,7 @@ function ProductPage({title, email, phoneNumber, deals, name, username, imgSrc, 
   
   return (
     <main className="flex flex-col min-h-screen bg-body" >
-      <Header2/>
+      <Header/>
       <div className="flex sm:flex-col sm:gap-0 mt-11" style={{marginLeft : "auto" , marginRight : "auto"}}>
 
       <Grid container spacing={5} style={{marginLeft : "auto" , marginRight : "auto"}}>

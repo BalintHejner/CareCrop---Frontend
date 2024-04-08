@@ -49,7 +49,7 @@ export default function App() {
 
 axios.defaults.baseURL = 'http://87.229.85.121/';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

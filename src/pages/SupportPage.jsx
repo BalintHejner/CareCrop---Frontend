@@ -1,8 +1,8 @@
 import React from "react";
 import "../output.css";
-import Header2 from "../components/HeaderOption2";
 import axios from "axios";
 import { InputTextarea } from 'primereact/inputtextarea';
+import Header from "../components/Header";
 
 const FeedbackSection = () => {
 
@@ -59,7 +59,7 @@ const FeedbackSection = () => {
 function SupportPage() {
   return (
     <div className="flex flex-col pb-12 min-h-mp bg-body leading-[100%]">
-        <Header2/>
+        <Header/>
         <FeedbackSection />
     </div>
   );
