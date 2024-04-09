@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import axios from 'axios';
+import "../output.css"
 
 
 const EmailInput = () => {
@@ -35,7 +36,7 @@ function PasswordReminderPage() {
   return (
     <section className="flex flex-col bg-body items-center pb-12 text-black min-h-mp leading-[100%]">
       <Header />
-      <h1 className="mt-36 text-5xl font-bold max-md:mt-10 max-md:max-w-full max-md:text-4xl">
+      <h1 className="text-5xl mt-20 font-bold max-md:max-w-full max-md:text-4xl">
         Jelszóemlékeztető
       </h1>
       <p className="mt-1 text-2xl italic w-400 mb-1 font-light leading-6 text-center">

@@ -18,11 +18,11 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
      <Grid container spacing={1.8} >
       {/* Map over products */}
-       <Grid item xs={3}>
+       <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
         {/* Display product card */}
         <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
        </Grid>
-       <Grid item xs={8}>
+       <Grid item xs={6} sm={6} md={6} lg={7.5} xl={7.5}>
        <p className="text-3xl font-bold">{title = "SÁNDOR"}</p>
         <br/>
         <p className="text-xl">Ár: {price} Ft</p>
@@ -31,7 +31,7 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
         <br/>
         <p className="text-xl">Eladó: {seller}</p>
        </Grid>
-       <Grid item xs={1}>
+       <Grid item xs={2} sm={2} md={2} lg={1} xl={1}>
        <div className="mt-11 flex flex-col icon my-auto items-center">
         <Link to={"/productedit"}>
           <img src={require("../images/pencil.png")} alt="Módosítás"/>
@@ -50,7 +50,7 @@ const UserSection = () => (
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
         <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
           <Grid container style={{marginLeft : "auto", marginRight : "auto"}}>
-            <Grid item xs={3} sm={3}>
+            <Grid item xs={8} sm={8} md={4} lg={3} xl={3}>
               <p className='text-2xl'>Teljes név:</p>
               <p className='text-2xl'>Kiss Pista Sanyi</p>
               <p className='mt-25 text-3xl underline'>Elérhetőségek:</p>
@@ -59,11 +59,9 @@ const UserSection = () => (
               <p className='text-2xl mt-1'>Telefonszám:</p>
               <p className='text-2xl'>06-30-642-3343</p>
             </Grid>
-            <Grid item xs={9} sm={9}>
+            <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
             <p className='text-3xl underline mb-1'>Feladott hírdetések:</p>
             <div className="items-center w-full max-md:mt-10 max-md:max-w-full">
-              <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
-              <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
               <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
               <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
             </div>
@@ -78,15 +76,26 @@ const UserSection = () => (
 
 function OwnProfilePage() {
   return (
-    <main className="flex flex-col min-h-mp items-center pb-2 bg-body">
+    <main className="flex flex-col min-h-lg items-center pb-2 bg-body">
       <Header />
       <div className="text-3xl font-bold mt-11">username fiókja</div>
-      <div className="mb-4 flex flex-row flex-wrap gap-5 justify-around">
-        <Buttons label="Új hírdetés" onClicked={"/productupload"}/>
-        <Buttons label="Profil módosítása" onClicked={"/useredit"}/>
-        <Buttons label="Visszajelzés" onClicked={"/support"}/>
-        <Buttons label="Vissza az áruházba" onClicked={"/shop"}/>
+      <div className="mb-4 flex gap-5 justify-around">
+      <Grid container spacing={1.8}>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Új hírdetés" onClicked={"/productupload"}/>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Profil módosítása" onClicked={"/useredit"}/>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Visszajelzés" onClicked={"/support"}/>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Vissza az áruházba" onClicked={"/shop"}/>
+        </Grid>
+      </Grid>
       </div>
+
       <UserSection />
      
     </main>

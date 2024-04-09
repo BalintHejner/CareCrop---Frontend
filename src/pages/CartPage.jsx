@@ -49,7 +49,7 @@ function CartForm()  {
               <h2 className="mt-7  text-upper tracking-[3.2px] md:max-w-full">Telefonszám:</h2>
               <Input placeholder={"Telefonszám"} type={"text"} />
               <h2 className="mt-7  text-upper tracking-[3.2px] md:max-w-full">Kategóriák:</h2>
-              <select className="shadow appearance-none border rounded w-10 mt-3 py-2 px-3 text-gray-700 leading-tight">
+              <select className="shadow appearance-none border rounded w-360 mt-3 py-2 px-3 text-gray-700 leading-tight">
                  <option disabled selected></option>
                  <option >PayPal</option>
                  <option >Visa</option>

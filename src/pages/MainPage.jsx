@@ -16,13 +16,13 @@ const MainForm = () => {
           </h2>
           <div className="justify-center mt-2">
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={4} lg={4} xl={4}>
+              <Grid item xs={12} sm={10} md={8} lg={4} xl={4}>
                 <Button2 click={"/register"} text={"Regisztráció"} className={"w-full btn-style"}/>
               </Grid>
-              <Grid item xs={12} sm={4} lg={4} xl={4}>
+              <Grid item xs={12} sm={10} md={8} lg={4} xl={4}>
                 <Button2 click={"/shop"} text={"Vásárlás"} className={"w-full btn-style"}/>
               </Grid>
-              <Grid item xs={12} sm={4} lg={4} xl={4}>
+              <Grid item xs={12} sm={10} md={8} lg={4} xl={4}>
                 <Button2 click={"/login"} text={"Bejelentkezés"} className={"w-full btn-style"}/>
               </Grid>
             </Grid>

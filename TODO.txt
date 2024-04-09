@@ -1,4 +1,13 @@
-+ Form checks, validation, finishing forms 
-+ Doing filter (40% done)
++ Rules for registration -> Kezdés: 8:00-8:30
++ Registration működés 
++ Fileupload
++ "username fiókja"
++ Axios check on every page
++ Doing filter (70% done)
++ Cart.
++ ProductViewPage, CartPage, MainShopPage, SupportPage responsiveness
++ Other Github issues
 
 04.10 este: Cleaning code, finishing what we can do.
+
++ Documentation static parts -> Lefekvés Max.: 1:00

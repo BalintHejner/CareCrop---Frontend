@@ -6,7 +6,7 @@ import Header from '../components/Header';
 
 
 const Buttons = ({ label, onClicked }) => (
-  <Button2 click={onClicked} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
+  <Button2 click={onClicked} className={"flex-row grow text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
 );
 
 const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
@@ -42,7 +42,7 @@ const UserSection = () => (
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
         <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
           <Grid container style={{marginLeft : "auto", marginRight : "auto"}}>
-            <Grid item xs={3} sm={3}>
+            <Grid item xs={8} sm={8} md={4} lg={3} xl={3}>
               <p className='text-2xl'>Teljes név:</p>
               <p className='text-2xl'>Molnár Ferenc Caramel</p>
               <p className='mt-25 text-3xl underline'>Elérhetőségek:</p>
@@ -51,14 +51,12 @@ const UserSection = () => (
               <p className='text-2xl mt-1'>Telefonszám:</p>
               <p className='text-2xl'>06-30-642-3343</p>
             </Grid>
-            <Grid item xs={9} sm={9}>
+            <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
             <p className='text-3xl underline mb-1'>Feladott hírdetések:</p>
             <div className="items-center w-full max-md:mt-10 max-md:max-w-full">
               <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
               <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
-              <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
-              <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
-            </div>
+              </div>
             </Grid>
           </Grid>
         </div>
@@ -70,14 +68,24 @@ const UserSection = () => (
 
 function ProfilePage() {
   return (
-    <main className="flex flex-col min-h-mp items-center pb-2 bg-body">
+    <main className="flex flex-col min-h-lg items-center pb-2 bg-body">
       <Header />
       <div className="text-3xl font-bold mt-11">username fiókja</div>
-      <div className="mb-4 flex flex-row flex-wrap gap-5 justify-around">
-        <Buttons label="Új hírdetés" onClicked={"/productupload"}/>
-        <Buttons label="Profil módosítása" onClicked={"/useredit"}/>
-        <Buttons label="Visszajelzés" onClicked={"/support"}/>
-        <Buttons label="Vissza az áruházba" onClicked={"/shop"}/>
+      <div className="mb-4 flex gap-5 justify-around">
+      <Grid container spacing={1.8}>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Új hírdetés" onClicked={"/productupload"}/>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Profil módosítása" onClicked={"/useredit"}/>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Visszajelzés" onClicked={"/support"}/>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+          <Buttons label="Vissza az áruházba" onClicked={"/shop"}/>
+        </Grid>
+      </Grid>
       </div>
       <UserSection />
      

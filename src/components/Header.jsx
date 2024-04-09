@@ -10,15 +10,11 @@ export default function Header() {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-      // Function to check if the user is logged in and fetch user data
       const checkLoggedIn = async () => {
           try {
-              // Make a request to your backend to check if the user is logged in
-              const response = await axios.get('/api/user');
+              const response = await axios.get('/users.php');
               if (response.data.loggedIn) {
-                  // If the user is logged in, set the loggedIn state to true
                   setLoggedIn(true);
-                  // Also, set the username state with the user's username
                   setUsername(response.data.username);
               }
           } catch (error) {
@@ -26,19 +22,16 @@ export default function Header() {
           }
       };
 
-      // Call the function to check login status when the component mounts
       checkLoggedIn();
   }, []);
 
   const handleLogout = async () => {
       try {
-          // Make a request to your backend to logout the user
-          await axios.post('/api/logout');
-          // Reset the loggedIn and username states
+          await axios.post('/users.php', { action: 'logout' });
           setLoggedIn(false);
           setUsername('');
       } catch (error) {
-          console.error('Error logging out:', error);
+          console.error('Hiba a kijelentkezésnél:', error);
       }
   };
 
@@ -57,7 +50,7 @@ export default function Header() {
           <Link to={"/"} className="carecroplogo">
             <img loading="lazy" src={require('../images/carecroplogo.png')} />
           </Link>
-          {loggedIn ? (  
+          {/* {loggedIn ? (  
             <div className="flex mt-1 mr-25r px-3 py-2 h-select bg-white rounded border-2 border-blue-400 border-solid max-md:flex-wrap max-md:max-w-full">
               <select value={selectedPage} onChange={handlePageChange} className="shadow appearance-none border rounded h-3 w-360  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 <option className="mg-5 glass" value="" disabled selected>Válasszon árucsoportot</option>
@@ -69,8 +62,16 @@ export default function Header() {
             </div>
           ) : (
             ""
-          )
-          }
+          )} */}
+          <div className="flex mt-1 py-2 w-360 h-select bg-white rounded border-2 border-blue-400 border-solid max-md:flex-wrap max-md:max-w-full">
+              <select value={selectedPage} onChange={handlePageChange} className="shadow appearance-none border w-360 rounded h-3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <option className="mg-5 glass" value="" disabled selected>Válasszon árucsoportot</option>
+                <hr className="mx-auto"/>
+                <option className="mg-5"  value="/shop">Termény</option>
+                <hr className="mx-auto"/>
+                <option className="mg-5"  value="/comingsoon">Terményvédő szerek</option>
+              </select>
+            </div>
           <div className="flex gap-5 justify-between my-auto max-md:flex-wrap max-md:max-w-full">
             {loggedIn ? (
                     <div className="flex items-center">

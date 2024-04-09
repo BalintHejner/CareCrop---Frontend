@@ -5,7 +5,6 @@ import { Checkbox, Grid } from "@mui/material";
 import Slider from '@mui/material/Slider';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
 import Button2 from "../components/Button2";
 
 const Filter = () => {

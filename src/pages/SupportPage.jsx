@@ -33,7 +33,7 @@ const FeedbackSection = () => {
 
     <div className="flex  flex-col  self-center items-center justify-center gap-5 pb-12 text-black whitespace-nowrap bg-body leading-[100%]">
     <img loading="lazy" src={require('../images/carecroplogo.png')} className="  sitecarecroplogo  " />
-    <div className="self-center text-4xl italic font-light leading-9 items-center text-black max-md:max-w-full">
+    <div className="word-wrap self-center text-4xl italic font-light leading-9 items-center text-black max-md:max-w-full">
       Visszajelzése van? Ossza meg velünk!
     </div>
     {/* TODO: Type kinyerése */}

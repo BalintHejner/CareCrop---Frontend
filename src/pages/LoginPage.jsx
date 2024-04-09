@@ -22,9 +22,8 @@ const LoginForm = () => {
 
     try {
       const response =  
-      axios.post("login.php", data, {withCredentials: true})
+      axios.post("login.php", data, {withCredentials: true}, )
       .then(res => {
-        // Storing the token in a cookie
         setCookie("token", res.data.token, { path: "/" });
       })
       .catch(err => console.log(err));

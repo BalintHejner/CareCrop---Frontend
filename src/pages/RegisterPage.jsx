@@ -109,20 +109,20 @@ return(
           {errorMessage && <p className='text-xl' style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage}</p>}
           {errorMessage2 && <p className='text-xl' style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage2}</p>}
           <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">
-          <Grid container spacing={5} style={{ marginRight : "auto"}}>
-              <Grid item xs={12} sm={4} lg={4} xl={4} className='grid-item'>
+          <Grid container spacing={7} style={{marginLeft: "auto"  ,marginRight : "auto"}}>
+              <Grid item xs={10} sm={8} md={6} lg={3.6} xl={4}>
                   <Input type="text" placeholder="Teljes név" change={handleNameChange} />
                   <div>
                     <Input type="text" placeholder="Felhasználónév" change={handleUsernameChange} />
                   </div>
               </Grid>
-              <Grid item xs={12} sm={4} lg={4} xl={4}>
+              <Grid item xs={10} sm={8} md={6} lg={3.6} xl={4}>
                   <Input type={"email"} change={handleEmailChange} placeholder="E-mail cím" />
                   <div>
                     <Input type={"tel"} change={handlePhoneChange} pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám (Formátum: 06-30-123-4567)"   />
                   </div>
               </Grid>
-              <Grid item xs={12} sm={4} lg={4} xl={4}>
+              <Grid item xs={10} sm={8} md={6} lg={3.6} xl={4}>
                 <Input type={"password"} name={"password"} change={handlePasswordChange} placeholder="Jelszó"  />
                 <div>
                     <Input type={"password"} name={"confirmedPassword"} change={handlePasswordChange} placeholder="Jelszó megerősítése"/>

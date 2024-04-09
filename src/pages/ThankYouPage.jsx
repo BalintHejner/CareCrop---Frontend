@@ -12,7 +12,7 @@ function ThankYouPage() {
                 <img className="sitecarecroplogo" loading="lazy" src={require('../images/carecroplogo.png')} />
             </div>
             <div>
-                <h1 className="text-center px-16 py-4 text-4xl italic font-extralight text-black max-md:max-w-full">
+                <h1 className="word-wrap text-center px-16 py-4 text-4xl italic font-extralight text-black max-md:max-w-full">
                     Köszönjük szépen, hogy vásárlásához igénybe vette szolgáltatásunkat!
                     <br />
                     További sok sikert kívánunk a tranzakció lebonyolításában!
@@ -23,15 +23,15 @@ function ThankYouPage() {
                 </h1>
                 </div>
                 <div className="flex flex-col items-center self-center ml-10 justify-center mt-2">
-                    <Grid container spacing={10}>
-                        <Grid item xs={6} sm={3.5}>
-                            <Button2 text="Vásárlás" click={"/shop"} className={"justify-center items-center px-16 py-4 mt-5 max-w-full text-3xl font-bold bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[361px] max-md:px-5 max-md:mt-10"}/>
+                    <Grid container spacing={5}>
+                        <Grid item xs={10} sm={9} md={3.5} lg={3.5} xl={3.5}>
+                            <Button2 text="Vásárlás" click={"/shop"} className={"justify-center items-center px-16 py-4 mt-1 max-w-full text-3xl font-bold bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[361px] max-md:px-5 max-md:mt-10"}/>
                         </Grid>
-                        <Grid item xs={6} sm={3.5}>
-                            <Button2 text="Főoldal" click={"/"} className={"justify-center items-center px-16 py-4 mt-5 max-w-full text-3xl font-bold bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[361px] max-md:px-5 max-md:mt-10"}/>
+                        <Grid item xs={10} sm={9} md={3.5} lg={3.5} xl={3.5}>
+                            <Button2 text="Főoldal" click={"/"} className={"justify-center items-center px-16 py-4 mt-1 max-w-full text-3xl font-bold bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[361px] max-md:px-5 max-md:mt-10"}/>
                         </Grid>
-                        <Grid item xs={6} sm={3.5}>
-                            <Button2 text="Visszajelzés" click={"/support"} className={"justify-center items-center px-16 py-4 mt-5 max-w-full text-3xl font-bold bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[361px] max-md:px-5 max-md:mt-10"}/>
+                        <Grid item xs={10} sm={9} md={3.5} lg={3.5} xl={3.5}>
+                            <Button2 text="Visszajelzés" click={"/support"} className={"justify-center items-center px-16 py-4 mt-1 max-w-full text-3xl font-bold bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[361px] max-md:px-5 max-md:mt-10"}/>
                         </Grid>
                     </Grid>
                 </div>

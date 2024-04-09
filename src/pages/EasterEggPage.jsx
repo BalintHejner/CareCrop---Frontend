@@ -1,6 +1,6 @@
 import "../output.css"
 
-export default function EasterEggPage() {
+function EasterEggPage() {
     return (
         <div className="min-h-mp bg-ee">
             <div className="flex flex-col items-center ">
@@ -11,3 +11,5 @@ export default function EasterEggPage() {
        
     );
   }
+
+export default EasterEggPage; 
