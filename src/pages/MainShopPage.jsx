@@ -5,8 +5,50 @@ import { Checkbox, Grid } from "@mui/material";
 import Slider from '@mui/material/Slider';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+import Button2 from "../components/Button2";
 
 const Filter = () => {
+
+  const [filters, setFilters] = useState({
+    priceRange: [0, 1000],
+    quantityRange: [0, 1000],
+    sellerName: ""
+  });
+
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [filterName]: value
+    }));
+  };
+
+  const filterProducts = () => {
+    const filteredProducts = products.filter(product => {
+      if (filters.categories.length > 0 && !filters.categories.includes(product.category)) {
+        return false;
+      }
+
+      // Filter by price range
+      if (product.price < filters.priceRange[0] || product.price > filters.priceRange[1]) {
+        return false;
+      }
+
+      // Filter by quantity range
+      if (product.quantity < filters.quantityRange[0] || product.quantity > filters.quantityRange[1]) {
+        return false;
+      }
+
+      // Filter by seller name (partial match)
+      if (filters.sellerName && !product.seller.toLowerCase().includes(filters.sellerName.toLowerCase())) {
+        return false;
+      }
+
+      return true;
+    });
+
+    return filteredProducts;
+  };
 
   let categories = [
     { name: "Árpa", checked: false }, 
@@ -41,12 +83,12 @@ const Filter = () => {
 
       <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Ár (HUF):</h3>
       <div className="flex flex-col items-center mg-filter">
-        <Slider value={value} onChange={(e) => setValue(e.value)} valueLabelDisplay="auto"/>
+        <Slider  valueLabelDisplay="auto"/>
       </div>
 
       <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Mennyiség (kg):</h3>
       <div className="flex flex-col items-center mg-filter">
-        <Slider value={value} onChange={(e) => setValue(e.value)} valueLabelDisplay="auto" className="mg-5"/>
+        <Slider  valueLabelDisplay="auto" className="mg-5"/>
       </div>
 
       <p className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Eladó:</p>
@@ -54,6 +96,7 @@ const Filter = () => {
         <input className="shadow appearance-none border mt-3 rounded w-20 h-input py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Eladó neve" />
       </div>
 
+      <Button2 text={"Szűrés"} className={"justify-center items-center w-225 px-16 py-4 mt-1 max-w-full text-3xl font-bold bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px] w-[361px] max-md:px-5 max-md:mt-10"}/>
     </div>
   );
 }
@@ -92,50 +135,8 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 
 function MainShopPage() {
 
-  const [filters, setFilters] = useState({
-    priceRange: [0, 1000],
-    quantityRange: [0, 1000],
-    sellerName: ""
-  });
-
-  const handleFilterChange = (filterName, value) => {
-    setFilters(prevFilters => ({
-      ...prevFilters,
-      [filterName]: value
-    }));
-  };
-
-  const products = [];
-
-  const filterProducts = () => {
-    const filteredProducts = products.filter(product => {
-      if (filters.categories.length > 0 && !filters.categories.includes(product.category)) {
-        return false;
-      }
-
-      // Filter by price range
-      if (product.price < filters.priceRange[0] || product.price > filters.priceRange[1]) {
-        return false;
-      }
-
-      // Filter by quantity range
-      if (product.quantity < filters.quantityRange[0] || product.quantity > filters.quantityRange[1]) {
-        return false;
-      }
-
-      // Filter by seller name (partial match)
-      if (filters.sellerName && !product.seller.toLowerCase().includes(filters.sellerName.toLowerCase())) {
-        return false;
-      }
-
-      return true;
-    });
-
-    return filteredProducts;
-  };
-
   // Apply filtering
-  const filteredProducts = filterProducts();
+  //const filteredProducts = filterProducts();
 
 
   return (
@@ -143,10 +144,10 @@ function MainShopPage() {
       <Header/>  
       <main className="self-center mt-5 w-full min-h-auto max-w-[1782px] max-md:mt-10 max-md:max-w-full">
       <Grid container spacing={5}>
-        <Grid item xs={12} sm={2} md={3} lg={3} xl={5}>
-          <Filter filters={filters} onChange/>
+        <Grid item xs={12} sm={2} md={3} lg={3} xl={3}>
+          <Filter />
         </Grid>
-        <Grid item xs={12} sm={10} md={9} lg={9} xl={7}>
+        <Grid item xs={12} sm={10} md={9} lg={9} xl={9}>
         {/* Map over filtered products and display ProductCards */}
           <ProductCard/>
           <ProductCard/>

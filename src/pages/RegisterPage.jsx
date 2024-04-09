@@ -94,15 +94,13 @@ const validatePassword = (password) => {
       } else {
         setErrorMessage("");
       }
+      if (password !== confirmedPassword) {
+        setErrorMessage2("A megadott jelszavak nem egyeznek.");
+      } else {
+        setErrorMessage2("");
+      }
     };
 
-const validatePasswordsMatch = (password) => {
-  if (password !== confirmedPassword) {
-    setErrorMessage2("A megadott jelszavak nem egyeznek.");
-  } else {
-    setErrorMessage2("");
-  }
-  };
 
 return(
   <section className="mt-11 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">

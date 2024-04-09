@@ -15,7 +15,6 @@ import ComingSoonPage from './pages/ComingSoonPage';
 import InformationChangePage from './pages/InformationChangePage';
 import ThankYouPage from './pages/ThankYouPage';
 import MainShopPage from './pages/MainShopPage';
-import { Protected } from './hooks/Protected';
 import ProfilePage from './pages/ProfilePage';
 import OwnProfilePage from './pages/OwnProfilePage';
 import EasterEggPage from './pages/EasterEggPage';
