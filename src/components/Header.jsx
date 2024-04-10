@@ -27,8 +27,9 @@ export default function Header() {
 
   const handleLogout = async () => {
       try {
-          await axios.post('/users.php', { action: 'logout' });
+          await axios.post('/manufacturers.php', { action: 'logout' });
           setLoggedIn(false);
+          localStorage.clear();
           setUsername('');
       } catch (error) {
           console.error('Hiba a kijelentkezésnél:', error);

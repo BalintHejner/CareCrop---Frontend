@@ -1,49 +1,46 @@
-describe("login", () => {
-  it("should login with valid credentials", async () => {
-    const { getByPlaceholderText, getByText } = render(<Login />);
+describe("LoginForm", () => {
+  it("should call handleLogin when form is submitted", () => {
+    const handleLogin = vi.fn();
+    render(<LoginForm handleLogin={handleLogin} />);
 
-    const usernameInput = getByPlaceholderText("Username");
-    const passwordInput = getByPlaceholderText("Password");
+    const submitButton = screen.getByText("Bejelentkezés");
+    userEvent.click(submitButton);
 
-    fireEvent.change(usernameInput, { target: { value: "testuser" } });
-    fireEvent.change(passwordInput, { target: { value: "testpassword" } });
-
-    const submitButton = getByText("Log In");
-    fireEvent.click(submitButton);
-
-    await waitFor(() =>
-      expect(getByText("Welcome testuser!")).toBeInTheDocument()
-    );
+    expect(handleLogin).toHaveBeenCalledTimes(1);
   });
 
-  it("should display error with invalid credentials", async () => {
-    const { getByPlaceholderText, getByText, queryByText } = render(<Login />);
+  it("should pass username and password to handleLogin", () => {
+    const handleLogin = vi.fn();
+    render(<LoginForm handleLogin={handleLogin} />);
 
-    const usernameInput = getByPlaceholderText("Username");
-    const passwordInput = getByPlaceholderText("Password");
+    const usernameInput = screen.getByPlaceholderText("Felhasználónév");
+    userEvent.type(usernameInput, "testuser");
 
-    fireEvent.change(usernameInput, { target: { value: "invaliduser" } });
-    fireEvent.change(passwordInput, { target: { value: "invalidpassword" } });
+    const passwordInput = screen.getByPlaceholderText("Jelszó");
+    userEvent.type(passwordInput, "testpass");
 
-    const submitButton = getByText("Log In");
-    fireEvent.click(submitButton);
+    const submitButton = screen.getByText("Bejelentkezés");
+    userEvent.click(submitButton);
 
-    await waitFor(() =>
-      expect(queryByText("Welcome testuser!")).not.toBeInTheDocument()
-    );
-    expect(getByText("Invalid username or password")).toBeInTheDocument();
+    expect(handleLogin).toHaveBeenCalledWith({
+      username: "testuser",
+      password: "testpass",
+    });
   });
 
-  it("should display required field errors with empty inputs", async () => {
-    const { getByPlaceholderText, getByText, queryByText } = render(<Login />);
-
-    const submitButton = getByText("Log In");
-    fireEvent.click(submitButton);
-
-    await waitFor(() =>
-      expect(queryByText("Welcome testuser!")).not.toBeInTheDocument()
+  it("should show error message on invalid credentials", async () => {
+    const mockLogin = vi.fn(() =>
+      Promise.reject("Invalid username or password")
     );
-    expect(getByText("Username is required")).toBeInTheDocument();
-    expect(getByText("Password is required")).toBeInTheDocument();
+
+    render(<LoginForm login={mockLogin} />);
+
+    const submitButton = screen.getByText("Bejelentkezés");
+    userEvent.click(submitButton);
+
+    const errorMessage = await screen.findByText(
+      "Invalid username or password"
+    );
+    expect(errorMessage).toBeInTheDocument();
   });
 });
