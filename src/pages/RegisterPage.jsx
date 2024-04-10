@@ -6,7 +6,6 @@ import Input from "../components/Input";
 import  Button from "../components/Button";
 import axios from 'axios';
 
-
 const UploadSection = () => {
 
 const [name, setName] = React.useState("");
@@ -33,7 +32,7 @@ const handleRegister = e => {
       password: password,
       email: email
     }
-    const otherData = {
+    const otherRegisterData = {
       name: name,
       password_confirm: confirmedPassword,
       phone: phone,
@@ -41,7 +40,7 @@ const handleRegister = e => {
     }
     axios.post(`register.php?username=${username}}&email=${email}}&password=${password}`, dataToBackend).then(res => {
       console.log(res);
-      localStorage.setItem('other', JSON.stringify(otherData));
+      localStorage.setItem('otherRegisterData', JSON.stringify(otherRegisterData));
     }).catch(
       err => console.log(err)
     )
@@ -109,11 +108,11 @@ const validatePassword = (passwordtest) => {
       } else {
         setErrorMessage("");
       }
-      // if (confirmedPassword == password) {
-      //   setErrorMessage2("A megadott jelszavak nem egyeznek.");
-      // } else { 
-      //   setErrorMessage2("");
-      // }
+      if (confirmedPassword == password) {
+        setErrorMessage2("A megadott jelszavak nem egyeznek.");
+      } else { 
+        setErrorMessage2("");
+      }
     };
 
 

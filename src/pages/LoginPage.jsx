@@ -5,11 +5,9 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useCookies } from "react-cookie";
+
 
 const LoginForm = () => {
-  const [cookies, setCookie] = useCookies(["token"]);
-
   let username;
   let password;
 
@@ -19,19 +17,11 @@ const LoginForm = () => {
       username: username,
       password: password
     };
-      const response = axios.post(`login.php?username=${username}&password=${password}`, data, {withCredentials: true}, )
-      .then(res => {
-        setCookie("token", res.data.token, { path: "/" });
-        localStorage.setItem("token", res.data.token)
+      const response = axios.get(`login.php?username=${username}&password=${password}`, data, {withCredentials: true}, )
+      .then(response => {
+        localStorage.setItem("token", response.data.token)
       })
       .catch(err => console.log(err));
-
-      const token = response.data.token;
-
-      setCookie("token", token, {
-        path: "/",
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24)
-      })
   };
 
   return (

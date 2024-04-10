@@ -12,7 +12,7 @@ function MainShopPage() {
     priceRange: [0, 1000],
     quantityRange: [0, 1000],
     sellerName: "",
-    categories: [], // Initialize categories filter
+    categories: [], 
   });
 
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -153,7 +153,7 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
             <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
           </Grid>
           <Grid item xs={3}>
-            <p className="text-3xl font-bold">{title = "SÁNDOR"}</p>
+            <p className="text-3xl font-bold">{title}</p>
             <br/>
             <p className="text-xl">Ár: {price} Ft</p>
             <br/>
