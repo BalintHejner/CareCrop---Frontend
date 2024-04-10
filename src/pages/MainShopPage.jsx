@@ -1,105 +1,168 @@
 import * as React from "react";
 import "../output.css";
-import Header2 from "../components/HeaderOption2";
+import Header from "../components/Header";
 import { Checkbox, Grid } from "@mui/material";
 import Slider from '@mui/material/Slider';
-import { useState } from "react";
-import Input from "../components/Input";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-const Filter = () => {
-  const [value, setValue] = useState([20, 50]);
+function MainShopPage() {
+  const [filters, setFilters] = useState({
+    priceRange: [0, 1000],
+    quantityRange: [0, 1000],
+    sellerName: "",
+    categories: [], 
+  });
 
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const categories = [
-    { name: "Árpa", checked: false },
-    { name: "Borsó", checked: false },
-    { name: "Búza", checked: false },
-    { name: "Durum", checked: false },
-    { name: "Kukorica", checked: false },
-    { name: "Napraforgó", checked: false },
-    { name: "Repce", checked: false },
-    { name: "Rozs", checked: false },
-    { name: "Szója", checked: false },
-    { name: "Tritikálé", checked: false },
-    { name: "Zab", checked: false },
-  ];
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [filterName]: value
+    }));
+  };
 
+  useEffect(() => {
+    filterProducts();
+  }, [filters]);
 
+  const filterProducts = async () => {
+    try {
+      const response = await axios.get("products.php", {
+        params: {
+          categories: filters.categories.map(category => category.name).join(','),
+          priceMin: filters.priceRange[0],
+          priceMax: filters.priceRange[1],
+          quantityMin: filters.quantityRange[0],
+          quantityMax: filters.quantityRange[1],
+          sellerName: filters.sellerName
+        }
+      });
+      setFilteredProducts(response.data);
+    } catch (error) {
+      console.error("A szűrés során hiba lépett fel: ", error);
+    }
+  };
 
   return (
-    <div className="flex flex-col grow items-start pt-2 pr-3 pb-10 pl-1 max-w-input mg-10 min-h-screen w-full bg-brown max-md:mt-10">
+    <div className="flex flex-col pb-14 bg-body">
+      <Header/>  
+      <main className="self-center mt-5 w-full max-w-[1782px] max-md:mt-10 max-md:max-w-full">
+        <Grid container spacing={5}>
+          <Grid item xs={12} sm={2} md={3} lg={3} xl={3}>
+            <Filter filters={filters} handleFilterChange={handleFilterChange} />
+          </Grid>
+          <Grid item xs={12} sm={10} md={9} lg={9} xl={9}>
+            {filteredProducts.map((product, index) => (
+              <ProductCard key={index} {...product} />
+            ))}
+            <br/>
+          </Grid>
+        </Grid>
+      </main>
+    </div>
+  );
+}
+
+
+const Filter = ({ filters, handleFilterChange }) => {
+  
+  const isChecked = false;
+  
+  const categories = [
+    { name: "Árpa", isChecked: false  }, 
+    { name: "Borsó", isChecked: false },
+    { name: "Búza", isChecked: false },
+    { name: "Durum", isChecked: false },
+    { name: "Kukorica", isChecked: false },
+    { name: "Napraforgó", isChecked: false },
+    { name: "Repce", isChecked: false },
+    { name: "Rozs", isChecked: false },
+    { name: "Szója", isChecked: false },
+    { name: "Tritikálé", isChecked: false },
+    { name: "Zab", isChecked: false },
+  ];
+
+  const handleCheckboxChange = (index) => {
+    const updatedCategories = [...filters.categories];
+    updatedCategories[index].isisChecked = !updatedCategories[index].isChecked;
+    handleFilterChange('categories', updatedCategories);
+  };
+
+  return (
+    <div className="flex flex-col grow items-start max-w-input min-h-screen mg-filter w-full bg-brown max-md:mt-10">
       <h1 className="self-stretch text-3xl mg-5 text-black">Szűrés:</h1>
       <hr className="border-black"/>
 
       <h3 className="self-stretch mt-8 text-2xl mg-5 text-black underline">
         Termények:
       </h3>
-      {categories.map(category => {
+      {categories.map((category, index) => {
         return (
-          <div key={category.key} className="flex ml-1 items-center">
-            <Checkbox inputId={category.key} name="category" value={category}/>
-            <label htmlFor={category.key}>{category.name}</label>
-        </div>
-        )
+          <div key={index} className="flex ml-1 items-center">
+            <Checkbox 
+              inputId={index.toString()} 
+              name="category" 
+              isChecked={category.isChecked} 
+              onChange={() => handleCheckboxChange(index)}
+            />
+            <label htmlFor={index.toString()}>{category.name}</label>
+          </div>
+        );
       })}
 
-      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Ár:</h3>
-      <Slider value={value} onChange={(e) => setValue(e.value)} className="mg-5" valueLabelDisplay="auto"/>
+      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Ár (HUF):</h3>
+      <div className="flex flex-col items-center mg-filter">
+        <Slider  
+          valueLabelDisplay="auto"
+          onChange={(event, value) => handleFilterChange('priceRange', value)}
+        />
+      </div>
 
-      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Mennyiség</h3>
-      <Slider value={value} onChange={(e) => setValue(e.value)} valueLabelDisplay="auto" className="mg-5"/>
+      <h3 className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Mennyiség (kg):</h3>
+      <div className="flex flex-col items-center mg-filter">
+        <Slider  
+          valueLabelDisplay="auto"
+          onChange={(event, value) => handleFilterChange('quantityRange', value)}
+        />
+      </div>
 
-      <p className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Eladó</p>
-      <Input placeholder="Eladó neve" className="bg-white"/>
-
+      <p className="self-stretch mt-2.5 text-2xl text-black underline mg-5">Eladó:</p>
+      <div className="flex flex-col items-center max-w-input mg-filter">
+        <input 
+          className="shadow appearance-none border mt-3 rounded w-20 h-input py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+          placeholder="Eladó neve" 
+          onChange={(event) => handleFilterChange('sellerName', event.target.value)}
+        />
+      </div>
     </div>
   );
-}
+};
 
 const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
-
-  imgSrc = 'https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E';
-
-  return (
-    <div className="px-6 py-1.5 bg-brown max-md:px-5 mg-10 max-h-135 max-md:max-w-full">
-     <Grid container spacing={3} >
-      {/* Map over products */}
-       <Grid item xs={3}>
-        {/* Display product card */}
-        <img src={imgSrc} alt={title} className="items-center h-135 w-135 rounded-xl "/>
-       </Grid>
-       <Grid item xs={3}>
-       <p>{title = "SÁNDOR"}</p>
-        <p>Ár: {price}</p>
-        <br/>
-        <p>Mennyiség: {quantity}</p>
-        <br/>
-        <p>Eladó: {seller}</p>
-
-       </Grid>
-     </Grid>
-    </div>
-  );
-}
-
-function MainShopPage() {
+  const navigate = useNavigate();
+  imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = "https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E";
 
   return (
-    <div className="flex flex-col pb-14 bg-body min-h-screen">
-      <Header2/>  
-      <main className="self-center mt-5 w-full max-w-[1782px] max-md:mt-10 max-md:max-w-full">
-      <Grid container spacing={3}>
-        <Grid item xs={3}>
-          <Filter/>
+    <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
+      <Link to="/product">
+        <Grid container spacing={2} >
+          <Grid item xs={3}>
+            <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
+          </Grid>
+          <Grid item xs={3}>
+            <p className="text-3xl font-bold">{title}</p>
+            <br/>
+            <p className="text-xl">Ár: {price} Ft</p>
+            <br/>
+            <p className="text-xl">Mennyiség: {quantity} kg</p>
+            <br/>
+            <p className="text-xl">Eladó: {seller}</p>
+          </Grid>
         </Grid>
-        <Grid item xs={9}>
-        {/* Map over filtered products and display ProductCards */}
-          <ProductCard/>
-          <br/>
-          <ProductCard/>
-        </Grid>
-      </Grid>
-      </main>
+      </Link>
     </div>
   );
 }

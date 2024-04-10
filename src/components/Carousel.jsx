@@ -24,12 +24,12 @@ export default function MyCarousel() {
     ]
 
     return(
-        <div className="flex flex-col items-center img my-carousel pb-12 h-max text-black whitespace-nowrap bg-body leading[100%]">
+        <div className="flex flex-col items-center carousel-image my-carousel pb-12 h-max text-black whitespace-nowrap bg-body leading[100%]">
             <Carousel showThumbs={false} showStatus={false} className="rounded-full" showIndicators={false} showArrows={false} infiniteLoop={true} autoPlay={true} interval={2000} stopOnHover={false} transitionTime={500}>
                  {
                     images.map((image, index) => (
                         <div key={index}>
-                            <img loading="lazy" src={image.url} className="img" />
+                            <img loading="lazy" src={image.url} className="carousel-image" />
                         </div>
                     ))
                 }

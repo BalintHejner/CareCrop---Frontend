@@ -3,7 +3,7 @@ import '../output.css';
 import { useNavigate } from "react-router-dom";
 
 
-function Button2({ text, className, click }) {
+export default function Button2({ text, className, click }) {
 
   const navigate = useNavigate()
   const path = () => {
@@ -19,4 +19,3 @@ function Button2({ text, className, click }) {
   );
 }
 
-export default Button2;

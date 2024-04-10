@@ -8,7 +8,10 @@ CareCrop - Frontend
 - npm i react-responsive-carousel
 - npm i react-cookie
 - npm install @mui/material @emotion/react @emotion/styled
-
+- npm i axios
+- npm i react-credit-cards-2
+- npm i payment
+ 
 # Commands after renaming master branch
 
 - git branch -m master program
