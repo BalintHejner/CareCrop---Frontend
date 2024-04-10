@@ -66,11 +66,14 @@ const UserSection = () => (
 );
 
 
-function ProfilePage() {
+function ProfilePage({username}) {
+
+  username = "Sándor";
+
   return (
     <main className="flex flex-col min-h-lg items-center pb-2 bg-body">
       <Header />
-      <div className="text-3xl font-bold mt-11">username fiókja</div>
+      <div className="text-3xl font-bold mt-11">{username} fiókja</div>
       <div className="mb-4 flex gap-5 justify-around">
       <Grid container spacing={1.8}>
         <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>

@@ -1,13 +1,15 @@
 + Rules for registration ✅
 + Registration működés ✅
 + Fileupload ✅
-+ "username fiókja"
-+ Doing filter (70% done)
++ "username fiókja" ✅
++ Doing filter ✅
 + Storing Cart in the frontend
 + ProductViewPage, CartPage, MainShopPage, SupportPage responsiveness
-+ Other Github issues 
-+ Axios check on every page
++ Other Github issues ✅ 
++ Axios check on every page 
+
 + Login and support page test
++ Cheked
 
 Commit after 3 tasks done and break.
 

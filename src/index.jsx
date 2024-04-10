@@ -30,7 +30,7 @@ export default function App() {
         <Route path='/passwordreminder' element={<PasswordReminderPage/>}/>
         <Route path='/support' element={<SupportPage />}/>
         <Route path='/cart' element={<CartPage/>}/>
-        <Route path='/productview' element={<ProductViewPage/>}/> 
+        <Route path='/product' element={<ProductViewPage/>}/> 
         <Route path='/productedit' element={<ProductEditPage/>}/>
         <Route path='/productupload' element={<ProductUploadPage/>}/>
         <Route path='/comingsoon' element={<ComingSoonPage/>}/>
