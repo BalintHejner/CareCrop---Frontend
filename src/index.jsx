@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
-import PasswordReminderPage from './pages/PasswordReminderPage';
 import SupportPage from './pages/SupportPage';
 import CartPage from './pages/CartPage';
 import ProductViewPage from './pages/ProductViewPage';
@@ -27,7 +26,6 @@ export default function App() {
         <Route path='/' element={<MainPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
-        <Route path='/passwordreminder' element={<PasswordReminderPage/>}/>
         <Route path='/support' element={<SupportPage />}/>
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='/product' element={<ProductViewPage/>}/> 
@@ -38,7 +36,7 @@ export default function App() {
         <Route path='/thankyou' element={<ThankYouPage/>}/>
         <Route path='/shop' element={<MainShopPage/>}/>
         <Route path='/userprofile' element={<ProfilePage/>}/>
-        <Route path='/ownprofile' element={<OwnProfilePage/>}/>
+        <Route path='/profile' element={<OwnProfilePage/>}/>
         <Route path='/easteregg' element={<EasterEggPage/>}/>
         {/* <Route path='/shop' element={<Protected Component={MainShopPage}/>}/> */}
       </Routes>

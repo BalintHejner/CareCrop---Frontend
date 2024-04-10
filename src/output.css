@@ -572,7 +572,6 @@ li {
 }
 
 
-
 .w-56 {
   width: 56rem;
 }
@@ -928,9 +927,36 @@ li {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.article-container {
+  width: 100%;
+  height: auto;
+  word-wrap: break-word;
+}
+
+.aside-container {
+  width: 40%;
+  height: auto;
+  word-wrap: break-word;
+}
+
+.line {
+  border-color: rgb(0 0 0);
+}
+
+h1, h2, p {
+  word-wrap: break-word;
+}
+
+
 @media only screen and (min-width: 768px) {
   .max-md\:mt-10 {
     margin-top: 30px;
+  }
+
+  .article-container {
+    width: 80%;
+    height: auto;
+    word-wrap: break-word;
   }
 
   .max-md\:max-w-full {
@@ -983,6 +1009,27 @@ li {
 
   .grow {
     flex-grow: 1;
+  }
+
+  .flex-col {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: left;
+  }
+
+  .up {
+    transform: none;
+  }
+
+  .line {
+    border-color: #BC9B7F;
   }
 
   .mg-card {
@@ -1039,6 +1086,23 @@ li {
     max-height: 75%;
   }
 
+    
+  .aside-container {
+    width: 10%;
+    height: auto;
+    word-wrap: break-word;
+  }
+
+  .line {
+    border-color: #BC9B7F;
+  }
+
+  .article-container {
+    width: 100%;
+    height: auto;
+    word-wrap: break-word;
+  }
+
   .text-4xl {
     font-size: 2.5rem; 
   }
@@ -1093,9 +1157,36 @@ li {
   .word-wrap {
     text-wrap: wrap;
   }
+
+  .article-container h1,
+  .article-container h2,
+  .article-container p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .up {
+    transform: none;
+  }
 }
 
 @media only screen and (max-width: 360px) {
+
+  .line {
+    border-color: #BC9B7F;
+    margin: 10px 0;
+  }
+
+  .up {
+    transform: none;
+  }
+
+  .article-container {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+    word-wrap: break-word;
+  }
   *,
   ::before,
   ::after {
@@ -1367,5 +1458,45 @@ li {
   .aspect-square {
     width: 40px;
     height: 40px; 
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .up {
+    transform: none;
+  }
+
+  .line {
+    border-color: #BC9B7F;
+    margin: 10px 0;
+  }
+
+  .article-container {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+    word-wrap: break-word;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .article-container {
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+    word-wrap: break-word;
+  }
+
+  .article-container h1,
+  .article-container h2,
+  .article-container p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .article-container {
+    width: 90%;
   }
 }

@@ -67,7 +67,10 @@ function MainShopPage() {
 }
 
 
-const Filter = ({ filters, isisChecked, handleFilterChange }) => {
+const Filter = ({ filters, handleFilterChange }) => {
+  
+  const isChecked = false;
+  
   const categories = [
     { name: "Árpa", isChecked: false  }, 
     { name: "Borsó", isChecked: false },
@@ -140,20 +143,13 @@ const Filter = ({ filters, isisChecked, handleFilterChange }) => {
 
 const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
   const navigate = useNavigate();
-
-  const path = (click) => {
-    navigate(click);
-  }
-
   imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = "https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E";
 
   return (
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
       <Link to="/product">
         <Grid container spacing={2} >
-          {/* Map over products */}
           <Grid item xs={3}>
-            {/* Display product card */}
             <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
           </Grid>
           <Grid item xs={3}>

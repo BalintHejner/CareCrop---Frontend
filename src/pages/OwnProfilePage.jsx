@@ -4,8 +4,6 @@ import Button2 from '../components/Button2';
 import Header from '../components/Header';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
 
 const Buttons = ({ label, onClicked }) => (
   <Button2 click={onClicked} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
@@ -14,6 +12,10 @@ const Buttons = ({ label, onClicked }) => (
 const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 
   imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = require("https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E");
+
+  const handleDelete = e => {
+    e.preventDefault();
+  }
 
   return (
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
@@ -37,7 +39,9 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
         <Link to={"/productedit"}>
           <img src={require("../images/pencil.png")} alt="Módosítás"/>
         </Link> 
-          <img src={require("../images/trash.png")} alt="Törlés"/>
+          <button onClick={handleDelete}>
+            <img src={require("../images/trash.png")} alt="Törlés"/>
+          </button>
        </div>
        </Grid>
      </Grid>

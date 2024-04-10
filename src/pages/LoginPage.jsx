@@ -22,6 +22,7 @@ const LoginForm = () => {
       const response = axios.post(`login.php?username=${username}&password=${password}`, data, {withCredentials: true}, )
       .then(res => {
         setCookie("token", res.data.token, { path: "/" });
+        localStorage.setItem("token", res.data.token)
       })
       .catch(err => console.log(err));
 
@@ -53,11 +54,7 @@ const Footer = () => {
           <div className="text-4xl">Nincs még fiókja?</div>
           <Link to={"/register"} className="self-center mt-1 text-3xl italic font-extralight underline">Regisztráljon</Link>
         </div>
-        <div className="flex flex-col flex-1 px-5 my-auto">
-          <div className="text-4xl text-center">Elfelejtette jelszavát?</div>
-          <Link to={"/passwordreminder"} className="self-center mt-1 text-3xl italic font-extralight underline">Jelszóemlékeztető</Link>
         </div>
-      </div>
     </>
   );
 };

@@ -29,7 +29,7 @@ const UploadSection = () => {
       name: name,
       phone: phone,
     }
-    axios.put(`register.php?username=${username}}&email=${email}}`, data).then(res => {
+    axios.put(`manufacturers.php?username=${username}}&email=${email}}`, data).then(res => {
       console.log(res);
       localStorage.setItem('other', JSON.stringify(otherData));
     }).catch(
