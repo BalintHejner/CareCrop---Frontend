@@ -20,7 +20,7 @@ const FeedbackSection = () => {
       message: message
     }
     console.log("Selected option:", selectedOption);
-    axios.post("support.php", data).then(res => {
+    axios.post(`support.php?message=${message}&type=${selectedOption.valueOf}`, data).then(res => {
       console.log(res);
     }).catch(  
       err => console.log(err)
@@ -41,13 +41,13 @@ const FeedbackSection = () => {
       <select onChange={handleOptionChange} value={selectedOption} className="shadow appearance-none border rounded w-56 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         <option className="mg-5 glass" value="" disabled selected>Visszajelzés típusa</option>
         <hr className="mx-auto"/>
-        <option className="mg-5" value="Vásárlási problémák">Vásárlási problémák</option>
+        <option className="mg-5" value="1">Vásárlási problémák</option>
         <hr className="mx-auto"/>
-        <option className="mg-5" value="Problémák az oldal működésével">Problémák az oldal működésével</option>
+        <option className="mg-5" value="2">Problémák az oldal működésével</option>
         <hr className="mx-auto"/>
-        <option className="mg-5" value="Vásárlási élmény javítása">Vásárlási élmény javítása</option>
+        <option className="mg-5" value="3">Vásárlási élmény javítása</option>
         <hr className="mx-auto"/>
-        <option className="mg-5" value="Egyéb">Egyéb</option>
+        <option className="mg-5" value="4">Egyéb</option>
       </select>
       <button onClick={handleSupport} className="text-2xl self-end w-btn2 px-16 py-4 mt-2 max-w-full font-bold text-black bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]">Küldés</button>
     </div>

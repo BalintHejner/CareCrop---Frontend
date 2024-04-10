@@ -9,45 +9,45 @@ import Button2 from "../components/Button2";
 
 const Filter = () => {
 
-  const [filters, setFilters] = useState({
-    priceRange: [0, 1000],
-    quantityRange: [0, 1000],
-    sellerName: ""
-  });
+  // const [filters, setFilters] = useState({
+  //   priceRange: [0, 1000],
+  //   quantityRange: [0, 1000],
+  //   sellerName: ""
+  // });
 
-  const handleFilterChange = (filterName, value) => {
-    setFilters(prevFilters => ({
-      ...prevFilters,
-      [filterName]: value
-    }));
-  };
+  // const handleFilterChange = (filterName, value) => {
+  //   setFilters(prevFilters => ({
+  //     ...prevFilters,
+  //     [filterName]: value
+  //   }));
+  // };
 
-  const filterProducts = () => {
-    const filteredProducts = products.filter(product => {
-      if (filters.categories.length > 0 && !filters.categories.includes(product.category)) {
-        return false;
-      }
+  // const filterProducts = () => {
+  //   const filteredProducts = products.filter(product => {
+  //     if (filters.categories.length > 0 && !filters.categories.includes(product.category)) {
+  //       return false;
+  //     }
 
-      // Filter by price range
-      if (product.price < filters.priceRange[0] || product.price > filters.priceRange[1]) {
-        return false;
-      }
+  //     // Filter by price range
+  //     if (product.price < filters.priceRange[0] || product.price > filters.priceRange[1]) {
+  //       return false;
+  //     }
 
-      // Filter by quantity range
-      if (product.quantity < filters.quantityRange[0] || product.quantity > filters.quantityRange[1]) {
-        return false;
-      }
+  //     // Filter by quantity range
+  //     if (product.quantity < filters.quantityRange[0] || product.quantity > filters.quantityRange[1]) {
+  //       return false;
+  //     }
 
-      // Filter by seller name (partial match)
-      if (filters.sellerName && !product.seller.toLowerCase().includes(filters.sellerName.toLowerCase())) {
-        return false;
-      }
+  //     // Filter by seller name (partial match)
+  //     if (filters.sellerName && !product.seller.toLowerCase().includes(filters.sellerName.toLowerCase())) {
+  //       return false;
+  //     }
 
-      return true;
-    });
+  //     return true;
+  //   });
 
-    return filteredProducts;
-  };
+  //   return filteredProducts;
+  // };
 
   let categories = [
     { name: "Árpa", checked: false }, 
@@ -64,7 +64,7 @@ const Filter = () => {
   ];
 
   return (
-    <div className="flex flex-col grow items-start max-w-input min-h-mp mg-filter w-full bg-brown max-md:mt-10">
+    <div className="flex flex-col grow items-start max-w-input min-h-screen mg-filter w-full bg-brown max-md:mt-10">
       <h1 className="self-stretch text-3xl mg-5 text-black">Szűrés:</h1>
       <hr className="border-black"/>
 
@@ -141,7 +141,7 @@ function MainShopPage() {
   return (
     <div className="flex flex-col pb-14 bg-body">
       <Header/>  
-      <main className="self-center mt-5 w-full min-h-auto max-w-[1782px] max-md:mt-10 max-md:max-w-full">
+      <main className="self-center mt-5 w-full min-h-lg max-w-[1782px] max-md:mt-10 max-md:max-w-full">
       <Grid container spacing={5}>
         <Grid item xs={12} sm={2} md={3} lg={3} xl={3}>
           <Filter />

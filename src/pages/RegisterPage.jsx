@@ -17,6 +17,9 @@ const [password, setPassword] = React.useState("");
 const [confirmedPassword, setConfirmedPassword] = React.useState("");
 const [errorMessage, setErrorMessage] = React.useState("");
 const [errorMessage2, setErrorMessage2] = React.useState("");
+const [usernameError, setUsernameError] = React.useState("");
+const [emailError, setEmailError] = React.useState("");
+const [phoneError, setPhoneError] = React.useState("");
 let newDate = new Date();
 let date = newDate.getDate();
 let month = newDate.getMonth() + 1;
@@ -38,7 +41,7 @@ const handleRegister = e => {
       registered_at: `${year}-${month}-${date}`
     }
     console.log(dataToBackend);
-    axios.post('register.php', dataToBackend).then(res => {
+    axios.post(`register.php?username=${username}}&email=${email}}&password=${password}`, dataToBackend).then(res => {
       console.log(res);
       localStorage.setItem('other', JSON.stringify(otherData));
     }).catch(
@@ -54,12 +57,28 @@ const handleNameChange = e => {
  const handleEmailChange = e => {
   const newEmail = e.target.value;
   setEmail(newEmail);
- }
 
- const handlePhoneChange = e => {
+  // Email validation
+  const emailPattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/; // Regular expression to ensure characters before and after '@'
+  if (!emailPattern.test(newEmail)) {
+    setEmailError('Az email-cím nem megfelelő formátumú!');
+  } else {
+    setEmailError('');
+  }
+};
+
+
+const handlePhoneChange = e => {
   const newPhone = e.target.value;
   setPhone(newPhone);
- }
+  const phonePattern = /^06-\d{2}-\d{3}-\d{4}$/;
+  if (!phonePattern.test(newPhone)) {
+    setPhoneError('A telefonszám formátumánnak az alábbival kell megegyeznie: 06-XX-XXX-XXXX');
+  } else {
+    setPhoneError('');
+  }
+};
+
 
  const handleUsernameChange = e => {
   const newUsername = e.target.value;
@@ -70,7 +89,6 @@ const handlePasswordChange = e => {
   const newPassword = e.target.value;
   setPassword(newPassword);
   validatePassword(newPassword);
-  validatePasswordsMatch(newPassword, confirmedPassword);
   const name = e.target.name;
   const value = e.target.value;
   if (name === "password") {
@@ -80,25 +98,25 @@ const handlePasswordChange = e => {
   }
 }
 
-const validatePassword = (password) => {
+const validatePassword = (passwordtest) => {
       const minLength = 10;
-      const hasNumber = /\d/.test(password);
-      const hasUpperCase = /[A-Z]/.test(password);
-      const hasLowerCase = /[a-z]/.test(password);
-      const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+      const hasNumber = /\d/.test(passwordtest);
+      const hasUpperCase = /[A-Z]/.test(passwordtest);
+      const hasLowerCase = /[a-z]/.test(passwordtest);
+      const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(passwordtest);
 
-      if (password.length < minLength) {
+      if (passwordtest.length < minLength) {
         setErrorMessage(`A jelszónak minimum ${minLength} karakter hosszúnak kell lennie.`);
       } else if (!hasNumber || !hasUpperCase || !hasLowerCase || !hasSpecialChar) {
         setErrorMessage("A jelszónak tartalmaznia kell kis- és nagybetűt, számot és speciális karaktert.");
       } else {
         setErrorMessage("");
       }
-      if (password !== confirmedPassword) {
-        setErrorMessage2("A megadott jelszavak nem egyeznek.");
-      } else {
-        setErrorMessage2("");
-      }
+      // if (confirmedPassword == password) {
+      //   setErrorMessage2("A megadott jelszavak nem egyeznek.");
+      // } else { 
+      //   setErrorMessage2("");
+      // }
     };
 
 
@@ -106,9 +124,11 @@ return(
   <section className="mt-11 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
       <div className="flex gap-5 md:flex-col md:gap-0">
         <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full mx-auto">
-          {errorMessage && <p className='text-xl' style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage}</p>}
-          {errorMessage2 && <p className='text-xl' style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage2}</p>}
-          <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">
+        {phoneError && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{phoneError}</p>}
+          {emailError && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{emailError}</p>}
+          {errorMessage && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage}</p>}
+          {errorMessage2 && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage2}</p>}
+          <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">          
           <Grid container spacing={7} style={{marginLeft: "auto"  ,marginRight : "auto"}}>
               <Grid item xs={10} sm={8} md={6} lg={3.6} xl={4}>
                   <Input type="text" placeholder="Teljes név" change={handleNameChange} />

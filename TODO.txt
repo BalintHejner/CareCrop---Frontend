@@ -1,12 +1,15 @@
-+ Rules for registration -> Kezdés: 8:00-8:30
-+ Registration működés 
-+ Fileupload
++ Rules for registration ✅
++ Registration működés ✅
++ Fileupload ✅
 + "username fiókja"
-+ Axios check on every page
 + Doing filter (70% done)
-+ Cart.
++ Storing Cart in the frontend
 + ProductViewPage, CartPage, MainShopPage, SupportPage responsiveness
-+ Other Github issues
++ Other Github issues 
++ Axios check on every page
++ Login and support page test
+
+Commit after 3 tasks done and break.
 
 04.10 este: Cleaning code, finishing what we can do.
 

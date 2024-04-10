@@ -8,7 +8,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 
 const LoginForm = () => {
-  const [cookies, setCookie] = useCookies(["token"]); // Using cookies hook
+  const [cookies, setCookie] = useCookies(["token"]);
 
   let username;
   let password;
@@ -19,10 +19,7 @@ const LoginForm = () => {
       username: username,
       password: password
     };
-
-    try {
-      const response =  
-      axios.post("login.php", data, {withCredentials: true}, )
+      const response = axios.post(`login.php?username=${username}&password=${password}`, data, {withCredentials: true}, )
       .then(res => {
         setCookie("token", res.data.token, { path: "/" });
       })
@@ -34,9 +31,6 @@ const LoginForm = () => {
         path: "/",
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24)
       })
-    } catch (error) {
-      console.error('Hibás bejelentkezés:', error);
-    }
   };
 
   return (
