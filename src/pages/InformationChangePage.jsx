@@ -16,22 +16,27 @@ const UploadSection = () => {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
+  const [address, setAddress] = React.useState("");
+  const [banking, setBanking] = React.useState("");
   const [emailError, setEmailError] = React.useState("");
   const [phoneError, setPhoneError] = React.useState("");
+  const [bankingError, setBankingError] = React.useState("");
 
   const handleRegister = e => {
     e.preventDefault();
     const data = {
-      username: username,
-      email: email
+      name: name,
+      address: address,
+      phone: phone,
+      banking: banking,
     }
     const otherData = {
-      name: name,
-      phone: phone,
+      username: username,
+      email: email,
     }
-    axios.put(`manufacturers.php?username=${username}}&email=${email}}`, data).then(res => {
+    axios.post(`manufacturers.php?name=${name}&address=${address}&phone=${phone}&banking=${banking}`, data).then(res => {
       console.log(res);
-      localStorage.setItem('other', JSON.stringify(otherData));
+      localStorage.setItem("otherChangeData", JSON.stringify(otherData));
     }).catch(
       err => console.log(err)
     )
@@ -51,8 +56,30 @@ const handleNameChange = e => {
   } else {
     setEmailError('');
   }
-};
+}
 
+const handleAddressChange = e => {
+  const newAddress = e.target.value;
+  setAddress(newAddress);
+ }
+
+const bankingValidation = e => {
+  const length = 24;
+  const bankingPattern = /\d{8}-\d{8}-\d{8}$/;
+  if (banking.length !== length || banking.length > length) {
+    setBankingError(`A bankszámlaszám száma ${length} karakter hosszú legyen!`);
+  } else if (!bankingPattern.test(banking)) {
+    setBankingError('A bankszámlaszám formátumánnak az alábbival kell megegyeznie: XXXXXXXX-XXXXXXXX-XXXXXXXX');
+  } else {
+    setBankingError('');
+  }
+}
+
+ const handleBankingChange = e => {
+  bankingValidation(e);
+  const newBanking = e.target.value;
+  setBanking(newBanking);
+ }
 
 const handlePhoneChange = e => {
   const newPhone = e.target.value;
@@ -78,15 +105,22 @@ const handlePhoneChange = e => {
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
         {phoneError && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{phoneError}</p>}
         {emailError && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{emailError}</p>}
+        {bankingError && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{bankingError}</p>}
         <div className="flex flex-col grow mt-11 mr-50 items-center max-md:mt-10 max-md:max-w-full">
         <Grid container spacing={5} style={{ marginLeft: "auto", marginRight : "auto"}}>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
                 <Input type="text" change={handleNameChange} placeholder="Teljes név"  />
                 <div>
                   <Input type="text" change={handleUsernameChange} placeholder="Felhasználónév" />
                 </div>
             </Grid> 
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
+                <Input type={"email"} change={handleAddressChange}  placeholder="Lakcím" /> 
+                <div>
+                  <Input type={"tel"} change={handleBankingChange} placeholder="Bankszámlaszám"   />
+                </div>
+            </Grid> 
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
                 <Input type={"email"} change={handleEmailChange}  placeholder="E-mail cím" /> 
                 <div>
                   <Input type={"tel"} change={handlePhoneChange} pattern={"[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"} placeholder="Telefonszám"   />
