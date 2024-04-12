@@ -31,6 +31,7 @@ function ProductPage() {
       price: price
     }
     localStorage.setItem(`currentCart-${title}`, JSON.stringify(data));
+    alert(`A terméket a kosárba helyeztük!`);
   }
 
   

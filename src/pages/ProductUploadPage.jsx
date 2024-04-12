@@ -4,7 +4,6 @@ import Button2 from '../components/Button2';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { FileUpload } from 'primereact/fileupload';
 import { Grid } from '@mui/material';
 
 
@@ -72,7 +71,6 @@ const UploadSection = () => {
       price: price,
       description: description
     }
-    // http://127.0.0.1:8000/products.php?season=nyár&name=Búza&quality=kiváló&price=1000
     axios.post(`products.php?season=${season}&name=${crop}&quality=${quality}&price=${price}`, dataToBackend).then(res => {
       console.log(res);
       localStorage.setItem('otherProductData', JSON.stringify(otherProductData));
@@ -103,18 +101,7 @@ const UploadSection = () => {
                       <hr className="mx-auto"/>
                       <option className="mg-5" value="Búza" >Tél</option>
                     </select>
-                  </div>
-
-                  <FileUpload 
-                  id="fileupload" 
-                  name="fileupload" 
-                  maxFileSize={1000000} 
-                  mode='basic' 
-                  url={'/api/upload'}
-                  multiple={false} 
-                  accept="image/*" 
-                  className='text-2xl w-360 px-3 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]' 
-                />            
+                  </div>      
               </Grid> 
               <Grid item xs={8} sm={6} md={6} lg={4} xl={4}>
               <div className="flex flex-col mt-1 bg-white  rounded border border-solid shadow-sm border-zinc-300">

@@ -65,6 +65,14 @@ export default function Header() {
             ""
           )}
           <div className="flex gap-5 justify-between my-auto max-md:flex-wrap max-md:max-w-full">
+          {loggedIn ? (
+            <Link to={"/cart"}>
+              <img loading="lazy" src={require('../images/shopping-cart.png')} className="aspect-square w-[82px]"/>
+            </Link>
+                ) : (
+                  <img loading="lazy" src={require('../images/shopping-cart.png')} className="aspect-square w-[82px]"/>
+                )}
+         
             {loggedIn ? (
                     <div className="flex items-center">
                         <span>{username}</span>
