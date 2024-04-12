@@ -443,6 +443,10 @@ li {
   margin-left: 10rem ;
 }
 
+.ml-23 {
+  margin-left: 2.3rem ;
+}
+
 .min-h-screen {
   min-height: 130vh;
 }
@@ -911,6 +915,10 @@ li {
 
 .text-red {
   color: rgb(255, 0, 0);
+}
+
+.text-gold {
+  color: #F5DEB3
 }
 
 .text-blue{

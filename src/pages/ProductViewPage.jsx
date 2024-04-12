@@ -39,18 +39,18 @@ function ProductPage() {
   return (
     <main className="flex flex-col min-h-screen bg-body" >
       <Header/>
-      <div className="flex sm:flex-col sm:gap-0 mt-11" style={{marginLeft : "auto" , marginRight : "auto"}}>
+      <div className="flex sm:flex-col sm:gap-0 mt-11" >
         <Grid container spacing={5}>
           <Grid item xs={12} sm={8} md={6} lg={4} xl={8}>
             <img loading="lazy" src={imgSrc} className='aspect-square adimg ml-4 mg-5' />  
             <div className="flex ml-4 flex-col grow items-center px-5 text-3xl font-bold leading-8 text-white sm:mt-10">
             <div className="self-stretch mt-14 leading-8 sm:mt-10 text-white" >
-              {username} <br />
+              Felhasználó: {username} <br />
               {name} <br />
               Email: {email} <br />
               Telefonszám: {phone}
               <Button2 className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"} click={"/userprofile"} text={"Profil megtekintése"} />
-              <button className="text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]" onClick={handlePurchase}>Kosárba helyezés</button> 
+              <button className="ml-23 text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]" onClick={handlePurchase}>Kosárba helyezés</button> 
             </div>
           </div>
           </Grid>

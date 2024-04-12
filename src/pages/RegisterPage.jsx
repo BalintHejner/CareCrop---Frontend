@@ -117,7 +117,7 @@ const validatePassword = (passwordtest) => {
 
 
 return(
-  <section className="mt-11 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
+  <section className="mt-11 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]" >
       <div className="flex gap-5 md:flex-col md:gap-0">
         <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full mx-auto">
           {phoneError && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{phoneError}</p>}
@@ -125,7 +125,7 @@ return(
           {errorMessage && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage}</p>}
           {errorMessage2 && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage2}</p>}
           <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">          
-          <Grid container spacing={7}>
+          <Grid container spacing={7} style={{marginLeft: 'auto', marginRight: 'auto'}}>
               <Grid item xs={10} sm={8} md={6} lg={3.6} xl={4}>
                   <Input type="text" placeholder="Teljes név" change={handleNameChange} />
                   <div>

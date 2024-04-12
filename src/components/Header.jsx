@@ -13,7 +13,7 @@ export default function Header() {
       const checkLoggedIn = async () => {
           try {
               const response = await axios.get('/users.php');
-              if (response.data.loggedIn) {
+              if (localStorage.getItem('token')) {
                   setLoggedIn(true);
                   setUsername(response.data.username);
               }
@@ -27,10 +27,11 @@ export default function Header() {
 
   const handleLogout = async () => {
       try {
-          await axios.post('/manufacturers.php', { action: 'logout' });
+          await axios.get('/logout.php');
           setLoggedIn(false);
           localStorage.clear();
           setUsername('');
+          navigate('/');
       } catch (error) {
           console.error('Hiba a kijelentkezésnél:', error);
       }
@@ -74,14 +75,19 @@ export default function Header() {
                 )}
          
             {loggedIn ? (
-                    <div className="flex items-center">
-                        <span>{username}</span>
-                        <button onClick={handleLogout}>Logout</button>
+                    <div className="flex  items-center">
+                        <button onClick={handleLogout}>
+                          <img loading="lazy" src={require('../images/logout.png')} className="aspect-square w-82" alt="Profile" />
+                        </button>
+                        <Link to={"/profile"} className="flex text-gold items-center">
+                          {username}
+                        </Link>
                     </div>
+                    
                 ) : (
                     <Link to={"/login"}>
                         <img loading="lazy" src={require('../images/loginMan.png')} className="aspect-square w-82" alt="Login" />
-                    </Link>
+                    </Link> 
                 )}
           </div>
         </div>
