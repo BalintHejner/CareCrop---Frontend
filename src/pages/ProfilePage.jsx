@@ -22,7 +22,7 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
         <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
        </Grid>
        <Grid item xs={9}>
-       <p className="text-3xl font-bold">{title = "SÁNDOR"}</p>
+       <p className="text-3xl font-bold">{title}</p>
         <br/>
         <p className="text-xl">Ár: {price} Ft</p>
         <br/>

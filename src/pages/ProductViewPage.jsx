@@ -31,8 +31,9 @@ function ProductPage() {
       price: price
     }
     localStorage.setItem(`currentCart-${title}`, JSON.stringify(data));
-    useNavigate("/cart");
   }
+
+  
   
   return (
     <main className="flex flex-col min-h-screen bg-body" >

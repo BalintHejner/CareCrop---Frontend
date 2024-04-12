@@ -125,7 +125,7 @@ return(
           {errorMessage && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage}</p>}
           {errorMessage2 && <p style={{ fontStyle: 'italic', textWrap: 'wrap' }}>{errorMessage2}</p>}
           <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">          
-          <Grid container spacing={7} style={{marginLeft: "auto"  ,marginRight : "auto"}}>
+          <Grid container spacing={7}>
               <Grid item xs={10} sm={8} md={6} lg={3.6} xl={4}>
                   <Input type="text" placeholder="Teljes név" change={handleNameChange} />
                   <div>
