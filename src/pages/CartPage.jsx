@@ -3,6 +3,7 @@ import "../output.css";
 import Header from "../components/Header";
 import Input from "../components/Input";
 import {Grid} from "@mui/material";
+import axios from 'axios';
 
 
 function CartForm()  {
@@ -48,7 +49,29 @@ function CartForm()  {
       phone: phone,
       method: method.valueOf()
     }
-    localStorage.setItem('cart', JSON.stringify(data));
+    const note = {
+      payment: payment,
+      name: name,
+      email: email,
+      phone: phone,
+      method: method.valueOf()
+    }
+    const backupNote = {
+      crop: crop,
+      amount: amount,
+      price: price,
+      payment: payment,
+      name: name,
+      email: email,
+      phone: phone,
+      method: method.valueOf()
+    }
+    axios.post(`cart.php?note=${JSON.stringify(note)}&price=${price}&product=${crop}&quantity=${amount}`, data).then(res => {
+      localStorage.setItem('cart', JSON.stringify(backupNote));
+    }).catch(
+      err => console.log(err)
+    )
+    
    }
 
 

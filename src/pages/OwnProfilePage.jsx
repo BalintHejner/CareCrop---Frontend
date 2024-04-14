@@ -11,11 +11,8 @@ const Buttons = ({ label, onClicked }) => (
 
 const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
 
-  imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = require("https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E");
+  imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = require("../images/carecroplogo.png");
 
-  const handleDelete = e => {
-    e.preventDefault();
-  }
 
   return (
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
@@ -26,7 +23,7 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
         <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
        </Grid>
        <Grid item xs={6} sm={6} md={6} lg={7.5} xl={7.5}>
-       <p className="text-3xl font-bold">{title = "SÁNDOR"}</p>
+       <p className="text-3xl font-bold">{title}</p>
         <br/>
         <p className="text-xl">Ár: {price} Ft</p>
         <br/>
@@ -35,13 +32,10 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
         <p className="text-xl">Eladó: {seller}</p>
        </Grid>
        <Grid item xs={2} sm={2} md={2} lg={1} xl={1}>
-       <div className="mt-11 flex flex-col icon my-auto items-center">
+       <div className="mt-5 flex flex-col icon">
         <Link to={"/productedit"}>
           <img src={require("../images/pencil.png")} alt="Módosítás"/>
         </Link> 
-          <button onClick={handleDelete}>
-            <img src={require("../images/trash.png")} alt="Törlés"/>
-          </button>
        </div>
        </Grid>
      </Grid>
@@ -54,7 +48,7 @@ const UserSection = () => (
     <div className="flex gap-5 md:flex-col md:gap-0">
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
         <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
-          <Grid container style={{marginLeft : "auto", marginRight : "auto"}}>
+          <Grid container spacing={10} style={{marginLeft : "auto", marginRight : "auto"}}>
             <Grid item xs={8} sm={8} md={4} lg={3} xl={3}>
               <p className='text-2xl'>Teljes név:</p>
               <p className='text-2xl'>Kiss Pista Sanyi</p>
@@ -67,8 +61,8 @@ const UserSection = () => (
             <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
             <p className='text-3xl underline mb-1'>Feladott hírdetések:</p>
             <div className="items-center w-full max-md:mt-10 max-md:max-w-full">
-              <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
-              <ProductCard imgSrc={""} title={"Sándor"} quantity={"100"} price={"10000"} seller={"Sándor"}/>
+              <ProductCard />
+              <ProductCard />
             </div>
             </Grid>
           </Grid>

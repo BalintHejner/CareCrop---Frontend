@@ -9,7 +9,7 @@ import axios from 'axios';
 
 function MainShopPage() {
   const [filters, setFilters] = useState({
-    priceRange: [0, 1000],
+    priceRange: [0, 1000000],
     quantityRange: [0, 1000],
     sellerName: "",
     categories: [], 
@@ -68,10 +68,9 @@ function MainShopPage() {
 
 
 const Filter = ({ filters, handleFilterChange }) => {
+
   
-  const isChecked = false;
-  
-  const categories = [
+  const [categories, setCategories] = useState([
     { name: "Árpa", isChecked: false  }, 
     { name: "Borsó", isChecked: false },
     { name: "Búza", isChecked: false },
@@ -83,13 +82,15 @@ const Filter = ({ filters, handleFilterChange }) => {
     { name: "Szója", isChecked: false },
     { name: "Tritikálé", isChecked: false },
     { name: "Zab", isChecked: false },
-  ];
+  ]);
 
   const handleCheckboxChange = (index) => {
-    const updatedCategories = [...filters.categories];
-    updatedCategories[index].isisChecked = !updatedCategories[index].isChecked;
+    const updatedCategories = [...categories];
+    updatedCategories[index].isChecked = !updatedCategories[index].isChecked;
+    setCategories(updatedCategories);
     handleFilterChange('categories', updatedCategories);
   };
+
 
   return (
     <div className="flex flex-col grow items-start max-w-input min-h-screen mg-filter w-full bg-brown max-md:mt-10">
