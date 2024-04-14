@@ -24,13 +24,13 @@ const LoginForm = () => {
         localStorage.setItem("token", response.data.token);
         navigate("/shop"); 
       } else {
-        console.error("Login failed: Unexpected response format");
-        alert("Unexpected error occurred during login");
+        console.error("Nem sikerült bejelentkezni: Rossz válaszformátum");
+        alert("Váratlan hiba történt a bejelentkezés során! Kérjük próbálja meg újra!");
       }
     } catch (error) {
-      console.error("Login failed:", error.response?.data?.error || "Unknown error");
-      // Display error message to the user
-      alert(error.response?.data?.error || "An unexpected error occurred");
+      console.error("Hibás bejelentkezés:", error.response?.data?.error || "Ismeretlen hiba!");
+
+      alert(error.response?.data?.error || "Váratlan hiba történt!");
     }
   };
   
@@ -83,9 +83,9 @@ const Footer = () => {
             Regisztráljon
           </Link>
         </div>
-          <div className="flex flex-col flex-1 px-5 my-auto">
-          <div className="text-4xl text-center">Elfelejtette jelszavát?</div>
-          <Link to={"/passwordreminder"} className="self-center mt-1 text-3xl italic font-extralight underline">Jelszóemlékeztető</Link>
+          <div className="flex flex-col flex-1 px-5 my-ato">
+          <div className="text-4xl text-center">Megváltoztatná jelszavát?</div>
+          <Link to={"/passwordchange"} className="self-center mt-1 text-3xl italic font-extralight underline">Jelszóváltoztató</Link>
         </div>
       </div>
     </>

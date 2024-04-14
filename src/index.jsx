@@ -17,7 +17,6 @@ import ThankYouPage from './pages/ThankYouPage';
 import MainShopPage from './pages/MainShopPage';
 import ProfilePage from './pages/ProfilePage';
 import OwnProfilePage from './pages/OwnProfilePage';
-import EasterEggPage from './pages/EasterEggPage';
 import  { ContextProvider } from './components/Context';
 import axios from 'axios';
 

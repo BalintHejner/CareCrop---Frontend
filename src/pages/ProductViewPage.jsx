@@ -1,27 +1,35 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import "../output.css";
 import Header from '../components/Header';
 import Button2 from '../components/Button2';
 import { Grid } from '@mui/material';
-import { useNavigate } from "react-router-dom";
 import Context from '../components/Context';
 
-
-function ProductPage() {
-  //{title, email, phoneNumber, deals, name, username, imgSrc, description, category, uploadDate}
-  const [quantity, setQuantity] = useState('');
-  const [price, setPrice] = useState('');
-  const [title, setTitle] = useState('');
-  const [crop, setCrop] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [imgSrc, setImgSrc] = useState('');
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
-  const [uploadDate, setUploadDate] = useState('');
-
+function ProductPage({imgSrc}) {
+  const {
+    quantity,
+    setQuantity,
+    price,
+    setPrice,
+    title,
+    setTitle,
+    crop,
+    setCrop,
+    email,
+    setEmail,
+    phone,
+    setPhone,
+    name,
+    setName,
+    username,
+    setUsername,
+    description,
+    setDescription,
+    category,
+    setCategory,
+    uploadDate,
+    setUploadDate
+  } = useContext(Context);
 
   const handlePurchase = e => {
     e.preventDefault();
@@ -35,8 +43,9 @@ function ProductPage() {
     alert(`A terméket a kosárba helyeztük!`);
   }
 
-  
-  
+  imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = require("../images/carecroplogo.png");
+
+
   return (
     <main className="flex flex-col min-h-screen bg-body" >
       <Header/>

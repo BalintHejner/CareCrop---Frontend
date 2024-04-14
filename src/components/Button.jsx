@@ -1,5 +1,4 @@
 import "../output.css"
-import { useNavigate } from "react-router-dom"
 
 export default function Button({text, click}) {
 

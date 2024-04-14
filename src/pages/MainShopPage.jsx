@@ -4,8 +4,9 @@ import Header from "../components/Header";
 import { Checkbox, Grid } from "@mui/material";
 import Slider from '@mui/material/Slider';
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
+import Context from "../components/Context";
 
 function MainShopPage() {
   const [filters, setFilters] = useState({
@@ -142,9 +143,12 @@ const Filter = ({ filters, handleFilterChange }) => {
   );
 };
 
-const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
-  const navigate = useNavigate();
-  imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = "https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E";
+const ProductCard = ({ imgSrc }) => {
+
+  const { product } = React.useContext(Context);
+  const { title, quantity, price, seller } = product || {};
+  
+  imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = require("../images/carecroplogo.png");
 
   return (
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">

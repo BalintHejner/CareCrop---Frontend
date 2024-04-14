@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import "../output.css";
 import Button2 from '../components/Button2';
 import Header from '../components/Header';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Context from '../components/Context';
+
 
 const Buttons = ({ label, onClicked }) => (
   <Button2 click={onClicked} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
@@ -17,9 +19,7 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
   return (
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
      <Grid container spacing={1.8} >
-      {/* Map over products */}
        <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
-        {/* Display product card */}
         <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
        </Grid>
        <Grid item xs={6} sm={6} md={6} lg={7.5} xl={7.5}>
@@ -43,26 +43,31 @@ const ProductCard = ({ imgSrc, title, quantity, price, seller }) => {
   );
 }
 
-const UserSection = () => (
-  <section className=" w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
+const UserSection = () => {
+
+  const { name, email, phone } = useContext(Context);
+
+  return (
+
+    <section className=" w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
     <div className="flex gap-5 md:flex-col md:gap-0">
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
         <div className="flex flex-col grow items-center px-5 max-md:mt-10 max-md:max-w-full">
           <Grid container spacing={10} style={{marginLeft : "auto", marginRight : "auto"}}>
             <Grid item xs={8} sm={8} md={4} lg={3} xl={3}>
               <p className='text-2xl'>Teljes név:</p>
-              <p className='text-2xl'>Kiss Pista Sanyi</p>
+              <p className='text-2xl'>{name}</p>
               <p className='mt-25 text-3xl underline'>Elérhetőségek:</p>
               <p className='text-2xl'>Email-cím: </p>
-              <p className='text-2xl'>sanyiakiraly@gmail.com</p>
+              <p className='text-2xl'>{email}</p>
               <p className='text-2xl mt-1'>Telefonszám:</p>
-              <p className='text-2xl'>06-30-642-3343</p>
+              <p className='text-2xl'>{phone}</p>
             </Grid>
             <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
             <p className='text-3xl underline mb-1'>Feladott hírdetések:</p>
             <div className="items-center w-full max-md:mt-10 max-md:max-w-full">
-              <ProductCard />
-              <ProductCard />
+            <ProductCard imgSrc={""} title={"Búza"} quantity={"100"} price={"10000"} seller={"Sándor"} />
+            <ProductCard imgSrc={""} title={"Árpa"} quantity={"100"} price={"10000"} seller={"Sándor"} />
             </div>
             </Grid>
           </Grid>
@@ -70,7 +75,8 @@ const UserSection = () => (
       </div>
     </div>
   </section>
-);
+  )
+};
 
 
 function OwnProfilePage({username}) {

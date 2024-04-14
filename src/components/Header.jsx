@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [cartEmpty, setCartEmpty] = useState(true);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
@@ -22,7 +23,21 @@ export default function Header() {
           }
       };
 
+      const checkCartEmpty = async () => {
+          try {
+              const response = await axios.get('/cart.php');
+              if (response.data.length > 0) {
+                  setCartEmpty(false);
+              } else {
+                  setCartEmpty(true);
+              }
+          } catch (error) {
+              console.error('Hiba a kosár ellenőrzése közben:', error);
+          }
+      };
+
       checkLoggedIn();
+      checkCartEmpty();
   }, []);
 
   const handleLogout = async () => {
@@ -66,7 +81,7 @@ export default function Header() {
             ""
           )}
           <div className="flex gap-5 justify-between my-auto max-md:flex-wrap max-md:max-w-full">
-          {loggedIn ? (
+          {cartEmpty ? (
             <Link to={"/cart"}>
               <img loading="lazy" src={require('../images/shopping-cart.png')} className="aspect-square w-[82px]"/>
             </Link>
