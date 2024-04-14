@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "../output.css";
 import Header from '../components/Header';
 import Button2 from '../components/Button2';
 import { Grid } from '@mui/material';
+import Context from '../components/Context';
 
 
 function ProductPage({title, email, phoneNumber, deals, name, username, imgSrc, description, category, uploadDate}) {
   const [quantity, setQuantity] = useState(20);
   const [price, setPrice] = useState(2000);
+
+  
 
   imgSrc = 'https://fastly.picsum.photos/id/43/200/200.jpg?hmac=gMoEYpdjrHoRnKoyIdtTknuqyCQDTC8exwLaKHpMv6E';
 
