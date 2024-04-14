@@ -28,8 +28,6 @@
       )
     };
 
-
-
   return (
     <div className="flex flex-col self-center items-center justify-center gap-5 pb-12 text-black whitespace-nowrap bg-body leading-[100%]">
     <img loading="lazy" src={require('../images/carecroplogo.png')} className="  sitecarecroplogo  " />

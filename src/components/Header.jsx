@@ -75,7 +75,7 @@ export default function Header() {
                 )}
          
             {loggedIn ? (
-                    <div className="flex  items-center">
+                    <div className="flex items-center">
                         <button onClick={handleLogout}>
                           <img loading="lazy" src={require('../images/logout.png')} className="aspect-square w-82" alt="Profile" />
                         </button>

@@ -22,10 +22,9 @@ const LoginForm = () => {
       if (response && response.data) {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        navigate("/shop"); // Redirect to "/shop" on successful login
+        navigate("/shop"); 
       } else {
         console.error("Login failed: Unexpected response format");
-        // Display a generic error message to the user
         alert("Unexpected error occurred during login");
       }
     } catch (error) {
@@ -83,6 +82,10 @@ const Footer = () => {
           >
             Regisztráljon
           </Link>
+        </div>
+          <div className="flex flex-col flex-1 px-5 my-auto">
+          <div className="text-4xl text-center">Elfelejtette jelszavát?</div>
+          <Link to={"/passwordreminder"} className="self-center mt-1 text-3xl italic font-extralight underline">Jelszóemlékeztető</Link>
         </div>
       </div>
     </>

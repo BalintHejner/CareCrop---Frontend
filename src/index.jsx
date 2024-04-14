@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
+import PasswordChangerPage from './pages/PasswordChangerPage';
 import SupportPage from './pages/SupportPage';
 import CartPage from './pages/CartPage';
 import ProductViewPage from './pages/ProductViewPage';
@@ -16,7 +17,7 @@ import ThankYouPage from './pages/ThankYouPage';
 import MainShopPage from './pages/MainShopPage';
 import ProfilePage from './pages/ProfilePage';
 import OwnProfilePage from './pages/OwnProfilePage';
-import EasterEggPage from './pages/EasterEggPage';
+// import EasterEggPage from './pages/EasterEggPage';
 import axios from 'axios';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/passwordchange' element={<PasswordChangerPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/support' element={<SupportPage />}/>
         <Route path='/cart' element={<CartPage/>}/>
@@ -37,7 +39,7 @@ export default function App() {
         <Route path='/shop' element={<MainShopPage/>}/>
         <Route path='/userprofile' element={<ProfilePage/>}/>
         <Route path='/profile' element={<OwnProfilePage/>}/>
-        <Route path='/easteregg' element={<EasterEggPage/>}/>
+        {/* <Route path='/easteregg' element={<EasterEggPage/>}/> */}
         {/* <Route path='/shop' element={<Protected Component={MainShopPage}/>}/> */}
       </Routes>
     </BrowserRouter>
