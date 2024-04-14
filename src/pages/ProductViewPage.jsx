@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "../output.css";
 import Header from '../components/Header';
 import Button2 from '../components/Button2';
 import { Grid } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import Context from '../components/Context';
 
 
 function ProductPage() {
