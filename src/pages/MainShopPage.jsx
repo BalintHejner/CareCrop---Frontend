@@ -155,7 +155,7 @@ const ProductCard = ({ imgSrc }) => {
       <Link to="/product">
         <Grid container spacing={2} >
           <Grid item xs={3}>
-            <img src={imgSrc} alt={title} className="items-center rounded-xl "/>
+            <img src={imgSrc} alt={title} className="items-center rounded-xl" style={{height: "210px"}}/>
           </Grid>
           <Grid item xs={3}>
             <p className="text-3xl font-bold">{title}</p>
