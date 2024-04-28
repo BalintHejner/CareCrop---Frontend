@@ -9,7 +9,9 @@ CareCrop - Frontend
 - npm i react-cookie
 - npm install @mui/material @emotion/react @emotion/styled
 - npm i axios
- 
+- npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-jestű
+- npm install -D vitest
+- npm install -D @testing-library/react
 
 
 # Bejelentkezés:

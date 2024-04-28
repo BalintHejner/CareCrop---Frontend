@@ -1,36 +1,11 @@
 import React, { useContext } from 'react';
 import "../output.css";
 import Header from '../components/Header';
-import Button2 from '../components/Button2';
 import { Grid } from '@mui/material';
-import Context from '../components/Context';
+import { ContextProvider } from '../components/Context';
 import { useNavigate } from 'react-router-dom';
 
-function ProductPage({imgSrc}) {
-  const {
-    quantity,
-    setQuantity,
-    price,
-    setPrice,
-    title,
-    setTitle,
-    crop,
-    setCrop,
-    email,
-    setEmail,
-    phone,
-    setPhone,
-    name,
-    setName,
-    username,
-    setUsername,
-    description,
-    setDescription,
-    category,
-    setCategory,
-    uploadDate,
-    setUploadDate
-  } = useContext(Context);
+function ProductPage({imgSrc, username, title, quantity, price, email, phone, crop, uploadDate, category, description}) {
 
   const handlePurchase = e => {
     e.preventDefault();
@@ -53,6 +28,7 @@ function ProductPage({imgSrc}) {
   }
 
   return (
+    <ContextProvider>
     <main className="flex flex-col min-h-screen bg-body" >
       <Header/>
       <div className="flex sm:flex-col sm:gap-0 mt-11" >
@@ -106,6 +82,7 @@ function ProductPage({imgSrc}) {
       </div>
     
     </main>
+    </ContextProvider>
   );
 };
 

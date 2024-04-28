@@ -1,6 +1,13 @@
+import { fn } from "vitest";
+import { render, fireEvent, screen, userEvent } from "@testing-library/react";
+import UploadSection from "../pages/ProductUploadPage";
+import React from "react";
+
+
+
 describe("UploadSection", () => {
   it("should call handleNewProduct when form is submitted", () => {
-    const handleNewProduct = vi.fn();
+    const handleNewProduct = fn();
     render(<UploadSection handleNewProduct={handleNewProduct} />);
 
     const submitButton = screen.getByText("Hírdetés feladása");
@@ -10,7 +17,7 @@ describe("UploadSection", () => {
   });
 
   it("should pass correct data to handleNewProduct on submit", () => {
-    const handleNewProduct = vi.fn();
+    const handleNewProduct = fn();
     const { getByText, getByPlaceholderText } = render(
       <UploadSection handleNewProduct={handleNewProduct} />
     );
@@ -42,7 +49,7 @@ describe("UploadSection", () => {
   });
 
   it("should show error message on failed product upload", async () => {
-    const mockNewProduct = vi.fn(() => Promise.reject("Sikertelen feltöltés"));
+    const mockNewProduct = fn(() => Promise.reject("Sikertelen feltöltés"));
 
     render(<UploadSection handleNewProduct={mockNewProduct} />);
 
@@ -53,3 +60,5 @@ describe("UploadSection", () => {
     expect(errorMessage).toBeInTheDocument();
   });
 });
+
+export {}; 

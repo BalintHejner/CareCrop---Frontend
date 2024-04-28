@@ -6,7 +6,7 @@ import Slider from '@mui/material/Slider';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import Context from "../components/Context";
+import Context, { ContextProvider } from "../components/Context";
 
 function MainShopPage() {
   const [filters, setFilters] = useState({
@@ -44,6 +44,7 @@ function MainShopPage() {
       setFilteredProducts(response.data);
     } catch (error) {
       console.error("A szűrés során hiba lépett fel: ", error);
+      alert("A szűrés során hiba lépett fel!");
     }
   };
 
@@ -143,19 +144,21 @@ const Filter = ({ filters, handleFilterChange }) => {
   );
 };
 
-const ProductCard = ({ imgSrc }) => {
-
-  const { product } = React.useContext(Context);
-  const { title, quantity, price, seller } = product || {};
+const ProductCard = ({ imgSrc, title, price, quantity, seller }) => {
   
   imgSrc == "" ? imgSrc = require("../images/placeholder.png") : imgSrc = require("../images/carecroplogo.png");
+  const titleString = localStorage.getItem('productTitle');
+  const titleObject = JSON.parse(titleString);
+  title = titleObject.propertyName;
+  seller = localStorage.getItem('seller');
 
   return (
+    <ContextProvider>
     <div className="px-6 bg-brown max-md:px-5 mg-card max-h-15 max-md:max-w-full">
       <Link to="/product">
         <Grid container spacing={2} >
           <Grid item xs={3}>
-            <img src={imgSrc} alt={title} className="items-center rounded-xl" style={{height: "210px"}}/>
+            <img src={imgSrc} className="items-center rounded-xl" style={{height: "210px"}}/>
           </Grid>
           <Grid item xs={3}>
             <p className="text-3xl font-bold">{title}</p>
@@ -169,6 +172,7 @@ const ProductCard = ({ imgSrc }) => {
         </Grid>
       </Link>
     </div>
+    </ContextProvider>
   );
 }
 

@@ -6,6 +6,7 @@ import Button2 from '../components/Button2';
 import Input from '../components/Input';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Grid } from '@mui/material';
+import { ContextProvider } from '../components/Context';
 
 
 
@@ -83,6 +84,7 @@ const EditSection = () => {
 
 
   return (
+    <ContextProvider>
     <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
       <div className="flex gap-5 md:flex-col md:gap-0">
         <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full" style={{marginLeft : "auto" , marginRight : "auto"}}>
@@ -166,6 +168,7 @@ const EditSection = () => {
         </div>
       </div>
     </section>
+    </ContextProvider>
   )
 };
 

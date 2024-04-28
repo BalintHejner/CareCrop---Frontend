@@ -1,3 +1,8 @@
+import ReactDOM from "react-dom";
+import { render, fireEvent } from "@testing-library/react";
+import FeedbackSection from "../pages/SupportPage";
+import React from "react";
+
 describe("FeedbackSection", () => {
   it("should render without crashing", () => {
     const div = document.createElement("div");
@@ -7,7 +12,7 @@ describe("FeedbackSection", () => {
   it("should call handleSupport when form is submitted", () => {
     const handleSupport = jest.fn();
     const { getByText } = render(
-      <FeedbackSection handleSupport={handleSupport} />
+      React.createElement(FeedbackSection, { handleSupport })
     );
     fireEvent.click(getByText("Küldés"));
     expect(handleSupport).toHaveBeenCalledTimes(1);
@@ -16,7 +21,7 @@ describe("FeedbackSection", () => {
   it("should pass correct data to handleSupport on submit", () => {
     const handleSupport = jest.fn();
     const { getByText, getByPlaceholderText } = render(
-      <FeedbackSection handleSupport={handleSupport} />
+      React.createElement(FeedbackSection, { handleSupport })
     );
 
     fireEvent.change(getByPlaceholderText("Visszajelzés"), {
@@ -33,7 +38,7 @@ describe("FeedbackSection", () => {
   it("should show error if handleSupport rejects", async () => {
     const handleSupport = jest.fn(() => Promise.reject());
     const { getByText, findByText } = render(
-      <FeedbackSection handleSupport={handleSupport} />
+      React.createElement(FeedbackSection, { handleSupport })
     );
 
     fireEvent.click(getByText("Küldés"));

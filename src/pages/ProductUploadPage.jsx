@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Input from '../components/Input';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Grid } from '@mui/material';
+import axios from 'axios';
 
 
 const Buttons = ({ label, onClicked }) => (
@@ -16,7 +17,7 @@ const UploadSection = () => {
 
   const [title, setTitle] = useState("");
   const [crop, setCrop] = useState("");
-  const [amount, setAmount] = useState("");
+  const [quantity, setQuantity] = useState("");
   const [quality, setQuality] = useState("");
   const [price, setPrice] = useState("");
   const [season, setSeason] = useState("");
@@ -34,7 +35,7 @@ const UploadSection = () => {
 
   const handleAmountChange = e => {
     const newAmount = e.target.value;
-    setAmount(newAmount);
+    setQuantity(newAmount);
    }
 
   const handleQualityChange = e => {
@@ -64,16 +65,22 @@ const UploadSection = () => {
       name: crop,
       quality: quality,
       price: price,
+      quantity: quantity,
     }
-    const otherProductData = {
-      title: title,
-      amount: amount,
+    const productPrice = {
       price: price,
-      description: description
+    }
+    const productDescription = {
+      description: description,
+    }
+    const productTitle = {
+      title: title,
     }
     axios.post(`products.php?season=${season}&name=${crop}&quality=${quality}&price=${price}`, dataToBackend).then(res => {
       console.log(res);
-      localStorage.setItem('otherProductData', JSON.stringify(otherProductData));
+      localStorage.setItem('productPrice', JSON.stringify(productPrice));
+      localStorage.setItem('productDescription', JSON.stringify(productDescription));
+      localStorage.setItem('productTitle', JSON.stringify(productTitle));
     }).catch(
       err => console.log(err)
     )

@@ -13,8 +13,8 @@ export default function Header() {
   useEffect(() => {
       const checkLoggedIn = async () => {
           try {
-              const response = await axios.get('/users.php');
-              if (localStorage.getItem('token')) {
+              const response = await axios.get('/login.php');
+              if (response.data.username) {
                   setLoggedIn(true);
                   setUsername(response.data.username);
               }

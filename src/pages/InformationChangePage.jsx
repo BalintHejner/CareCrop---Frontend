@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import { Grid } from '@mui/material'
 import Button2 from "../components/Button2";
 import axios from 'axios';
+import { ContextProvider } from "../components/Context";
 
 const Buttons = ({ label, onClicked }) => (
   <Button2 click={onClicked} className={"text-2xl w-btn2 px-6 py-4 mt-2 max-w-full font-bold leading-6 text-black whitespace-nowrap bg-orange-200 rounded-xl border-black border-solid shadow-sm border-[3px]"}  text={label} />
@@ -99,7 +100,7 @@ const handlePhoneChange = e => {
  }
 
  return (
-
+<ContextProvider>
   <section className="mt-14 w-full max-w-[1624px] max-md:mt-10 max-md:max-w-full mx-auto my-auto gap-5 text-black whitespace-nowrap bg-body leading-[100%]">
     <div className="flex gap-5 md:flex-col md:gap-0">
       <div className="flex flex-col items-center ml-5 w-[72%] max-md:ml-0 max-md:w-full">
@@ -134,6 +135,7 @@ const handlePhoneChange = e => {
         </div>
       </div>
   </section>
+  </ContextProvider>
 )
 };
 
@@ -144,6 +146,7 @@ function InformationChange({username}) {
 
   return (
       <>
+      <ContextProvider>
           <Header />
           <main className="flex flex-col min-h-mp items-center bg-body">
             <div className="text-3xl font-bold mt-11">{username} fiókja</div>
@@ -169,6 +172,7 @@ function InformationChange({username}) {
                 <UploadSection />
             </section>
           </main>
+          </ContextProvider>
       </>
   );
 }

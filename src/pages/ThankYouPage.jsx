@@ -6,13 +6,13 @@ import { Grid } from "@mui/material";
 
 function ThankYouPage() {
 
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [username, setUsername] = useState('');
+    const [loggedIn, setLoggedIn] = React.useState(false);
+    const [username, setUsername] = React.useState('');
   
-    useEffect(() => {
+    React.useEffect(() => {
         const checkLoggedIn = async () => {
             try {
-                const response = await axios.get('/users.php');
+                const response = await axios.get('/login.php');
                 if (localStorage.getItem('token')) {
                     setLoggedIn(true);
                     setUsername(response.data.username);

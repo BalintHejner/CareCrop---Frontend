@@ -1,3 +1,9 @@
+import React from "react";
+import axios from "axios";
+import { render, fireEvent } from "@testing-library/react";
+
+
+
 describe("EditSection", () => {
   it("should update product data when form is submitted", async () => {
     const mockPut = jest.fn();
@@ -78,3 +84,5 @@ describe("EditSection", () => {
     );
   });
 });
+
+export {}; 

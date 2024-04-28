@@ -1,3 +1,8 @@
+import React from "react";
+import { render, screen, userEvent } from "@testing-library/react";
+import LoginForm from "../pages/LoginPage";
+import { vi } from "vitest";
+
 describe("LoginForm", () => {
   it("should call handleLogin when form is submitted", () => {
     const handleLogin = vi.fn();
@@ -44,3 +49,5 @@ describe("LoginForm", () => {
     expect(errorMessage).toBeInTheDocument();
   });
 });
+
+export {}; 

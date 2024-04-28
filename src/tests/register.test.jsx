@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import RegisterPage from '../RegisterPage';
+import RegisterPage from '../pages/RegisterPage';
+import React from 'react';
+import axios from "axios";
+import { vi } from "vitest";
 
 describe('RegisterPage', () => {
 
@@ -79,3 +82,5 @@ describe('RegisterPage', () => {
   });
 
 });
+
+export {}; 

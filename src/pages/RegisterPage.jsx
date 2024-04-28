@@ -5,6 +5,7 @@ import { Alert, Grid } from '@mui/material'
 import Input from "../components/Input";
 import  Button from "../components/Button";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const UploadSection = () => {
 
@@ -39,11 +40,14 @@ const handleRegister = e => {
       registered_at: `${year}-${month}-${date}`
     }
     axios.post(`register.php?username=${username}}&email=${email}}&password=${password}`, dataToBackend).then(res => {
-      Alert.alert("Sikeres regisztráció!");
+      alert("Sikeres regisztráció!");
+      const navigate = useNavigate();
+      navigate('/login');
       localStorage.setItem('otherRegisterData', JSON.stringify(otherRegisterData));
     }).catch(
-      err => console.log(err)
-    )
+      err => {console.log(err);
+      alert("A felhasználó már létezik!");
+})
   };
 
 const handleNameChange = e => {

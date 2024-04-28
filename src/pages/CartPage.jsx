@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Input from "../components/Input";
 import {Grid} from "@mui/material";
 import axios from 'axios';
+import { ContextProvider } from "../components/Context";
 
 
 function CartForm()  {
@@ -76,6 +77,8 @@ function CartForm()  {
 
 
   return (
+    <ContextProvider>
+
     <main className="flex min-h-mp mx-auto min-w-screen flex-col pb-12 bg-body">
     <Header />
     <section className="self-center mt-25 w-full  max-w-[1728px] md:mt-10 md:max-w-full">
@@ -132,6 +135,7 @@ function CartForm()  {
        </div>
       </section>
     </main>
+    </ContextProvider>
   );
 };
 
