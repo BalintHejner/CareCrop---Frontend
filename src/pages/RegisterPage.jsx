@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '../output.css'
 import Header from '../components/Header';
-import { Grid } from '@mui/material'
+import { Alert, Grid } from '@mui/material'
 import Input from "../components/Input";
 import  Button from "../components/Button";
 import axios from 'axios';
@@ -39,7 +39,7 @@ const handleRegister = e => {
       registered_at: `${year}-${month}-${date}`
     }
     axios.post(`register.php?username=${username}}&email=${email}}&password=${password}`, dataToBackend).then(res => {
-      console.log(res);
+      Alert.alert("Sikeres regisztráció!");
       localStorage.setItem('otherRegisterData', JSON.stringify(otherRegisterData));
     }).catch(
       err => console.log(err)

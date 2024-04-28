@@ -30,15 +30,38 @@ function PasswordChangerPage() {
     }
   };
 
+  // return (
+  //   <>
+  //     <div className="mt-36 text-5xl font-bold max-md:mt-10 max-md:text-4xl">
+  //       Bejelentkezés
+  //     </div>
+  //     <div className="mt-11 text-3xl font-semibold max-md:mt-10">
+  //       Felhasználónév:
+  //     </div>
+  //     <Input
+  //       placeholder={"Felhasználónév"}
+  //       change={handleUsernameChange}
+  //       type={"text"}
+  //     />
+  //     <div className="mt-7 text-3xl font-semibold">Jelszó:</div>
+  //     <Input
+  //       placeholder={"Jelszó"}
+  //       change={handlePasswordChange}
+  //       type={"password"}
+  //     />
+  //     <Button text={"Bejelentkezés"} click={handleLogin} />
+  //   </>
+  // );
+
   return (
-    <section className="flex flex-col bg-body items-center pb-12 text-black min-h-mp leading-[100%]">
+    <section className="flex flex-col bg-body items-center text-black min-h-mp leading-[100%]">
       <Header />
       <h1 className="text-5xl mt-11 font-bold max-md:max-w-full max-md:text-4xl">
         Jelszóváltoztatás
       </h1>
-      <div className="mt-11" style={{marginLeft: "auto", marginRight: "auto"}}>
-      <Grid container spacing={5}>
-        <Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+      <div className="mt-11 max-w-[1728px] flex flex-col gap-5 max-md:mt-10 max-md:max-w-full">
+      <Grid container spacing={10}>
+        <Grid item xs={4} sm={4} md={4} lg={4} xl={4} >
           <Input
             type={"email"}
             value={email}
@@ -59,8 +82,10 @@ function PasswordChangerPage() {
           />
         </Grid>
       </Grid>      
+      </div>
+      <div className="mt-11 max-w-[1728px] flex flex-col gap-5 max-md:mt-10 max-md:max-w-full">
         <Button text={"Jelszó megváltoztatása"} click={changePasswordHandler} />
-        {message && <p className="mt-4 text-red-500">{message}</p>}
+        {message && <p className="mt-4 text-red-500 text-2xl">{message}</p>}
       </div>
     </section>
   );

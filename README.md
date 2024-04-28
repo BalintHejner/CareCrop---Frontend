@@ -10,9 +10,8 @@ CareCrop - Frontend
 - npm install @mui/material @emotion/react @emotion/styled
 - npm i axios
  
-# Commands after renaming master branch
 
-- git branch -m master program
-- git fetch origin
-- git branch -u origin/program program
-- git remote set-head origin -a
+
+# Bejelentkezés:
+- Email-cím: root@root.com
+- Jelszó: Root12345!
