@@ -14,6 +14,3 @@ CareCrop - Frontend
 - npm install -D @testing-library/react
 
 
-# Bejelentkezés:
-- Email-cím: root@root.com
-- Jelszó: Root12345!
