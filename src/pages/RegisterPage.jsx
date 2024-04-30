@@ -39,14 +39,14 @@ const handleRegister = e => {
       phone: phone,
       registered_at: `${year}-${month}-${date}`
     }
-    axios.post(`register.php?username=${username}}&email=${email}}&password=${password}`, dataToBackend).then(res => {
-      alert("Sikeres regisztráció!");
-      const navigate = useNavigate();
-      navigate('/login');
-      localStorage.setItem('otherRegisterData', JSON.stringify(otherRegisterData));
-    }).catch(
-      err => {console.log(err);
+    axios.post(`register.php?username=${username}}&email=${email}}&password=${password}`, dataToBackend).then(err => 
+      {console.log(err);
       alert("A felhasználó már létezik!");
+    }).catch( res => {
+        localStorage.setItem('otherRegisterData', JSON.stringify(otherRegisterData));
+        const navigate = useNavigate();
+        alert("Sikeres regisztráció!");
+        navigate('/login');
 })
   };
 

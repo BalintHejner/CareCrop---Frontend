@@ -22,7 +22,7 @@ const LoginForm = () => {
       if (response && response.data) {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        navigate("/shop"); 
+        navigate("/profile"); 
       } else {
         console.error("Nem sikerült bejelentkezni: Rossz válaszformátum");
         alert("Váratlan hiba történt a bejelentkezés során! Kérjük próbálja meg újra!");
